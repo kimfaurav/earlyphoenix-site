@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Phoenix — AI-Powered Data Intelligence</title>
+    <meta name="description" content="Early Phoenix builds AI-powered data pipelines, market intelligence dashboards, and business insight tools. We help organisations unlock competitive advantage through automated data collection, analysis, and visualisation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f5f0e8;
+            --bg-secondary: #ebe5d9;
+            --bg-card: #ffffff;
+            --bg-card-hover: #faf7f2;
+            --accent: #e07040;
+            --accent-light: #f0a080;
+            --accent-dim: rgba(224, 112, 64, 0.12);
+            --accent-glow: rgba(224, 112, 64, 0.25);
+            --text-primary: #2d2a26;
+            --text-secondary: #6b6560;
+            --text-muted: #9a9490;
+            --border: rgba(0, 0, 0, 0.08);
+            --border-accent: rgba(224, 112, 64, 0.25);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(245, 240, 232, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .hero-label {
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-bio {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #cc5f33;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 3.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* What We Do — 4 cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.25rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.25rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .project-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .project-stat {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .project-stat strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 0.6rem;
+        }
+
+        /* How We Work — process steps */
+        .process-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3.5rem;
+            margin-top: 1rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .process-step p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .process-callout {
+            margin-top: 2.5rem;
+            padding: 1.5rem 2rem;
+            background: var(--accent-dim);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .process-callout p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Training section */
+        .training-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 3.5rem;
+            margin-top: 1rem;
+        }
+
+        .training-section h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .training-section > p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 650px;
+            margin-bottom: 2rem;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .training-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .training-item:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+        }
+
+        .training-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .training-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .training-audiences {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .audience-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .training-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .process-section,
+            .training-section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-bio {
+                font-size: 1.05rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#" class="logo">Early <span>Phoenix</span></a>
+    <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+        </svg>
+    </div>
+    <div class="hero-label">AI-Powered Data Intelligence</div>
+    <h1>We build the <span>data infrastructure</span> that powers decisions</h1>
+    <p class="hero-bio">Early Phoenix helps organisations unlock competitive advantage through automated data collection, intelligent pipelines, and market intelligence dashboards. We don't just present data &mdash; we build the systems that keep it fresh.</p>
+    <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">See Our Work</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- What We Do -->
+<section id="services">
+    <div class="section-label fade-in">What We Do</div>
+    <h2 class="section-title fade-in">Capabilities</h2>
+    <p class="section-subtitle fade-in">From raw data to actionable intelligence &mdash; we build end-to-end.</p>
+    <div class="services-grid">
+        <div class="service-card fade-in fade-in-delay-1">
+            <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Market Intelligence</h3>
+            <p>Automated data collection and analysis across industries. Daily price tracking, competitor monitoring, marketplace sizing, and trend detection &mdash; delivered as live dashboards or structured data feeds.</p>
+        </div>
+        <div class="service-card fade-in fade-in-delay-2">
+            <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3>AI &amp; Data Engineering</h3>
+            <p>Building intelligent pipelines that turn raw, messy data into clean, structured insight. Web scraping, data enrichment, classification, canonical databases, and automated alerting systems.</p>
+        </div>
+        <div class="service-card fade-in fade-in-delay-3">
+            <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3>Business Intelligence</h3>
+            <p>Custom dashboards, interactive visualisations, and Excel-ready outputs for commercial decision-making. Pivot tables, trend analysis, and comparison tools tailored to your workflows.</p>
+        </div>
+        <div class="service-card fade-in fade-in-delay-4">
+            <div class="service-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Team Enablement</h3>
+            <p>Upskilling product, design, analytics and engineering teams on AI tools and modern workflows. Hands-on training, not theory &mdash; we embed new capabilities into your team's daily work.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <div class="section-label fade-in">Our Work</div>
+    <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
+    <p class="section-subtitle fade-in">Real-world data intelligence systems, built and running in production.</p>
+    <div class="projects-grid">
+        <div class="project-card fade-in fade-in-delay-1">
+            <div class="project-tag">Animal Welfare</div>
+            <h3>UK Pet Marketplace Intelligence</h3>
+            <p>Consolidated pet advertising data across 10+ online platforms into a single analytical view. Tracking sale listings, pricing, breeder behaviour, and compliance patterns to support welfare-focused policy work.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>30k+</strong> listings tracked</span>
+                <span class="project-stat"><strong>10+</strong> platforms</span>
+                <span class="project-stat"><strong>3</strong> species</span>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted);">Built for PAAG (Dogs Trust, Battersea, RSPCA)</div>
+        </div>
+        <div class="project-card fade-in fade-in-delay-2">
+            <div class="project-tag">Public Data</div>
+            <h3>UK Breeder Registry</h3>
+            <p>Scraped 230+ local council licensing registers across England into a single searchable database. First-of-its-kind national view of licensed breeders, enabling welfare organisations and regulators to spot patterns and gaps.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>230+</strong> councils scraped</span>
+                <span class="project-stat"><strong>First</strong> national database</span>
+            </div>
+            <a href="https://breeders.earlyphoenix.uk" class="project-link" target="_blank">View Live Database &rarr;</a>
+        </div>
+        <div class="project-card fade-in fade-in-delay-3">
+            <div class="project-tag">Retail / FMCG</div>
+            <h3>UK Supermarket Price Intelligence</h3>
+            <p>Daily automated scraping of 9 major UK retailers, capturing shelf prices, promotional prices, loyalty card deals, and product availability. Interactive dashboards with Excel exports, pivot tables, and 52-week price history.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>3,100+</strong> SKUs</span>
+                <span class="project-stat"><strong>9</strong> retailers</span>
+                <span class="project-stat"><strong>Daily</strong> refresh</span>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted);">Built for Importaco</div>
+        </div>
+        <div class="project-card fade-in fade-in-delay-4">
+            <div class="project-tag">Classifieds</div>
+            <h3>Classified Marketplace Sizing</h3>
+            <p>Cross-platform marketplace analysis across Vinted, Le Bon Coin, eBay and others. Volume estimation, category sizing, and competitive intelligence for Europe's leading classified marketplace advisory group.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>Multi-market</strong> coverage</span>
+                <span class="project-stat"><strong>Category</strong> sizing</span>
+            </div>
+            <div style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted);">Built for AIM Group</div>
+        </div>
+    </div>
+</section>
+
+<!-- How We Work -->
+<section id="process">
+    <div class="section-label fade-in">How We Work</div>
+    <h2 class="section-title fade-in">Our <span>Approach</span></h2>
+    <p class="section-subtitle fade-in">AI-native from day one. We build automated systems, not one-off reports.</p>
+
+    <div class="process-section fade-in">
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h4>Collect</h4>
+                <p>Automated scrapers capture data daily from target sources &mdash; websites, APIs, public registers, marketplaces.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h4>Structure</h4>
+                <p>Raw data is cleaned, deduplicated, classified, and stored in canonical databases with full audit history.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h4>Analyse</h4>
+                <p>Analytics pipelines run automatically &mdash; detecting changes, trends, anomalies, and generating structured outputs.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h4>Visualise</h4>
+                <p>Interactive dashboards, data decks, and Excel-ready exports make insight accessible to every stakeholder.</p>
+            </div>
+        </div>
+        <div class="process-callout">
+            <p>We don't just present data &mdash; we build the infrastructure to keep it fresh. Every pipeline runs daily, automatically, with change detection and alerting built in.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Training & Enablement -->
+<section id="training">
+    <div class="section-label fade-in">Enablement</div>
+    <h2 class="section-title fade-in">AI Training &amp; <span>Upskilling</span></h2>
+    <p class="section-subtitle fade-in">From theory to practice &mdash; we embed AI into your team's daily work.</p>
+
+    <div class="training-section fade-in">
+        <h3>Helping teams work with AI, not just talk about it</h3>
+        <p>We run hands-on workshops and embedded training programmes for product, design, analytics, and engineering teams. The goal: make AI tools a natural part of how your team works, not a separate initiative.</p>
+        <div class="training-grid">
+            <div class="training-item">
+                <h4>AI Tools Adoption</h4>
+                <p>Practical training on Claude, ChatGPT, Copilot, and other tools &mdash; focused on real workflows, not demos.</p>
+            </div>
+            <div class="training-item">
+                <h4>Prompt Engineering</h4>
+                <p>Teaching teams to communicate effectively with AI &mdash; from simple queries to complex, multi-step agentic workflows.</p>
+            </div>
+            <div class="training-item">
+                <h4>Agentic Workflows</h4>
+                <p>Building autonomous AI pipelines that scrape, process, analyse, and report &mdash; reducing manual work by orders of magnitude.</p>
+            </div>
+            <div class="training-item">
+                <h4>Data Literacy</h4>
+                <p>Enabling non-technical teams to work with data confidently &mdash; dashboards, Excel, SQL basics, and data storytelling.</p>
+            </div>
+        </div>
+        <div class="training-audiences">
+            <span class="audience-tag">Product Teams</span>
+            <span class="audience-tag">Design Teams</span>
+            <span class="audience-tag">Analytics Teams</span>
+            <span class="audience-tag">Engineering Teams</span>
+            <span class="audience-tag">Leadership</span>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+    <div class="section-label fade-in">Get Started</div>
+    <h2 class="section-title fade-in">Let's <span>Talk</span></h2>
+    <p class="section-subtitle fade-in">Whether you need market intelligence, data engineering, or AI training &mdash; we'd love to hear about your challenge.</p>
+    <div class="contact-links fade-in">
+        <a href="mailto:kim@earlyphoenix.uk" class="btn btn-primary">Send Email</a>
+        <a href="https://uk.linkedin.com/in/kimfaura" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Early Phoenix. Built with AI.</p>
+    <p style="margin-top: 0.5rem;">
+        <a href="https://kim.earlyphoenix.uk">Kim Faura</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://breeders.earlyphoenix.uk" target="_blank">Breeder Registry</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://uk.linkedin.com/in/kimfaura" target="_blank">LinkedIn</a>
+    </p>
+</footer>
+
+<!-- Scroll Animations -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
