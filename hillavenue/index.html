@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hill Avenue Dental Practice | Amersham Family Dentist</title>
+    <meta name="description" content="Hill Avenue Dental Practice in Amersham - trusted family dentistry for over 60 years. NHS and private treatments including implants, cosmetic dentistry, and hygiene services. Call 01494 727013.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a3a5c;
+            --navy-dark: #0f2640;
+            --navy-light: #2a5a8c;
+            --teal: #4ca8b8;
+            --teal-light: #6bc4d4;
+            --gold: #c9a96e;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ====== NAVIGATION ====== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+        .nav-logo svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .nav-logo-text span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-500);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--navy); }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: white !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--navy-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy);
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        /* ====== HERO ====== */
+        .hero {
+            padding-top: 80px;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--white) 50%, #e8f4f8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(76,168,184,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(76,168,184,0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--teal);
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--navy);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--navy);
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .hero-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 4/3;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-float-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: white;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 3;
+        }
+
+        .hero-float-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(76,168,184,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-float-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--teal);
+        }
+
+        .hero-float-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+        }
+
+        .hero-float-text span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* ====== ACCEPTING PATIENTS BANNER ====== */
+        .banner {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .banner a {
+            color: var(--teal-light);
+            font-weight: 600;
+        }
+
+        /* ====== NHS BANNER (inside hero image) ====== */
+        .hero-nhs-banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--teal);
+            color: white;
+            padding: 1rem 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            z-index: 3;
+        }
+        .hero-nhs-banner svg {
+            flex-shrink: 0;
+        }
+        .hero-nhs-banner strong {
+            font-weight: 700;
+        }
+
+        /* ====== SERVICES ====== */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .services-visual {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .services-visual-img {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 220px;
+            position: relative;
+        }
+
+        .services-visual-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .services-visual-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-visual-img .overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(15,38,64,0.85));
+            color: white;
+        }
+
+        .services-visual-img .overlay-text h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .services-visual-img .overlay-text p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            .services-visual { grid-template-columns: 1fr; }
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(76,168,184,0.3);
+        }
+
+        .service-card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .service-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-card-img img {
+            transform: scale(1.08);
+        }
+
+        .service-card-body {
+            padding: 1.5rem;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(76,168,184,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--teal);
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ====== WHY US ====== */
+        .why-us {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+        }
+
+        .why-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card p {
+            font-size: 0.92rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ====== TEAM ====== */
+        .team {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover { transform: translateY(-4px); }
+
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 1.25rem;
+            overflow: hidden;
+            background: var(--gray-100);
+            border: 4px solid var(--gray-100);
+            transition: border-color 0.3s;
+        }
+
+        .team-card:hover .team-photo {
+            border-color: var(--teal);
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 0.2rem;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-qualifications {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+        }
+
+        .team-gdc {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-top: 0.3rem;
+        }
+
+        /* ====== SUPPORT STAFF ====== */
+        .support-team {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .support-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .support-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+        }
+
+        .support-role {
+            font-size: 0.82rem;
+            color: var(--gray-500);
+            margin-bottom: 0.4rem;
+        }
+
+        .support-desc {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+
+        /* ====== TESTIMONIAL ====== */
+        .testimonial {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3em;
+        }
+
+        .testimonial-source {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* ====== HOURS & INFO ====== */
+        .info {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.92rem;
+        }
+
+        .hours-row:last-child { border: none; }
+
+        .hours-day { color: var(--gray-600); font-weight: 500; }
+        .hours-time { color: var(--navy); font-weight: 600; }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .info-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .info-link:hover { gap: 0.75rem; }
+
+        .emergency-note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(76,168,184,0.06);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        /* ====== PRICING ====== */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--gray-50);
+            border: 2px solid var(--gray-100);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .price-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .price-band {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .price-desc {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .pricing-subsection {
+            margin-top: 4rem;
+        }
+
+        .pricing-subsection h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-subsection > p {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
+        .private-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .private-price-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .private-price-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .private-price-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .private-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            font-size: 0.88rem;
+        }
+
+        .private-price-row span:first-child {
+            color: var(--gray-600);
+        }
+
+        .private-price-row span:last-child {
+            color: var(--navy);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ====== POLICIES ====== */
+        .policies {
+            padding: 4rem 2rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .policies-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .policies-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .policies-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .policies-header p {
+            font-size: 0.92rem;
+            color: var(--gray-500);
+        }
+
+        .policies-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .policy-item {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .policy-toggle {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: background 0.2s;
+        }
+
+        .policy-toggle:hover {
+            background: var(--gray-50);
+        }
+
+        .policy-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gray-400);
+            transition: transform 0.3s;
+        }
+
+        .policy-item.open .policy-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .policy-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .policy-item.open .policy-content {
+            max-height: 2000px;
+        }
+
+        .policy-content-inner {
+            padding: 0 1.5rem 1.5rem;
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .policy-content-inner p {
+            margin-bottom: 0.75rem;
+        }
+
+        .policy-content-inner ul {
+            margin: 0.5rem 0 0.75rem 1.5rem;
+        }
+
+        .policy-content-inner ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ====== CONTACT ====== */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(76,168,184,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--teal);
+        }
+
+        .contact-item-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item-value {
+            font-size: 1.05rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .contact-item-value a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .contact-map {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            height: 100%;
+            min-height: 350px;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            border: 0;
+        }
+
+        /* ====== ACCESSIBILITY ====== */
+        .accessibility {
+            padding: 2.5rem 2rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .accessibility-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .accessibility-inner svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gray-500);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .accessibility-inner p {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            background: var(--navy-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.7;
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .footer ul a:hover { opacity: 1; }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            opacity: 0.5;
+        }
+
+        /* ====== ANIMATIONS ====== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ====== RESPONSIVE ====== */
+
+        /* --- 1200px: Nav collapses to hamburger --- */
+        @media (max-width: 1200px) {
+            .nav-links { display: none; }
+            .nav-mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1.5rem 2rem;
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid var(--gray-200);
+                z-index: 100;
+                gap: 0;
+            }
+            .nav-links.open li {
+                padding: 0;
+            }
+            .nav-links.open a {
+                display: block;
+                padding: 0.85rem 0;
+                font-size: 1rem;
+                border-bottom: 1px solid var(--gray-100);
+                text-align: left;
+            }
+            .nav-links.open li:last-child a {
+                border-bottom: none;
+            }
+            .nav-links.open .nav-cta {
+                display: block;
+                margin-top: 0.75rem;
+                text-align: center;
+                border-bottom: none;
+                padding: 0.8rem 1.4rem;
+            }
+            .nav-links.open .nav-phone {
+                justify-content: flex-start;
+            }
+        }
+
+        /* --- 1024px: Tablet landscape — grids to 2-col, hero image stays --- */
+        @media (max-width: 1024px) {
+            .hero-inner { gap: 2rem; padding: 2.5rem 2rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-image-wrapper { aspect-ratio: 4/5; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+            .team-photo { width: 150px; height: 150px; }
+            .support-team { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .private-pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 2fr 1fr 1fr; }
+        }
+
+        /* --- 868px: Hero stacks, team to 2-col --- */
+        @media (max-width: 868px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-content { text-align: center; }
+            .hero-desc { margin-left: auto; margin-right: auto; }
+            .hero-actions { justify-content: center; }
+            .hero-image { display: none; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        /* --- 768px: Mobile — single columns, compact cards --- */
+        @media (max-width: 768px) {
+            .hero { min-height: auto; padding-top: 70px; }
+            .hero-inner { padding: 2.5rem 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+            .hero-image-wrapper { max-width: 100%; aspect-ratio: 4/3; }
+            .hero-nhs-banner { font-size: 0.85rem; padding: 0 12px; gap: 8px; }
+
+            .section-title { font-size: 1.8rem; }
+            .services { padding: 4rem 1.5rem; }
+            .section-header { margin-bottom: 2.5rem; }
+
+            /* Service cards: text-only list on mobile */
+            .services-grid { grid-template-columns: 1fr; gap: 0; }
+            .service-card {
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid var(--gray-100);
+            }
+            .service-card:last-child { border-bottom: none; }
+            .service-card-img { display: none; }
+            .service-card-body { padding: 1.1rem 0; }
+            .service-card-body h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+            .service-card-body p { font-size: 0.88rem; line-height: 1.55; }
+            .service-card:hover { transform: none; box-shadow: none; border-color: var(--gray-100); }
+
+            /* Team */
+            .team { padding: 4rem 1.5rem; }
+            .team-photo { width: 120px; height: 120px; }
+            .team-name { font-size: 0.95rem; }
+            .team-qualifications { font-size: 0.72rem; }
+            .support-team { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+            .support-card { padding: 1rem; }
+
+            /* Pricing */
+            .pricing { padding: 4rem 1.5rem; }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .price-amount { font-size: 2rem; }
+            .price-card { padding: 1.5rem; }
+            .private-pricing-grid { grid-template-columns: 1fr; }
+
+            /* Info & Contact */
+            .info { padding: 4rem 1.5rem; }
+            .contact { padding: 4rem 1.5rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+
+            /* Why us */
+            .why-grid { grid-template-columns: 1fr; }
+
+            /* Footer */
+            .footer { padding: 3rem 1.5rem 1.5rem; }
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+            /* Nav: smaller on mobile */
+            .nav-logo img:last-child { height: 32px !important; }
+            .nav-logo img:first-child { height: 45px !important; }
+            .nav-inner { height: 70px; padding: 0 1.5rem; }
+            .nav-links.open { top: 70px; }
+        }
+
+        /* --- 480px: Small phones — further compact --- */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.85rem; }
+            .hero-desc { font-size: 1rem; }
+            .hero-inner { padding: 2rem 1rem; }
+            .btn-primary, .btn-secondary { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+            .hero-actions { flex-direction: column; width: 100%; }
+            .hero-actions .btn-primary,
+            .hero-actions .btn-secondary { width: 100%; justify-content: center; text-align: center; }
+            .hero-image-wrapper { aspect-ratio: 3/2; }
+
+            .section-title { font-size: 1.6rem; }
+            .section-desc { font-size: 0.95rem; }
+
+            /* service-card-img already hidden at 768px */
+
+            .team-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .team-photo { width: 100px; height: 100px; }
+            .team-name { font-size: 0.88rem; }
+            .team-role { font-size: 0.78rem; }
+            .team-gdc { font-size: 0.7rem; }
+            .support-team { grid-template-columns: 1fr; }
+
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card { padding: 1.25rem; }
+            .price-amount { font-size: 1.8rem; }
+
+            .testimonial-quote { font-size: 1.2rem; }
+
+            .info-card { padding: 1.5rem; }
+            .info-card h3 { font-size: 1.2rem; }
+
+            .policies { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="https://static.wixstatic.com/media/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.png/v1/crop/x_250,y_60,w_500,h_560/fill/w_120,h_134,al_c,q_85,enc_avif,quality_auto/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.jpg" alt="Hill Avenue Dental Practice - tooth icon" style="height: 55px; width: auto; mix-blend-mode: multiply;">
+                <img src="https://static.wixstatic.com/media/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.png/v1/crop/x_80,y_620,w_940,h_290/fill/w_320,h_99,al_c,q_85,enc_avif,quality_auto/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.jpg" alt="Hill Avenue Dental Practice" style="height: 42px; width: auto; mix-blend-mode: multiply; align-self: flex-end;">
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Treatments</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#policies">Policies</a></li>
+                <li><a href="tel:01494727013" class="nav-phone">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    01494 727013
+                </a></li>
+                <li><a href="https://hill-avenue-dental-practice.portal.dental/" class="nav-cta" target="_blank">Book Appointment</a></li>
+            </ul>
+
+            <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1>Your Family Dentist in <em>Amersham</em></h1>
+                <p class="hero-desc">For over 60 years, Hill Avenue Dental Practice has delivered trusted care to the Amersham community. Three generations of local families trust our skilled, friendly team.</p>
+                <div class="hero-actions">
+                    <a href="tel:01494727013" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Call 01494 727013
+                    </a>
+                    <a href="https://hill-avenue-dental-practice.portal.dental/" class="btn-secondary" target="_blank">Book Online</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="images/11.jpg" alt="Happy family at Hill Avenue Dental Practice" style="object-position: center 20%">
+                    <div class="hero-nhs-banner">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>Now Accepting New <strong>NHS</strong> &amp; <strong>Private</strong> Patients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-inner">
+            <div class="section-header fade-up">
+                <div class="section-label">Treatments</div>
+                <h2 class="section-title">Comprehensive Dental Care</h2>
+                <p class="section-desc">From routine check-ups to advanced cosmetic and implant treatments, we offer a full range of services for the whole family.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/9.jpg" alt="Family dental check-up">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Check-ups &amp; Prevention</h3>
+                        <p>Regular dental examinations including oral cancer screening, delivered in a calm, professional setting.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/1.jpg" alt="Cosmetic dentistry smile">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Veneers, white fillings, porcelain crowns, and tooth whitening to transform your smile.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/2.jpg" alt="Dental implants">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Dental Implants</h3>
+                        <p>Titanium-based permanent tooth replacements by our in-house specialist, Shivang Davda.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/8.jpg" alt="Dental fillings and crowns">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Fillings &amp; Crowns</h3>
+                        <p>Traditional metal or tooth-coloured restorations to rebuild and strengthen damaged teeth.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/6.jpg" alt="Root canal treatment">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Root Canal Treatment</h3>
+                        <p>Expert treatment for infected teeth, preserving your natural tooth and preventing extraction.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/12.jpg" alt="Dentures">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Dentures</h3>
+                        <p>Quality removable false teeth as a comfortable alternative to fixed implant solutions.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/7.jpg" alt="Teeth whitening">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Teeth Whitening</h3>
+                        <p>Custom home whitening trays for a brighter smile. Simple, conservative and cost effective.</p>
+                    </div>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-card-img">
+                        <img src="images/4.jpg" alt="Dental hygiene">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Hygiene Services</h3>
+                        <p>Professional cleaning, gum disease treatment and tailored oral health advice from our hygienist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+        <div class="section-inner">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <blockquote class="testimonial-quote fade-up">
+                "All staff from reception to dentist were professional, caring and friendly. The work I had done was excellent and the decor creates a pleasant and soothing atmosphere. I would definitely recommend it."
+            </blockquote>
+            <div class="testimonial-source">- Hill Avenue Patient Review</div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team" id="team">
+        <div class="section-inner">
+            <div class="section-header fade-up">
+                <div class="section-label">Our Team</div>
+                <h2 class="section-title">Meet Your Dental Team</h2>
+                <p class="section-desc">We are passionate about providing high quality dentistry in a relaxed, family-friendly environment.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_6cb9eb5300c4410999ecd84e1bce321a~mv2.png/v1/crop/x_0,y_0,w_294,h_294/fill/w_360,h_360,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_6cb9eb5300c4410999ecd84e1bce321a~mv2.jpg" alt="Ieva Faura">
+                    </div>
+                    <div class="team-name">Dr Ieva Faura</div>
+                    <div class="team-role">Principal Dentist</div>
+                    <div class="team-qualifications">D Dent, PgDip Rest &amp; Aes Dent</div>
+                    <div class="team-gdc">GDC: 156772</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_5b10bf18a5354a1292d382f02c20f316~mv2.png/v1/crop/x_0,y_8,w_212,h_212/fill/w_360,h_360,al_c,q_85,enc_avif,quality_auto/2425f9_5b10bf18a5354a1292d382f02c20f316~mv2.jpg" alt="Neeru Majumdar">
+                    </div>
+                    <div class="team-name">Dr Neeru Majumdar</div>
+                    <div class="team-role">Principal Dentist</div>
+                    <div class="team-qualifications">BDS, MRCS (Eng)</div>
+                    <div class="team-gdc">GDC: 123732</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_99bea5778be647119b4538acf3489621~mv2.jpg/v1/fill/w_360,h_360,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_99bea5778be647119b4538acf3489621~mv2.jpg" alt="Rakhi Kakad">
+                    </div>
+                    <div class="team-name">Dr Rakhi Kakad</div>
+                    <div class="team-role">Dentist</div>
+                    <div class="team-qualifications">BDS (Lon)</div>
+                    <div class="team-gdc">GDC: 72351</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_2ede1a5eb33f44f084d2da6fce9bb3db~mv2.jpg/v1/fill/w_360,h_360,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_2ede1a5eb33f44f084d2da6fce9bb3db~mv2.jpg" alt="Clare Lovett">
+                    </div>
+                    <div class="team-name">Dr Clare Lovett</div>
+                    <div class="team-role">Dentist</div>
+                    <div class="team-qualifications">BDS (Lon)</div>
+                    <div class="team-gdc">GDC: 69718</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_982c6cf3ac03414cb118bd5603f349f9~mv2.jpg/v1/fill/w_360,h_480,al_t,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_982c6cf3ac03414cb118bd5603f349f9~mv2.jpg" alt="Hinali Ondhia" style="object-position: top center">
+                    </div>
+                    <div class="team-name">Dr Hinali Ondhia</div>
+                    <div class="team-role">Dentist</div>
+                    <div class="team-qualifications">BDS (Birm), MFDS</div>
+                    <div class="team-gdc">GDC: 244775</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_0c81aad874564d828114c7320e50cb41~mv2.jpg/v1/fill/w_360,h_360,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_0c81aad874564d828114c7320e50cb41~mv2.jpg" alt="Shivang Davda">
+                    </div>
+                    <div class="team-name">Dr Shivang Davda</div>
+                    <div class="team-role">Implant Dentist</div>
+                    <div class="team-qualifications">BDS (KCLDI), MSc ImpDent - URJC</div>
+                    <div class="team-gdc">GDC: 193185</div>
+                </div>
+                <div class="team-card fade-up">
+                    <div class="team-photo">
+                        <img src="https://static.wixstatic.com/media/2425f9_48d0d76068c845e394ef941c9ec82a09~mv2.jpg/v1/fill/w_360,h_360,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2425f9_48d0d76068c845e394ef941c9ec82a09~mv2.jpg" alt="Victoria Jones">
+                    </div>
+                    <div class="team-name">Victoria Jones</div>
+                    <div class="team-role">Dental Hygienist</div>
+                    <div class="team-qualifications">BSc, BSDHT</div>
+                    <div class="team-gdc">GDC: 181811</div>
+                </div>
+            </div>
+
+            <!-- Support Staff -->
+            <div class="support-team fade-up">
+                <div class="support-card">
+                    <div class="support-name">Cathy Maher</div>
+                    <div class="support-role">Registered Dental Nurse</div>
+                    <div class="support-desc">Over 40 years with the practice. GDC: 156181</div>
+                </div>
+                <div class="support-card">
+                    <div class="support-name">Bonnie Caldwell</div>
+                    <div class="support-role">Registered Dental Nurse</div>
+                    <div class="support-desc">Specialist in implant nursing. GDC: 284814</div>
+                </div>
+                <div class="support-card">
+                    <div class="support-name">Amina Mahmood</div>
+                    <div class="support-role">Trainee Dental Nurse</div>
+                    <div class="support-desc">Qualifying summer 2026.</div>
+                </div>
+                <div class="support-card">
+                    <div class="support-name">Wendy Georgiou</div>
+                    <div class="support-role">Dental Administrator</div>
+                    <div class="support-desc">9+ years dental admin experience.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-inner">
+            <div class="section-header fade-up">
+                <div class="section-label">Our Prices</div>
+                <h2 class="section-title">Treatment Prices</h2>
+                <p class="section-desc">We offer both NHS and private dental treatments. NHS patients can also opt for private treatment options.</p>
+            </div>
+
+            <!-- NHS Bands -->
+            <div class="pricing-grid fade-up">
+                <div class="price-card">
+                    <div class="price-band">Band 1</div>
+                    <div class="price-amount">&pound;27.40</div>
+                    <p class="price-desc">Examination, diagnosis, X-rays, scale &amp; polish if clinically needed, preventative care including fluoride varnish.</p>
+                </div>
+                <div class="price-card">
+                    <div class="price-band">Band 2</div>
+                    <div class="price-amount">&pound;75.30</div>
+                    <p class="price-desc">Everything in Band 1 plus fillings, root canal work, or removal of teeth.</p>
+                </div>
+                <div class="price-card">
+                    <div class="price-band">Band 3</div>
+                    <div class="price-amount">&pound;326.70</div>
+                    <p class="price-desc">Everything in Bands 1 &amp; 2 plus crowns, dentures, bridges, and other laboratory work.</p>
+                </div>
+                <div class="price-card">
+                    <div class="price-band">Band 4 &mdash; Urgent</div>
+                    <div class="price-amount">&pound;27.40</div>
+                    <p class="price-desc">Emergency care: pain relief, temporary fillings, or re-cementing crowns. Emergencies only.</p>
+                </div>
+            </div>
+
+            <!-- Private Pricing -->
+            <div class="pricing-subsection fade-up">
+                <h3>Private Treatment Prices</h3>
+                <p>Prices as of January 2025</p>
+                <div class="private-pricing-grid">
+                    <div class="private-price-card">
+                        <h4>Examinations</h4>
+                        <div class="private-price-row"><span>Existing patient</span><span>from &pound;50</span></div>
+                        <div class="private-price-row"><span>Additional X-rays</span><span>&pound;10</span></div>
+                        <div class="private-price-row"><span>New patient (inc. X-rays)</span><span>&pound;75</span></div>
+                        <div class="private-price-row"><span>Emergency (inc. X-rays)</span><span>&pound;90</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Fillings</h4>
+                        <div class="private-price-row"><span>Amalgam (metal)</span><span>from &pound;140</span></div>
+                        <div class="private-price-row"><span>Composite (white)</span><span>&pound;160 &ndash; &pound;250</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Crowns</h4>
+                        <div class="private-price-row"><span>Porcelain (white)</span><span>from &pound;610</span></div>
+                        <div class="private-price-row"><span>Ceramic</span><span>from &pound;750</span></div>
+                        <div class="private-price-row"><span>Gold</span><span>from &pound;850</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Veneers &amp; Whitening</h4>
+                        <div class="private-price-row"><span>Porcelain veneer</span><span>from &pound;650</span></div>
+                        <div class="private-price-row"><span>Boutique Home Whitening</span><span>from &pound;400</span></div>
+                        <div class="private-price-row"><span>Additional whitening gel</span><span>&pound;35/syringe</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Dentures</h4>
+                        <div class="private-price-row"><span>Acrylic</span><span>from &pound;1,000</span></div>
+                        <div class="private-price-row"><span>Cobalt Chrome</span><span>from &pound;1,300</span></div>
+                        <div class="private-price-row"><span>Valoplast</span><span>from &pound;1,200</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Other Treatments</h4>
+                        <div class="private-price-row"><span>Root canal consult</span><span>&pound;80</span></div>
+                        <div class="private-price-row"><span>Root canal treatment</span><span>&pound;525 &ndash; &pound;795</span></div>
+                        <div class="private-price-row"><span>Extraction</span><span>from &pound;180</span></div>
+                        <div class="private-price-row"><span>Mouth guard</span><span>from &pound;185</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Implants</h4>
+                        <div class="private-price-row"><span>Consultation</span><span>from &pound;150</span></div>
+                        <div class="private-price-row"><span>CBCT Scan</span><span>from &pound;185</span></div>
+                        <div class="private-price-row"><span>Implant + Crown</span><span>from &pound;3,000</span></div>
+                        <div class="private-price-row"><span>Guided Bone (GBR)</span><span>from &pound;795</span></div>
+                        <div class="private-price-row"><span>Sinus Lift</span><span>from &pound;895</span></div>
+                        <div class="private-price-row"><span>Extraction</span><span>from &pound;250</span></div>
+                    </div>
+                    <div class="private-price-card">
+                        <h4>Hygienist</h4>
+                        <div class="private-price-row"><span>Registered patients</span><span>&pound;75</span></div>
+                        <div class="private-price-row"><span>Direct access (unregistered)</span><span>&pound;80</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="info">
+        <div class="section-inner">
+            <div class="info-grid">
+                <div class="info-card fade-up">
+                    <h3>Opening Hours</h3>
+                    <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">8:30am &ndash; 5:30pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">8:30am &ndash; 5:30pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">8:30am &ndash; 5:30pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">8:30am &ndash; 5:30pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">8:30am &ndash; 4:30pm</span></div>
+                    <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">By appointment</span></div>
+                    <div class="emergency-note">
+                        <strong>Out of hours?</strong> For dental emergencies, call NHS 111.
+                    </div>
+                </div>
+                <div class="info-card fade-up">
+                    <h3>Appointments</h3>
+                    <p>We will endeavour to give you an appointment closest to your request, and even on the same day.</p>
+                    <p>For emergencies, please call as early as possible and we will do our best to fit you in.</p>
+                    <p><strong>Please note:</strong> We do not currently take bookings via email.</p>
+                    <a href="tel:01494727013" class="info-link">
+                        Call to book &rarr;
+                    </a>
+                </div>
+                <div class="info-card fade-up">
+                    <h3>Cancellations</h3>
+                    <p>24 hours notice is required to cancel or rearrange any appointment.</p>
+                    <p>For private appointments (including hygienist), there will be a charge for late cancellations. The fee depends on appointment length.</p>
+                    <p><strong>Not attended in 2+ years?</strong> You'll need to re-register. Call us to arrange this.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-inner">
+            <div class="section-header fade-up">
+                <div class="section-label">Get in Touch</div>
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-details fade-up">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Phone</div>
+                            <div class="contact-item-value"><a href="tel:01494727013">01494 727013</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Email</div>
+                            <div class="contact-item-value"><a href="mailto:hillavenuedental@hotmail.com">hillavenuedental@hotmail.com</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Address</div>
+                            <div class="contact-item-value">9a Hill Avenue, Amersham<br>Buckinghamshire, HP6 5BD</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map fade-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2475.8!2d-0.6074052!3d51.6747894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766785bbb9da9d%3A0x12d9abf528e2fe4d!2sHill%20Avenue%20Dental%20Practice%20Amersham!5e0!3m2!1sen!2suk!4v1" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE POLICIES -->
+    <section class="policies" id="policies">
+        <div class="policies-inner">
+            <div class="policies-header fade-up">
+                <h3>Practice Policies</h3>
+                <p>We fully comply with CQC regulations and have policies and protocols in place for your safety. All policies are available at reception.</p>
+            </div>
+            <div class="policies-accordion fade-up">
+                <div class="policy-item">
+                    <button class="policy-toggle" onclick="this.parentElement.classList.toggle('open')">
+                        Privacy Notice
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="policy-content">
+                        <div class="policy-content-inner">
+                            <p>The practice aims to meet the requirements of the Data Protection Act 2018, the General Data Protection Regulation (GDPR), the guidelines on the Information Commissioner's website as well as our professional guidelines and requirements.</p>
+                            <p>The data controller and information governance lead is Rakhi Kakad. You will be asked to provide personal information when joining the practice for the purpose of providing optimum health care.</p>
+                            <p><strong>Your personal data rights include:</strong></p>
+                            <ul>
+                                <li>The right to be informed</li>
+                                <li>The right of access</li>
+                                <li>The right to rectification</li>
+                                <li>The right to erasure (clinical records must be retained for a certain time period)</li>
+                                <li>The right to restrict processing</li>
+                                <li>The right to data portability</li>
+                                <li>The right to object</li>
+                            </ul>
+                            <p>Retention period for special data in patient records is a minimum of 10 years. Staff records: 6 years. Other personal data: 2 years after last processed. ICO Number: ZA241512.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="policy-item">
+                    <button class="policy-toggle" onclick="this.parentElement.classList.toggle('open')">
+                        Complaints Procedure
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="policy-content">
+                        <div class="policy-content-inner">
+                            <p>We welcome comments, suggestions and complaints so that we can continually improve our service to you.</p>
+                            <p>Please contact the practice in person, by phone, letter or email if you have a comment, suggestion or complaint. We take complaints very seriously and have an effective procedure to resolve any problems in the shortest possible time.</p>
+                            <p>You can read more about our procedures in our complaints policy, available from reception. Should you wish to write to us: <strong>9a Hill Avenue, Amersham, Bucks, HP6 5BD</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="policy-item">
+                    <button class="policy-toggle" onclick="this.parentElement.classList.toggle('open')">
+                        Confidentiality Policy
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="policy-content">
+                        <div class="policy-content-inner">
+                            <p>The practice is committed to complying with the requirements of legislation governing patient confidentiality including: Access to Health Records 1990, Caldicott Guidelines 1997, Confidentiality Code of Practice 1998, Data Protection Act 2018, GDPR and the current GDC Standards.</p>
+                            <p>No personal information given or received in confidence is passed on to anyone else without the patient's consent. Patient information is kept confidential even after death.</p>
+                            <p>Information may only be released without consent in exceptional circumstances such as: if it is in the best interests of the public, if a patient may be at risk of significant harm, or if required by a court order.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="policy-item">
+                    <button class="policy-toggle" onclick="this.parentElement.classList.toggle('open')">
+                        Charter on Patient Safety
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="policy-content">
+                        <div class="policy-content-inner">
+                            <p>Our practice has a safety culture where patient safety is at the forefront of everyone's minds. All team members are trained in safeguarding of children and vulnerable adults.</p>
+                            <p>We follow the latest infection prevention guidelines including those from NHS England, use single-use or sterilised instruments, decontaminate work areas between patients, and maintain high standards of personal hygiene.</p>
+                            <p>Dental unit waterlines are disinfected and kept clear. Waste is handled according to current regulations. We always welcome patients' questions about patient safety at our practice.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="policy-item">
+                    <button class="policy-toggle" onclick="this.parentElement.classList.toggle('open')">
+                        GDPR &amp; Communication Consent
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="policy-content">
+                        <div class="policy-content-inner">
+                            <p>Due to the Data Protection Policy, the practice requires written permission to send text/email reminders or recalls. Your personal information is never passed to third parties for their own marketing, sales or promotions.</p>
+                            <p>You can withdraw your consent at any time. Please note that reminders are provided as a courtesy and it is the patient's responsibility to remember their own appointment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCESSIBILITY NOTICE -->
+    <section class="accessibility">
+        <div class="accessibility-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p><strong>Accessibility Notice:</strong> Please note that our surgeries are located up a steep flight of stairs and may not be suitable for patients with mobility difficulties. For health and safety reasons, our staff are not trained to assist with access and are unable to provide physical support. We apologise for any inconvenience.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo" style="color: white;">
+                        <img src="https://static.wixstatic.com/media/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.png/v1/crop/x_250,y_60,w_500,h_560/fill/w_120,h_134,al_c,q_85,enc_avif,quality_auto/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.jpg" alt="Hill Avenue Dental Practice - tooth icon" style="height: 45px; width: auto; filter: brightness(0) invert(1);">
+                        <img src="https://static.wixstatic.com/media/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.png/v1/crop/x_80,y_620,w_940,h_290/fill/w_320,h_99,al_c,q_85,enc_avif,quality_auto/2425f9_e80448e45ea44a8aa9d4b18584092919~mv2.jpg" alt="Hill Avenue Dental Practice" style="height: 35px; width: auto; filter: brightness(0) invert(1); align-self: flex-end;">
+                    </a>
+                    <p>Trusted family dentistry in Amersham for over 60 years. NHS and private care for the whole family.</p>
+                </div>
+                <div>
+                    <h4>Treatments</h4>
+                    <ul>
+                        <li><a href="#services">Check-ups</a></li>
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Dental Implants</a></li>
+                        <li><a href="#services">Teeth Whitening</a></li>
+                        <li><a href="#services">Hygiene</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Practice</h4>
+                    <ul>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#pricing">NHS Pricing</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#policies">Practice Policies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:01494727013">01494 727013</a></li>
+                        <li><a href="mailto:hillavenuedental@hotmail.com">Email Us</a></li>
+                        <li><a href="#">9a Hill Avenue, Amersham</a></li>
+                        <li><a href="#">HP6 5BD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Hill Avenue Dental Practice. All rights reserved.</span>
+                <span>CQC Registered: 1-21534530243</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('open');
+        });
+
+        // Fade-up animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('navLinks').classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
