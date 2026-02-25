@@ -374,62 +374,72 @@
         <!-- LEFT: Flagged species table -->
         <div style="display: flex; flex-direction: column; gap: 12px;">
             <div class="table-section-label">Species with Regulatory or Welfare Flags</div>
-            <div class="seller-table" style="font-size: 12px;">
-                <div class="seller-row seller-header">
-                    <span class="seller-rank" style="width: 60px;">Severity</span>
-                    <span class="seller-name">Species</span>
-                    <span class="seller-listings" style="width: 50px;">Ads</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left;">Issue</span>
-                </div>
-                <div class="seller-row" style="background: rgba(239,68,68,0.08);align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-illegal">ILLEGAL</span>
-                    </span>
-                    <span class="seller-name" style="color: #ef4444;">Yellow-Bellied Slider</span>
-                    <span class="seller-listings" style="width: 50px; color: #ef4444;">19</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Sale banned since Aug 2016 under Invasive Alien Species Regulations</span>
-                </div>
-                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-licence">LICENCE</span>
-                    </span>
-                    <span class="seller-name" style="">Hermann's Tortoise</span>
-                    <span class="seller-listings" style="width: 50px; ">83</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Annex A — Article 10 certificate required for any commercial sale</span>
-                </div>
-                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-high">HIGH</span>
-                    </span>
-                    <span class="seller-name" style="">Burmese Python</span>
-                    <span class="seller-listings" style="width: 50px; ">26</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Grows to 5m / 90kg — not on DWA schedule. Very limited rehoming options</span>
-                </div>
-                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-high">HIGH</span>
-                    </span>
-                    <span class="seller-name" style="">Sulcata Tortoise</span>
-                    <span class="seller-listings" style="width: 50px; ">32</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Grows to 105kg, 100-year lifespan. Most commonly abandoned tortoise species</span>
-                </div>
-                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-high">HIGH</span>
-                    </span>
-                    <span class="seller-name" style="">Boa Constrictor</span>
-                    <span class="seller-listings" style="width: 50px; ">183</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Reaches 3–4m. Not on DWA. Frequently abandoned — RSPCA rescue burden</span>
-                </div>
-                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
-                    <span class="seller-rank" style="width: 60px;">
-                        <span class="risk-badge risk-high">HIGH</span>
-                    </span>
-                    <span class="seller-name" style="">Axolotl</span>
-                    <span class="seller-listings" style="width: 50px; ">114</span>
-                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Critically Endangered in wild. Minecraft-driven impulse buying. Born Free target</span>
-                </div>
-            </div>
+            <table class="data-table" style="font-size: 12px; table-layout: fixed; width: 100%;">
+                <colgroup>
+                    <col style="width: 68px;">
+                    <col style="width: 140px;">
+                    <col style="width: 42px;">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th style="padding: 8px 8px 8px 12px;">Severity</th>
+                        <th style="padding: 8px;">Species</th>
+                        <th style="padding: 8px; text-align: right;">Ads</th>
+                        <th style="padding: 8px 12px 8px 14px;">Issue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(239,68,68,0.08);">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-illegal">ILLEGAL</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #ef4444;">Yellow-Bellied Slider</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; color: #ef4444;">19</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Sale banned since Aug 2016 under Invasive Alien Species Regulations</td>
+                    </tr>
+                    <tr style="">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-licence">LICENCE</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #fff;">Hermann's Tortoise</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; ">83</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Annex A — Article 10 certificate required for any commercial sale</td>
+                    </tr>
+                    <tr style="">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-high">HIGH</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #fff;">Burmese Python</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; ">26</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Grows to 5m / 90kg — not on DWA schedule. Very limited rehoming options</td>
+                    </tr>
+                    <tr style="">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-high">HIGH</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #fff;">Sulcata Tortoise</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; ">32</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Grows to 105kg, 100-year lifespan. Most commonly abandoned tortoise species</td>
+                    </tr>
+                    <tr style="">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-high">HIGH</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #fff;">Boa Constrictor</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; ">183</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Reaches 3–4m. Not on DWA. Frequently abandoned — RSPCA rescue burden</td>
+                    </tr>
+                    <tr style="">
+                        <td style="padding: 7px 8px 7px 12px; vertical-align: top;">
+                            <span class="risk-badge risk-high">HIGH</span>
+                        </td>
+                        <td style="padding: 7px 8px; font-weight: 500; vertical-align: top; color: #fff;">Axolotl</td>
+                        <td style="padding: 7px 8px; text-align: right; font-weight: 700; vertical-align: top; ">114</td>
+                        <td style="padding: 7px 12px 7px 14px; font-size: 10px; color: #a8998a; line-height: 1.4; vertical-align: top;">Critically Endangered in wild. Minecraft-driven impulse buying. Born Free target</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <!-- DWA gap callout -->
             <div class="alert-box">
