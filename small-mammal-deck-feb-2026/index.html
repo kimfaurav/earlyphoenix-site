@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Small Furries Marketplace Intelligence — Feb 2026</title>
+    <link rel="stylesheet" href="vendor/dist/reveal.css">
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        /* SMALL FURRIES DECK — Amber accent scheme (matching welfare deck) */
+        .reveal .deck-title {
+            position: absolute; bottom: 20px; left: 95px;
+            font-size: 0.6em; color: #6a5a4a;
+            letter-spacing: 1px; font-weight: 600; z-index: 10;
+        }
+        .reveal .slide-logo { display: none; }
+        .reveal .footer-logo {
+            position: absolute; bottom: 12px; left: 60px;
+            width: 28px; height: 28px;
+            background: url('phoenix-icon.png') no-repeat center/contain;
+            z-index: 2;
+        }
+        .reveal .cover-logo {
+            width: 180px; height: 60px; margin: 40px auto 0 auto;
+            background: url('early-phoenix-logo.png') no-repeat center/contain;
+        }
+        /* Amber gradient accent (matching welfare deck) */
+        .reveal .cover-slide h1 span.highlight,
+        .reveal .content-slide .header h1 span {
+            background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .reveal .content-slide .header h1 span.red {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .reveal .content-slide .header h1 span.amber {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        /* Data slide layout — padding-bottom reserves space for footer zone */
+        .reveal section.content-slide {
+            display: flex !important; flex-direction: column; height: 100%; box-sizing: border-box;
+            padding: 45px 50px 75px;
+        }
+        .reveal .content-slide .header { margin-bottom: 8px; margin-top: -25px; flex-shrink: 0; padding-right: 80px; }
+        .reveal .content-slide .header h1 {
+            font-size: 36px; font-weight: 700; color: #fff;
+            line-height: 1.1; letter-spacing: -0.5px;
+        }
+        /* Flow steps with green accent */
+        .reveal .flow-horizontal { display: flex; align-items: stretch; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .reveal .flow-arrow { align-self: center; }
+        .reveal .flow-step {
+            text-align: center; padding: 22px 16px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(251,191,36,0.12); border-radius: 18px; min-width: 130px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .reveal .flow-step-highlight {
+            background: linear-gradient(145deg, rgba(251,191,36,0.12), rgba(251,191,36,0.08));
+            border: 1px solid rgba(251,191,36,0.25);
+        }
+        .reveal .flow-number { font-size: 42px; font-weight: 800; color: #fff; line-height: 1; }
+        .reveal .flow-label { font-size: 13px; color: #a8998a; margin-top: 10px; line-height: 1.4; font-weight: 500; }
+        .reveal .flow-source { font-size: 11px; color: #7a6a5a; margin-top: 6px; }
+        /* Stat cards */
+        .reveal .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 16px 0; }
+        .reveal .stat-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+            border: 1px solid rgba(251,191,36,0.12); border-radius: 14px; padding: 20px 16px;
+            text-align: center;
+        }
+        .reveal .stat-number { font-size: 32px; font-weight: 800; color: #fff; line-height: 1; }
+        .reveal .stat-label { font-size: 12px; color: #a8998a; margin-top: 8px; line-height: 1.3; }
+        /* Tables */
+        .reveal table.data-table {
+            width: 100%; border-collapse: collapse; font-size: 14px;
+        }
+        .reveal table.data-table th {
+            text-align: left; padding: 8px 12px; color: #fbbf24; font-weight: 600;
+            border-bottom: 1px solid rgba(251,191,36,0.2); font-size: 12px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .reveal table.data-table td {
+            padding: 7px 12px; color: #c8b8a8; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .reveal table.data-table tr:nth-child(even) td {
+            background: rgba(255,255,255,0.02);
+        }
+        /* Bar chart inline */
+        .reveal .bar-inline {
+            display: inline-block; height: 8px; border-radius: 4px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b); vertical-align: middle;
+        }
+        /* Two column layout */
+        .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; }
+        .reveal .col-panel {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid rgba(251,191,36,0.1); border-radius: 14px; padding: 20px;
+        }
+        .reveal .col-panel h3 {
+            font-size: 14px; font-weight: 600; color: #fbbf24; margin: 0 0 12px 0;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        /* Subtitle */
+        .reveal .slide-subtitle {
+            font-size: 14px; color: #a8998a; margin-top: 4px; font-weight: 400;
+        }
+        /* Key findings list */
+        .reveal .findings-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+        .reveal .findings-list li {
+            padding: 12px 16px; margin-bottom: 8px;
+            background: rgba(255,255,255,0.02); border-left: 3px solid #fbbf24;
+            border-radius: 0 8px 8px 0; font-size: 15px; color: #c8b8a8; line-height: 1.5;
+        }
+        .reveal .findings-list li strong { color: #fff; }
+        /* Keyword badge */
+        .reveal .keyword-badge {
+            display: inline-block; padding: 4px 10px; border-radius: 12px;
+            font-size: 12px; font-weight: 600; margin: 3px;
+            background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.2);
+            color: #fcd34d;
+        }
+        .reveal .keyword-count { color: #fff; font-weight: 800; }
+        /* Dual table layout (matching welfare deck) */
+        .reveal .dual-table-content {
+            display: flex; gap: 30px; flex: 1; margin-top: 8px;
+        }
+        .reveal .dual-table-left, .reveal .dual-table-right {
+            flex: 1; display: flex; flex-direction: column;
+        }
+        .reveal .table-section-label {
+            font-size: 13px; font-weight: 600; color: #fbbf24;
+            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+        }
+        /* Seller table rows (matching welfare deck) */
+        .reveal .seller-table {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid rgba(251,191,36,0.1); border-radius: 14px;
+            overflow: hidden;
+        }
+        .reveal .seller-row {
+            display: flex; align-items: center; padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 13px; color: #c8b8a8;
+        }
+        .reveal .seller-row:last-child { border-bottom: none; }
+        .reveal .seller-row.seller-header {
+            background: rgba(251,191,36,0.08); font-weight: 600;
+            color: #fbbf24; font-size: 11px; text-transform: uppercase;
+            letter-spacing: 0.5px; padding: 8px 12px;
+        }
+        .reveal .seller-rank {
+            width: 28px; flex-shrink: 0; font-weight: 700; color: #7a6a5a;
+        }
+        .reveal .seller-name {
+            flex: 1; font-weight: 500; color: #fff;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .reveal .seller-listings {
+            width: 65px; text-align: right; font-weight: 700; color: #fff;
+        }
+        .reveal .seller-pct {
+            width: 55px; text-align: right; color: #a8998a;
+        }
+        /* Hotspot box (matching welfare deck) */
+        .reveal .hotspot-box {
+            margin-top: 14px; padding: 16px 18px;
+            background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2);
+            border-radius: 12px;
+        }
+        .reveal .hotspot-title {
+            font-size: 14px; font-weight: 700; color: #fbbf24; margin-bottom: 4px;
+        }
+        .reveal .hotspot-subtitle {
+            font-size: 11px; color: #a8998a; margin-bottom: 8px;
+        }
+        .reveal .hotspot-detail {
+            font-size: 12px; color: #c8b8a8; line-height: 1.5;
+        }
+        /* Methodology footer — sits just above the amber line */
+        .reveal .methodology-footer {
+            position: absolute; bottom: 50px; left: 60px; right: 60px;
+            font-size: 11px; color: #a8998a; line-height: 1.4; padding-bottom: 8px;
+        }
+        /* Thin amber line at bottom of all content slides */
+        .reveal section.content-slide::after {
+            content: ''; position: absolute; bottom: 48px; left: 60px; right: 60px;
+            height: 1px; background: rgba(251,191,36,0.15); z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<!-- SLIDE 1: TITLE -->
+<section class="cover-slide" data-background-color="#1a1a2e" style="padding: 0;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center;">
+        <div class="cover-logo"></div>
+        <h1 style="font-size: 48px; font-weight: 800; color: #fff; margin: 30px 0 10px; line-height: 1.15;">
+            UK <span class="highlight">Small Furries</span><br>
+            Marketplace Intelligence
+        </h1>
+        <p style="font-size: 20px; color: #a8998a; margin: 10px 0 0;">
+            February 2026
+        </p>
+        <p style="font-size: 14px; color: #7a6a5a; margin: 30px 0 0;">
+            3,231 listings &nbsp;&middot;&nbsp; 5 platforms
+        </p>
+    </div>
+    <div class="slide-number-custom">1</div>
+</section>
+<!-- SLIDE 2: MARKET OVERVIEW -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header">
+        <h1>Market <span>Overview</span></h1>
+        <p class="slide-subtitle">UK online small furries marketplace snapshot</p>
+    </div>
+
+    <!-- Key stats -->
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="stat-number">3,231</div>
+            <div class="stat-label">Total Listings</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Platforms</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">&pound;45.0</div>
+            <div class="stat-label">Median Price</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">135</div>
+            <div class="stat-label">Breeds Identified</div>
+        </div>
+    </div>
+
+    <!-- Platform breakdown -->
+    <table class="data-table" style="margin-top: 12px;">
+        <thead>
+            <tr>
+                <th>Platform</th>
+                <th style="text-align:right;">Listings</th>
+                <th style="text-align:right;">Share</th>
+                <th style="width:30%;">Distribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-weight:600;">Pets4Homes</td>
+                <td style="text-align:right;">1,790</td>
+                <td style="text-align:right;">55.4%</td>
+                <td><span class="bar-inline" style="width: 92%;"></span></td>
+            </tr>
+            <tr>
+                <td style="font-weight:600;">FreeAds</td>
+                <td style="text-align:right;">885</td>
+                <td style="text-align:right;">27.4%</td>
+                <td><span class="bar-inline" style="width: 45%;"></span></td>
+            </tr>
+            <tr>
+                <td style="font-weight:600;">Preloved</td>
+                <td style="text-align:right;">443</td>
+                <td style="text-align:right;">13.7%</td>
+                <td><span class="bar-inline" style="width: 22%;"></span></td>
+            </tr>
+            <tr>
+                <td style="font-weight:600;">Gumtree</td>
+                <td style="text-align:right;">85</td>
+                <td style="text-align:right;">2.6%</td>
+                <td><span class="bar-inline" style="width: 4%;"></span></td>
+            </tr>
+            <tr>
+                <td style="font-weight:600;">petify</td>
+                <td style="text-align:right;">28</td>
+                <td style="text-align:right;">0.9%</td>
+                <td><span class="bar-inline" style="width: 1%;"></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="methodology-footer">Data collected February 2026.</div>
+    <div class="slide-number-custom">2</div>
+    <div class="footer-logo"></div>
+</section>
+<!-- SLIDE 3: SPECIES & PRICING -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header"><h1><span>Rabbits</span> dominate at 66.3% of all listings</h1></div>
+    <div class="dual-table-content">
+        <div class="dual-table-left">
+            <div class="table-section-label">Species Breakdown (Top 10)</div>
+            <div class="seller-table">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank">#</span>
+                    <span class="seller-name">Species</span>
+                    <span class="seller-listings">Listings</span>
+                    <span class="seller-pct">Avg Price</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">1</span>
+                    <span class="seller-name">Rabbits</span>
+                    <span class="seller-listings">2,143</span>
+                    <span class="seller-pct">&pound;65</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">2</span>
+                    <span class="seller-name">Guinea Pigs</span>
+                    <span class="seller-listings">602</span>
+                    <span class="seller-pct">&pound;38</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">3</span>
+                    <span class="seller-name">Hamsters</span>
+                    <span class="seller-listings">121</span>
+                    <span class="seller-pct">&pound;41</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">4</span>
+                    <span class="seller-name">Rats</span>
+                    <span class="seller-listings">118</span>
+                    <span class="seller-pct">&pound;30</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">5</span>
+                    <span class="seller-name">Mice</span>
+                    <span class="seller-listings">74</span>
+                    <span class="seller-pct">&pound;19</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">6</span>
+                    <span class="seller-name">Chinchillas</span>
+                    <span class="seller-listings">68</span>
+                    <span class="seller-pct">&pound;194</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">7</span>
+                    <span class="seller-name">Gerbils</span>
+                    <span class="seller-listings">43</span>
+                    <span class="seller-pct">&pound;28</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">8</span>
+                    <span class="seller-name">Sugar Gliders</span>
+                    <span class="seller-listings">26</span>
+                    <span class="seller-pct">&pound;482</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">9</span>
+                    <span class="seller-name">Ferrets</span>
+                    <span class="seller-listings">22</span>
+                    <span class="seller-pct">&pound;81</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">10</span>
+                    <span class="seller-name">African Pygmy Hedgehogs</span>
+                    <span class="seller-listings">7</span>
+                    <span class="seller-pct">&pound;308</span>
+                </div>
+            </div>
+        </div>
+        <div class="dual-table-right">
+            <div class="table-section-label">Top 10 Rabbit Breeds by Listings</div>
+            <div class="seller-table">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank">#</span>
+                    <span class="seller-name">Breed</span>
+                    <span class="seller-listings">Listings</span>
+                    <span class="seller-pct">Avg Price</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">1</span>
+                    <span class="seller-name">Mini Lop</span>
+                    <span class="seller-listings">600</span>
+                    <span class="seller-pct">&pound;70</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">2</span>
+                    <span class="seller-name">Lionhead</span>
+                    <span class="seller-listings">140</span>
+                    <span class="seller-pct">&pound;50</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">3</span>
+                    <span class="seller-name">Netherland Dwarf</span>
+                    <span class="seller-listings">124</span>
+                    <span class="seller-pct">&pound;61</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">4</span>
+                    <span class="seller-name">French Lop</span>
+                    <span class="seller-listings">81</span>
+                    <span class="seller-pct">&pound;78</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">5</span>
+                    <span class="seller-name">Rex</span>
+                    <span class="seller-listings">53</span>
+                    <span class="seller-pct">&pound;40</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">6</span>
+                    <span class="seller-name">Mini Rex</span>
+                    <span class="seller-listings">51</span>
+                    <span class="seller-pct">&pound;46</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">7</span>
+                    <span class="seller-name">Continental Giant</span>
+                    <span class="seller-listings">49</span>
+                    <span class="seller-pct">&pound;112</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">8</span>
+                    <span class="seller-name">New Zealand White</span>
+                    <span class="seller-listings">32</span>
+                    <span class="seller-pct">&pound;45</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">9</span>
+                    <span class="seller-name">English Lop</span>
+                    <span class="seller-listings">19</span>
+                    <span class="seller-pct">&pound;50</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">10</span>
+                    <span class="seller-name">Dwarf Lop</span>
+                    <span class="seller-listings">16</span>
+                    <span class="seller-pct">&pound;56</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 8px; padding: 8px 14px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px;">
+        <div style="font-size: 11px; font-weight: 700; color: #ef4444; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Welfare-flagged breeds &amp; species &mdash; 882 listings (27.3%)</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; font-size: 11px; color: #c8b8a8; line-height: 1.45;">
+            <div><strong style="color: #fff;">Sugar Gliders</strong> (26 listings, avg &pound;482) &mdash; RSPCA advises against keeping as pets; nocturnal, complex colony needs impossible to meet at home</div>
+            <div><strong style="color: #fff;">Lop-eared breeds</strong> (725 listings, 22.4%) &mdash; RWAF campaigns against breeding; chronic ear disease &amp; dental problems (RVC VetCompass 2024)</div>
+            <div><strong style="color: #fff;">African Pygmy Hedgehogs</strong> (7 listings, avg &pound;308) &mdash; RSPCA flags as wild animals with care &ldquo;very difficult&rdquo;; widespread abandonment</div>
+            <div><strong style="color: #fff;">Netherland Dwarf</strong> (124 listings, 3.8%) &mdash; brachycephalic; UFAW flags congenital dental malocclusion leading to inability to feed</div>
+        </div>
+    </div>
+    <div class="methodology-footer">Methodology: 135 breeds identified across 11 species (top 10 shown). Data collected February 2026.</div>
+    <div class="slide-number-custom">3</div>
+    <div class="footer-logo"></div>
+</section>
+<!-- SLIDE 4: GEOGRAPHIC DISTRIBUTION -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header"><h1><span>South East</span> leads with 15.5% of listings &mdash; 1,226 unique locations across the UK</h1></div>
+    <div class="dual-table-content">
+        <div class="dual-table-left">
+            <div class="table-section-label">Top 10 Locations by Listings</div>
+            <div class="seller-table">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank">#</span>
+                    <span class="seller-name">Location</span>
+                    <span class="seller-listings">Listings</span>
+                    <span class="seller-pct">%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">1</span>
+                    <span class="seller-name">London, Greater London</span>
+                    <span class="seller-listings">41</span>
+                    <span class="seller-pct">1.3%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">2</span>
+                    <span class="seller-name">Nottingham, Nottingham</span>
+                    <span class="seller-listings">29</span>
+                    <span class="seller-pct">0.9%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">3</span>
+                    <span class="seller-name">Birmingham, West Midlands</span>
+                    <span class="seller-listings">28</span>
+                    <span class="seller-pct">0.9%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">4</span>
+                    <span class="seller-name">Manchester, Greater Manchester</span>
+                    <span class="seller-listings">25</span>
+                    <span class="seller-pct">0.8%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">5</span>
+                    <span class="seller-name">Barnsley, South Yorkshire</span>
+                    <span class="seller-listings">24</span>
+                    <span class="seller-pct">0.7%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">6</span>
+                    <span class="seller-name">Liverpool, Merseyside</span>
+                    <span class="seller-listings">23</span>
+                    <span class="seller-pct">0.7%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">7</span>
+                    <span class="seller-name">Ipswich, Suffolk</span>
+                    <span class="seller-listings">22</span>
+                    <span class="seller-pct">0.7%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">8</span>
+                    <span class="seller-name">Sheffield, South Yorkshire</span>
+                    <span class="seller-listings">20</span>
+                    <span class="seller-pct">0.6%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">9</span>
+                    <span class="seller-name">Doncaster, South Yorkshire</span>
+                    <span class="seller-listings">20</span>
+                    <span class="seller-pct">0.6%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">10</span>
+                    <span class="seller-name">Bristol, Bristol City</span>
+                    <span class="seller-listings">20</span>
+                    <span class="seller-pct">0.6%</span>
+                </div>
+            </div>
+        </div>
+        <div class="dual-table-right">
+            <div class="table-section-label">Top 5 Regions by Listings</div>
+            <div class="seller-table">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank">#</span>
+                    <span class="seller-name">Region</span>
+                    <span class="seller-listings">Listings</span>
+                    <span class="seller-pct">%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">1</span>
+                    <span class="seller-name">South East</span>
+                    <span class="seller-listings">500</span>
+                    <span class="seller-pct">15.5%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">2</span>
+                    <span class="seller-name">North West</span>
+                    <span class="seller-listings">414</span>
+                    <span class="seller-pct">12.8%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">3</span>
+                    <span class="seller-name">East of England</span>
+                    <span class="seller-listings">388</span>
+                    <span class="seller-pct">12.0%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">4</span>
+                    <span class="seller-name">Yorkshire and the Humber</span>
+                    <span class="seller-listings">333</span>
+                    <span class="seller-pct">10.3%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">5</span>
+                    <span class="seller-name">West Midlands</span>
+                    <span class="seller-listings">309</span>
+                    <span class="seller-pct">9.6%</span>
+                </div>
+            </div>
+
+            <div class="hotspot-box">
+                <div class="hotspot-title">Geographic Spread</div>
+                <div class="hotspot-subtitle">100.0% of listings have location data</div>
+                <div class="hotspot-detail">
+                    1,226 unique locations identified.
+                    London, Greater London leads with 41 listings.
+                    The market is broadly distributed across the UK with no single location exceeding 1.5% of total listings &mdash; indicating a healthy geographic spread rather than concentration in specialist hubs.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="methodology-footer">Methodology: Location derived from listing location fields across all 5 platforms. 100.0% of listings have valid location data. Regions mapped to ONS classification. Data collected February 2026.</div>
+    <div class="slide-number-custom">4</div>
+    <div class="footer-logo"></div>
+</section>
+<!-- SLIDE 5: SELLER ANALYSIS -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header"><h1><span>1,931</span> unique sellers across 5 platforms</h1></div>
+    <div class="dual-table-content">
+        <div class="dual-table-left">
+            <div class="table-section-label">Top 10 Sellers by Listings</div>
+            <div class="seller-table">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank">#</span>
+                    <span class="seller-name">Seller</span>
+                    <span class="seller-listings">Listings</span>
+                    <span class="seller-pct">Avg Price</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">1</span>
+                    <span class="seller-name">LDP 1980</span>
+                    <span class="seller-listings">10</span>
+                    <span class="seller-pct">&pound;56</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">2</span>
+                    <span class="seller-name">Jemima Ratcliffe</span>
+                    <span class="seller-listings">8</span>
+                    <span class="seller-pct">&pound;60</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">3</span>
+                    <span class="seller-name">Ell Preston</span>
+                    <span class="seller-listings">7</span>
+                    <span class="seller-pct">&pound;156</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">4</span>
+                    <span class="seller-name">Bunny Village Bury</span>
+                    <span class="seller-listings">7</span>
+                    <span class="seller-pct">&pound;33</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">5</span>
+                    <span class="seller-name">Debbie J</span>
+                    <span class="seller-listings">6</span>
+                    <span class="seller-pct">&pound;53</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">6</span>
+                    <span class="seller-name">Tania Harris</span>
+                    <span class="seller-listings">6</span>
+                    <span class="seller-pct">&pound;70</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">7</span>
+                    <span class="seller-name">Louise cobby</span>
+                    <span class="seller-listings">6</span>
+                    <span class="seller-pct">&pound;40</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">8</span>
+                    <span class="seller-name">ELLIE W</span>
+                    <span class="seller-listings">6</span>
+                    <span class="seller-pct">&pound;37</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">9</span>
+                    <span class="seller-name">MARK S</span>
+                    <span class="seller-listings">5</span>
+                    <span class="seller-pct">&pound;39</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-rank">10</span>
+                    <span class="seller-name">Foreverett Cats.</span>
+                    <span class="seller-listings">5</span>
+                    <span class="seller-pct">&pound;134</span>
+                </div>
+            </div>
+        </div>
+        <div class="dual-table-right">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 24px;">1,931</div>
+                    <div class="stat-label">Unique Sellers</div>
+                </div>
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 24px;">5</div>
+                    <div class="stat-label">Multi-Platform<br>Sellers</div>
+                </div>
+            </div>
+
+            <div class="table-section-label">Seller Type (Pets4Homes only)</div>
+            <div class="seller-table" style="font-size: 13px;">
+                <div class="seller-row seller-header">
+                    <span class="seller-name">Type</span>
+                    <span class="seller-listings">Count</span>
+                    <span class="seller-pct">%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-name">Breeder</span>
+                    <span class="seller-listings">973</span>
+                    <span class="seller-pct" style="color: #4ade80;">54.4%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-name">Private Individual</span>
+                    <span class="seller-listings">810</span>
+                    <span class="seller-pct" style="color: #60a5fa;">45.3%</span>
+                </div>
+                <div class="seller-row">
+                    <span class="seller-name" style="color: #a8998a;">Rescue / Other</span>
+                    <span class="seller-listings" style="color: #a8998a;">7</span>
+                    <span class="seller-pct" style="color: #7a6a5a;">0.4%</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 12px; padding: 10px 12px; background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); border-radius: 10px;">
+                <p style="font-size: 12px; color: #c8b8a8; margin: 0; line-height: 1.5;">
+                    Seller type is <strong style="color: #fff;">self-declared</strong> and only available on <strong style="color: #fbbf24;">Pets4Homes</strong> (1,790 of 3,231 listings).
+                    The other 4 platforms do not classify sellers as breeders or private individuals.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="methodology-footer">Methodology: Seller type is self-declared on Pets4Homes only (55.4% of all listings). Other platforms do not distinguish breeders from private sellers. Data collected February 2026.</div>
+    <div class="slide-number-custom">5</div>
+    <div class="footer-logo"></div>
+</section>
+<!-- SLIDE 6: WELFARE INDICATORS -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header">
+        <h1>Welfare <span class="red">Indicators</span></h1>
+        <p class="slide-subtitle">Structured welfare fields are rabbit-only &mdash; non-rabbit species are welfare-invisible</p>
+    </div>
+
+    <div class="two-col" style="margin-top: 4px;">
+        <div class="col-panel" style="padding: 14px 18px;">
+            <h3 style="margin-bottom: 6px;">Structured Fields by Platform</h3>
+
+            <div class="seller-table" style="font-size: 12px;">
+                <div class="seller-row seller-header" style="padding: 5px 8px;">
+                    <span class="seller-name" style="width:90px; font-size: 9px;">Platform</span>
+                    <span class="seller-listings" style="width:40px; font-size: 8px;">Vacc</span>
+                    <span class="seller-listings" style="width:40px; font-size: 8px;">Neut</span>
+                    <span class="seller-listings" style="width:40px; font-size: 8px;">Chip</span>
+                    <span class="seller-listings" style="width:40px; font-size: 8px;">Wrm</span>
+                    <span class="seller-listings" style="width:40px; font-size: 8px;">Hlth</span>
+                    <span class="seller-pct" style="width:40px; font-size: 8px;">Flea</span>
+                </div>
+                <div class="seller-row" style="background: rgba(52,211,153,0.08); padding: 4px 8px;">
+                    <span class="seller-name" style="width:90px;">Pets4Homes</span>
+                    <span class="seller-listings" style="width:40px; color:#fbbf24;">17%</span>
+                    <span class="seller-listings" style="width:40px; color:#ef4444;">0%</span>
+                    <span class="seller-listings" style="width:40px; color:#ef4444;">2%</span>
+                    <span class="seller-listings" style="width:40px; color:#fbbf24;">33%</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-pct" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                </div>
+                <div class="seller-row" style="background: rgba(251,191,36,0.05); padding: 4px 8px;">
+                    <span class="seller-name" style="width:90px;">Petify</span>
+                    <span class="seller-listings" style="width:40px; color:#ef4444;">12%</span>
+                    <span class="seller-listings" style="width:40px; color:#ef4444;">12%</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#fbbf24;">24%</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-pct" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                </div>
+                <div class="seller-row" style="background: rgba(239,68,68,0.05); padding: 4px 8px;">
+                    <span class="seller-name" style="width:90px;">FreeAds</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-pct" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                </div>
+                <div class="seller-row" style="background: rgba(239,68,68,0.05); padding: 4px 8px;">
+                    <span class="seller-name" style="width:90px;">Preloved</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-pct" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                </div>
+                <div class="seller-row" style="background: rgba(239,68,68,0.05); padding: 4px 8px;">
+                    <span class="seller-name" style="width:90px;">Gumtree</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-listings" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                    <span class="seller-pct" style="width:40px; color:#7a6a5a;">&mdash;</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 12px; margin-bottom: 4px;">Rabbit-only bias (Pets4Homes)</h3>
+            <table class="data-table" style="font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th style="text-align:right;">Rabbits</th>
+                        <th style="text-align:right;">Non-rabbits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Vaccinated</td><td style="text-align:right; color:#4ade80;">17.1%</td><td style="text-align:right; color:#ef4444;">0.4%</td></tr>
+                    <tr><td>Wormed</td><td style="text-align:right; color:#4ade80;">32.9%</td><td style="text-align:right; color:#ef4444;">0.2%</td></tr>
+                    <tr><td>Microchipped</td><td style="text-align:right; color:#fbbf24;">1.9%</td><td style="text-align:right; color:#ef4444;">0.1%</td></tr>
+                    <tr><td>Neutered</td><td style="text-align:right; color:#ef4444;">0.0%</td><td style="text-align:right; color:#ef4444;">0.0%</td></tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 8px; padding: 6px 10px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;">
+                <p style="font-size: 11px; color: #c8b8a8; margin: 0; line-height: 1.4;">
+                    <strong style="color:#ef4444;">3 of 5 platforms collect zero welfare fields.</strong> On P4H, welfare data exists almost exclusively for rabbits &mdash; Guinea Pigs, Hamsters, Rats and Mice are welfare-invisible.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-panel" style="padding: 14px 18px;">
+            <h3 style="margin-bottom: 6px;">Welfare Keywords in Descriptions</h3>
+            <p style="font-size: 10px; color: #7a6a5a; margin: 0 0 6px;">Regex extraction from free-text descriptions. Only 54.1% of listings mention any welfare keyword.</p>
+
+            <table class="data-table" style="font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th style="text-align:right;">Matches</th>
+                        <th style="text-align:right;">%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>handled</td>
+                        <td style="text-align:right; font-weight: 600;">811</td>
+                        <td style="text-align:right;">25.1%</td>
+                    </tr>
+                    <tr>
+                        <td>ready to leave</td>
+                        <td style="text-align:right; font-weight: 600;">451</td>
+                        <td style="text-align:right;">14.0%</td>
+                    </tr>
+                    <tr>
+                        <td>neutered</td>
+                        <td style="text-align:right; font-weight: 600;">258</td>
+                        <td style="text-align:right;">8.0%</td>
+                    </tr>
+                    <tr>
+                        <td>vaccinated</td>
+                        <td style="text-align:right; font-weight: 600;">232</td>
+                        <td style="text-align:right;">7.2%</td>
+                    </tr>
+                    <tr>
+                        <td>bonded</td>
+                        <td style="text-align:right; font-weight: 600;">215</td>
+                        <td style="text-align:right;">6.7%</td>
+                    </tr>
+                    <tr>
+                        <td>indoor</td>
+                        <td style="text-align:right; font-weight: 600;">215</td>
+                        <td style="text-align:right;">6.7%</td>
+                    </tr>
+                    <tr>
+                        <td>hutch</td>
+                        <td style="text-align:right; font-weight: 600;">189</td>
+                        <td style="text-align:right;">5.8%</td>
+                    </tr>
+                    <tr>
+                        <td>rescue</td>
+                        <td style="text-align:right; font-weight: 600;">182</td>
+                        <td style="text-align:right;">5.6%</td>
+                    </tr>
+                    <tr>
+                        <td>outdoor</td>
+                        <td style="text-align:right; font-weight: 600;">105</td>
+                        <td style="text-align:right;">3.2%</td>
+                    </tr>
+                    <tr>
+                        <td>wormed</td>
+                        <td style="text-align:right; font-weight: 600;">87</td>
+                        <td style="text-align:right;">2.7%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 8px; padding: 6px 10px; background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); border-radius: 8px;">
+                <p style="font-size: 11px; color: #c8b8a8; margin: 0; line-height: 1.4;">
+                    <strong style="color:#fbbf24;">&ldquo;handled&rdquo; leads at 25.1%</strong> &mdash; hand-taming is a key selling point for small furries. &ldquo;ready to leave&rdquo; (14%) signals age/weaning status. Traditional welfare terms (vaccinated, neutered) are far less common.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="methodology-footer">Data collected February 2026. Structured fields: P4H 4/6 indicators, Petify 3/6, FreeAds 0/6, Preloved 0/6, Gumtree 0/6. Rabbit bias: P4H fields populated for 978 rabbit listings vs 812 non-rabbit.</div>
+    <div class="slide-number-custom">6</div>
+    <div class="footer-logo"></div>
+</section>
+<!-- SLIDE 7: KEY FINDINGS & RECOMMENDATIONS -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Small Furries Marketplace Intelligence — Feb 2026</div>
+    <div class="header">
+        <h1>Key <span>Findings</span> &amp; Recommendations</h1>
+    </div>
+
+    <div class="two-col" style="margin-top: 8px;">
+        <div>
+            <h3 style="font-size: 16px; color: #fbbf24; margin: 0 0 12px; font-weight: 700;">Key Findings</h3>
+            <ul class="findings-list">
+                <li>
+                    <strong>Market size:</strong> 3,231 active listings across 5 platforms,
+                    with 11 species and 135 breeds identified
+                </li>
+                <li>
+                    <strong>Rabbit-dominated market:</strong> Rabbits account for 66.3% of all listings.
+                    Mini Lop is the most-listed breed (600 listings), followed by Lionhead and Netherland Dwarf
+                </li>
+                <li>
+                    <strong>Welfare gap:</strong> 27.3% of listings involve welfare-flagged breeds (lop-eared 22.4%, Netherland Dwarf, Sugar Gliders, African Pygmy Hedgehogs).
+                    Structured welfare fields are rabbit-only (17.1% vs 0.4%) and 3 of 5 platforms collect none
+                </li>
+                <li>
+                    <strong>Sellers:</strong> 1,931 unique sellers; 54.4% self-declare as Breeders on P4H (only platform with seller type).
+                    Just 5 cross-platform. 1,226 locations mapped &mdash; broadly distributed, no hotspots
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 style="font-size: 16px; color: #f59e0b; margin: 0 0 12px; font-weight: 700;">Recommendations</h3>
+            <ul class="findings-list">
+                <li style="border-left-color: #f59e0b;">
+                    <strong>Welfare transparency:</strong> Encourage platforms to add structured welfare fields
+                    for all small furries &mdash; currently only 20.4% average coverage and non-rabbit species are invisible
+                </li>
+                <li style="border-left-color: #f59e0b;">
+                    <strong>Welfare-flagged breed monitoring:</strong> Track lop-eared breeds, Netherland Dwarfs, Sugar Gliders and African Pygmy Hedgehogs &mdash;
+                    27.3% of the market warrants ongoing welfare scrutiny
+                </li>
+                <li style="border-left-color: #f59e0b;">
+                    <strong>Licensing compliance:</strong> Only 29 listings (0.9%) mention licences &mdash;
+                    cross-reference high-volume sellers and geographic data with local authority licensing records
+                </li>
+                <li style="border-left-color: #f59e0b;">
+                    <strong>Longitudinal tracking:</strong> Establish monthly scraping cadence across all 5 platforms
+                    to track pricing shifts, breed popularity trends, and welfare improvements over time
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="methodology-footer">Data collected February 2026. 3,231 listings analysed across 5 platforms.</div>
+    <div class="slide-number-custom">7</div>
+    <div class="footer-logo"></div>
+</section>
+</div>
+</div>
+<script src="vendor/dist/reveal.js"></script>
+<script>Reveal.initialize({hash:true,width:1280,height:720,margin:0,minScale:0.2,maxScale:2.0,transition:'fade',transitionSpeed:'fast',backgroundTransition:'fade',controls:false,progress:true,center:false,slideNumber:false});</script>
+</body>
+</html>
