@@ -186,6 +186,32 @@
             position: absolute; bottom: 50px; left: 60px; right: 60px;
             font-size: 11px; color: #a8998a; line-height: 1.4; padding-bottom: 8px;
         }
+        /* Risk severity badges */
+        .reveal .risk-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+            text-transform: uppercase; line-height: 1.4;
+        }
+        .reveal .risk-illegal { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+        .reveal .risk-licence { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        .reveal .risk-high { background: rgba(249,115,22,0.2); color: #f97316; border: 1px solid rgba(249,115,22,0.3); }
+        .reveal .risk-moderate { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+        .reveal .risk-low { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
+        /* Risk tier bar */
+        .reveal .risk-tier-bar {
+            display: flex; border-radius: 8px; overflow: hidden; height: 14px; margin-bottom: 4px;
+        }
+        .reveal .risk-tier-segment { height: 100%; }
+        /* Alert box — red accent */
+        .reveal .alert-box {
+            padding: 12px 16px; background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.25); border-radius: 10px;
+        }
+        .reveal .alert-box p { font-size: 12px; color: #c8b8a8; margin: 0; line-height: 1.5; }
+        .reveal .alert-box strong { color: #fff; }
+        .reveal .alert-box .alert-red { color: #ef4444; font-weight: 700; }
+        /* Three column layout */
+        .reveal .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
         /* Thin amber line at bottom of all content slides */
         .reveal section.content-slide::after {
             content: ''; position: absolute; bottom: 48px; left: 60px; right: 60px;
@@ -337,6 +363,149 @@
     <div class="footer-logo"></div>
 </section>
 
+<!-- SLIDE 4: REGULATORY & WELFARE RISK FLAGS -->
+<section class="content-slide" data-background-color="#1a1a2e">
+    <div class="deck-title">UK Reptile & Amphibian Marketplace Intelligence — Feb 2026</div>
+    <div class="header">
+        <h1><span class="red">19</span> potentially illegal listings &mdash; <span class="amber">46%</span> of the market involves CITES-listed species</h1>
+    </div>
+
+    <div class="two-col" style="margin-top: 4px;">
+        <!-- LEFT: Flagged species table -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="table-section-label">Species with Regulatory or Welfare Flags</div>
+            <div class="seller-table" style="font-size: 12px;">
+                <div class="seller-row seller-header">
+                    <span class="seller-rank" style="width: 60px;">Severity</span>
+                    <span class="seller-name">Species</span>
+                    <span class="seller-listings" style="width: 50px;">Ads</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left;">Issue</span>
+                </div>
+                <div class="seller-row" style="background: rgba(239,68,68,0.08);align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-illegal">ILLEGAL</span>
+                    </span>
+                    <span class="seller-name" style="color: #ef4444;">Yellow-Bellied Slider</span>
+                    <span class="seller-listings" style="width: 50px; color: #ef4444;">19</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Sale banned since Aug 2016 under Invasive Alien Species Regulations</span>
+                </div>
+                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-licence">LICENCE</span>
+                    </span>
+                    <span class="seller-name" style="">Hermann's Tortoise</span>
+                    <span class="seller-listings" style="width: 50px; ">83</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Annex A — Article 10 certificate required for any commercial sale</span>
+                </div>
+                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-high">HIGH</span>
+                    </span>
+                    <span class="seller-name" style="">Burmese Python</span>
+                    <span class="seller-listings" style="width: 50px; ">26</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Grows to 5m / 90kg — not on DWA schedule. Very limited rehoming options</span>
+                </div>
+                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-high">HIGH</span>
+                    </span>
+                    <span class="seller-name" style="">Sulcata Tortoise</span>
+                    <span class="seller-listings" style="width: 50px; ">32</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Grows to 105kg, 100-year lifespan. Most commonly abandoned tortoise species</span>
+                </div>
+                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-high">HIGH</span>
+                    </span>
+                    <span class="seller-name" style="">Boa Constrictor</span>
+                    <span class="seller-listings" style="width: 50px; ">183</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Reaches 3–4m. Not on DWA. Frequently abandoned — RSPCA rescue burden</span>
+                </div>
+                <div class="seller-row" style="align-items: flex-start; padding: 8px 12px;">
+                    <span class="seller-rank" style="width: 60px;">
+                        <span class="risk-badge risk-high">HIGH</span>
+                    </span>
+                    <span class="seller-name" style="">Axolotl</span>
+                    <span class="seller-listings" style="width: 50px; ">114</span>
+                    <span class="seller-pct" style="width: 200px; text-align: left; font-size: 10px; color: #a8998a; line-height: 1.4; white-space: normal;">Critically Endangered in wild. Minecraft-driven impulse buying. Born Free target</span>
+                </div>
+            </div>
+
+            <!-- DWA gap callout -->
+            <div class="alert-box">
+                <p>
+                    <span class="alert-red">0 species</span> in the dataset require a <strong>Dangerous Wild Animals</strong> licence &mdash;
+                    yet boa constrictors (4m), Burmese pythons (5m) and venomous false water cobras are freely sold.
+                    Born Free calls the DWA Act <strong>&ldquo;almost 50 years old and failed to keep pace.&rdquo;</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- RIGHT: Risk summary + stats -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="table-section-label">Welfare Risk Tier Summary</div>
+
+            <!-- Risk distribution bar -->
+            <div class="col-panel" style="padding: 14px 16px;">
+                <div class="risk-tier-bar">
+                    <div class="risk-tier-segment" style="width: 0.9%; background: #ef4444;"></div>
+                    <div class="risk-tier-segment" style="width: 4.4%; background: #f97316;"></div>
+                    <div class="risk-tier-segment" style="width: 47.8%; background: #f59e0b;"></div>
+                    <div class="risk-tier-segment" style="width: 22.1%; background: #22c55e;"></div>
+                </div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #ef4444;"></span>
+                        <span style="font-size: 11px; color: #a8998a;">Very High: <strong style="color: #fff;">77</strong> <span style="color: #7a6a5a;">(3 spp.)</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #f97316;"></span>
+                        <span style="font-size: 11px; color: #a8998a;">High: <strong style="color: #fff;">378</strong> <span style="color: #7a6a5a;">(8 spp.)</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #f59e0b;"></span>
+                        <span style="font-size: 11px; color: #a8998a;">Moderate: <strong style="color: #fff;">4,116</strong> <span style="color: #7a6a5a;">(16 spp.)</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: #22c55e;"></span>
+                        <span style="font-size: 11px; color: #a8998a;">Low: <strong style="color: #fff;">1,906</strong> <span style="color: #7a6a5a;">(12 spp.)</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key stat cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 22px; color: #ef4444;">19</div>
+                    <div class="stat-label">Potentially<br>Illegal Listings</div>
+                </div>
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 22px; color: #f59e0b;">83</div>
+                    <div class="stat-label">Require Article 10<br>Certificate to Sell</div>
+                </div>
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 22px;">46%</div>
+                    <div class="stat-label">CITES-Listed<br>Species</div>
+                </div>
+                <div class="stat-card" style="padding: 14px;">
+                    <div class="stat-number" style="font-size: 22px;">982</div>
+                    <div class="stat-label">RSPCA Snake<br>Rescues (2024)</div>
+                </div>
+            </div>
+
+            <!-- Positive list callout -->
+            <div class="hotspot-box" style="margin-top: 0;">
+                <div class="hotspot-title">5 Major Orgs Call for &ldquo;Positive List&rdquo;</div>
+                <div class="hotspot-detail">Born Free, RSPCA, Blue Cross, SAWC &amp; World Animal Protection all advocate a system where only scientifically assessed species may be kept &mdash; as Belgium (2009) and Netherlands (2024) already implement.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="methodology-footer">Sources: CITES Checklist, UK COTES Annexes, Invasive Alien Species Regulation 1143/2014, DWA Act 1976 (2007 schedule), Born Free &ldquo;Exotic Pet-demic&rdquo; (2021), RSPCA rescue data (2024). Species risk tiers compiled from welfare organisation positions and regulatory status.</div>
+    <div class="slide-number-custom">4</div>
+    <div class="footer-logo"></div>
+</section>
+
 <!-- SLIDE 6: GEOGRAPHIC DISTRIBUTION -->
 <section class="content-slide" style="padding: 45px 60px;" data-background-color="#1a1a2e">
     <div class="deck-title">UK Reptile & Amphibian Marketplace Intelligence — Feb 2026</div>
@@ -377,7 +546,7 @@
         </div>
     </div>
     <div class="methodology-footer">Methodology: Location derived from listing location fields across all 5 platforms. 94.5% of listings have valid location data. Regions mapped to ONS classification. Data collected February 2026.</div>
-    <div class="slide-number-custom">4</div>
+    <div class="slide-number-custom">5</div>
     <div class="footer-logo"></div>
 </section>
 
@@ -435,7 +604,7 @@
         </div>
     </div>
     <div class="methodology-footer">Methodology: Multi-platform sellers matched by distinctive business names only (common first names excluded to avoid false matches). Data collected February 2026.</div>
-    <div class="slide-number-custom">5</div>
+    <div class="slide-number-custom">6</div>
     <div class="footer-logo"></div>
 </section>
 
@@ -546,7 +715,7 @@
         </div>
     </div>
     <div class="methodology-footer">Data collected February 2026.</div>
-    <div class="slide-number-custom">6</div>
+    <div class="slide-number-custom">7</div>
     <div class="footer-logo"></div>
 </section>
 
@@ -612,7 +781,7 @@
     </div>
 
     <div class="methodology-footer">Data collected February 2026. 8,607 listings analysed across 5 platforms.</div>
-    <div class="slide-number-custom">7</div>
+    <div class="slide-number-custom">8</div>
     <div class="footer-logo"></div>
 </section>
 
