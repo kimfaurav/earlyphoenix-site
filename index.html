@@ -505,6 +505,86 @@
             color: var(--text-secondary);
         }
 
+        /* About / Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.25rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .team-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            overflow: hidden;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card .team-role {
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .team-card .team-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            margin-top: 0.75rem;
+            transition: gap 0.3s;
+        }
+
+        .team-card .team-link:hover {
+            gap: 0.6rem;
+        }
+
         /* Contact */
         .contact-section {
             text-align: center;
@@ -566,7 +646,8 @@
 
             .services-grid,
             .projects-grid,
-            .training-grid {
+            .training-grid,
+            .team-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -640,6 +721,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#process">How We Work</a></li>
         <li><a href="#training">Training</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
@@ -701,21 +783,17 @@
         <div class="project-card fade-in fade-in-delay-1">
             <div class="project-tag">Animal Welfare</div>
             <h3>UK Pet Marketplace Intelligence</h3>
-            <p>Consolidated pet advertising data across 10+ online platforms into a single analytical view. Tracking sale listings, pricing, breeder behaviour, and compliance patterns to support welfare-focused policy work.</p>
+            <p>Tracking pet sale listings, pricing, and breeder compliance across 9 online platforms to support welfare-focused policy work.</p>
             <div class="project-stats">
                 <span class="project-stat"><strong>39k+</strong> listings tracked</span>
                 <span class="project-stat"><strong>9</strong> platforms</span>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 0.3rem;">
-                <a href="https://earlyphoenix.uk/welfare-deck-feb-2026/" class="project-link" target="_blank">Dogs &amp; Cats Intelligence Deck — February 2026 &rarr;</a>
-                <a href="https://earlyphoenix.uk/reptile-deck-feb-2026/" class="project-link" target="_blank">Reptiles &amp; Amphibians Intelligence Deck — February 2026 &rarr;</a>
-                <a href="https://earlyphoenix.uk/small-mammal-deck-feb-2026/" class="project-link" target="_blank">Small Furries Intelligence Deck — February 2026 &rarr;</a>
-            </div>
+            <a href="https://earlyphoenix.uk/welfare-deck-feb-2026/" class="project-link" target="_blank">View Intelligence Deck &rarr;</a>
         </div>
         <div class="project-card fade-in fade-in-delay-2">
             <div class="project-tag">Public Data</div>
             <h3>UK Breeder Registry</h3>
-            <p>Collected data from 230+ local council licensing registers across England into a single searchable database. First-of-its-kind national view, enabling consumers and welfare organisations to identify licensed breeders across the country.</p>
+            <p>First national database of licensed breeders, aggregated from 230+ local council registers across England into a single searchable view.</p>
             <div class="project-stats">
                 <span class="project-stat"><strong>230+</strong> councils covered</span>
                 <span class="project-stat"><strong>First</strong> national database</span>
@@ -724,17 +802,17 @@
         </div>
         <div class="project-card fade-in fade-in-delay-3">
             <div class="project-tag">Retail / FMCG</div>
-            <h3>UK Supermarket Price Intelligence</h3>
-            <p>Daily automated collection from 11 major UK retailers, capturing shelf prices, promotional prices, loyalty card deals, and product availability. Interactive dashboards with Excel exports and pivot tables.</p>
+            <h3>Supermarket Price Tracking</h3>
+            <p>Daily price collection across 12 UK retailers &mdash; shelf prices, promotions, and loyalty deals delivered as live dashboards with Excel exports.</p>
             <div class="project-stats">
-                <span class="project-stat"><strong>3,100+</strong> SKUs</span>
-                <span class="project-stat"><strong>11</strong> retailers</span>
+                <span class="project-stat"><strong>3,400+</strong> SKUs</span>
+                <span class="project-stat"><strong>12</strong> retailers</span>
             </div>
         </div>
         <div class="project-card fade-in fade-in-delay-4">
             <div class="project-tag">Classifieds</div>
-            <h3>Classified Marketplace Sizing</h3>
-            <p>Cross-platform marketplace analysis across multiple European platforms. Volume estimation, category sizing, and competitive intelligence for classified and re-commerce marketplaces.</p>
+            <h3>European Marketplace Sizing</h3>
+            <p>Volume estimation and competitive intelligence across classified and re-commerce platforms in multiple European markets.</p>
             <div class="project-stats">
                 <span class="project-stat"><strong>Multi-market</strong> coverage</span>
                 <span class="project-stat"><strong>Category</strong> sizing</span>
@@ -816,20 +894,43 @@
     </div>
 </section>
 
+<!-- About -->
+<section id="about">
+    <div class="section-label fade-in">Who We Are</div>
+    <h2 class="section-title fade-in">The <span>Team</span></h2>
+    <p class="section-subtitle fade-in">A small, senior team that builds and ships &mdash; no layers, no handoffs.</p>
+    <div class="team-grid">
+        <div class="team-card fade-in fade-in-delay-1">
+            <div class="team-avatar"><img src="team-kim.jpg" alt="Kim Faura" onerror="this.parentElement.textContent='KF'"></div>
+            <h3>Kim Faura</h3>
+            <div class="team-role">CEO</div>
+            <p>Strategy, product, and client delivery. Background in business intelligence and AI transformation across FMCG, retail, and marketplace sectors.</p>
+            <a href="https://uk.linkedin.com/in/kimfaura" target="_blank" class="team-link">LinkedIn &rarr;</a>
+        </div>
+        <div class="team-card fade-in fade-in-delay-2">
+            <div class="team-avatar"><img src="team-tom.jpg" alt="Tom Pandolfo" onerror="this.parentElement.textContent='TP'"></div>
+            <h3>Tom Pandolfo</h3>
+            <div class="team-role">Chief Data Officer</div>
+            <p>Data, BI, and AI leader. Specialist in large-scale data engineering, cloud infrastructure, and automated collection across marketplace, telco, and PE sectors.</p>
+            <a href="https://www.linkedin.com/in/thomas-pandolfo/" target="_blank" class="team-link">LinkedIn &rarr;</a>
+        </div>
+    </div>
+</section>
+
 <!-- Contact -->
 <section id="contact" class="contact-section">
     <div class="section-label fade-in">Get Started</div>
     <h2 class="section-title fade-in">Let's <span>Talk</span></h2>
     <p class="section-subtitle fade-in">Whether you need market intelligence, data engineering, or AI training &mdash; we'd love to hear about your challenge.</p>
     <div class="contact-links fade-in">
-        <a href="mailto:kimfaurav@gmail.com" class="btn btn-primary">Send Email</a>
+        <a href="mailto:kim@earlyphoenix.uk" class="btn btn-primary">Send Email</a>
         <a href="https://uk.linkedin.com/in/kimfaura" target="_blank" class="btn btn-secondary">LinkedIn</a>
     </div>
 </section>
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2026 Early Phoenix. Built with AI.</p>
+    <p>&copy; 2026 Early Phoenix. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 <!-- Scroll Animations -->
