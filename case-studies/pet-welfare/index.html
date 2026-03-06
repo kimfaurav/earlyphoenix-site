@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Pet Marketplace Intelligence &mdash; Case Study | Early Phoenix</title>
+    <meta name="description" content="How Early Phoenix built an automated intelligence system monitoring pet sales across 9 UK marketplaces to support animal welfare enforcement and policy.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #D4722A;
+            --accent-dim: rgba(212, 114, 42, 0.12);
+            --text: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --bg: #F5F0EB;
+            --bg-card: #ffffff;
+            --border: rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+
+        /* Nav */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 4rem; position: sticky; top: 0; background: var(--bg);
+            z-index: 100; border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
+        .logo img { height: 40px; }
+        .back-link { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            max-width: 800px; margin: 0 auto; padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+        .hero-tag {
+            display: inline-block; background: var(--accent-dim); color: var(--accent);
+            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem; font-weight: 800; line-height: 1.15;
+            letter-spacing: -0.03em; margin-bottom: 1.5rem;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-muted); max-width: 600px;
+            margin: 0 auto; line-height: 1.7;
+        }
+
+        /* Content */
+        .content { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+        .content h2 {
+            font-size: 1.6rem; font-weight: 700; margin: 3rem 0 1rem;
+            letter-spacing: -0.02em;
+        }
+        .content h2 span { color: var(--accent); }
+        .content p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 1rem; }
+        .content ul { margin: 0 0 1.5rem 1.5rem; color: var(--text-muted); }
+        .content li { margin-bottom: 0.5rem; }
+
+        /* Stats row */
+        .stats-row {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+        .stat-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 2rem; text-align: center;
+        }
+        .stat-number {
+            font-size: 2.4rem; font-weight: 800; color: var(--accent);
+            letter-spacing: -0.03em; line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--bg-card); border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem; border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box p { margin: 0; color: var(--text); font-weight: 500; }
+
+        /* Platform grid */
+        .platform-tags {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 2rem;
+        }
+        .platform-tag {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 0.4rem 0.9rem; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 500; color: var(--text);
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center; padding: 3rem 0; margin-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .cta-section h2 { margin-bottom: 1rem; }
+        .cta-section p { max-width: 500px; margin: 0 auto 1.5rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; padding: 0.9rem 2rem; border-radius: 10px;
+            font-weight: 600; text-decoration: none; font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: #b8611f; }
+        .btn-secondary {
+            border: 2px solid var(--border); color: var(--text); background: var(--bg-card);
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 2rem; color: var(--text-muted);
+            font-size: 0.85rem; border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .hero { padding: 3rem 1.5rem 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .stats-row { grid-template-columns: 1fr; }
+            .content { padding: 0 1.5rem 3rem; }
+            .content h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo"><img src="/logo.svg" alt="Early Phoenix" onerror="this.parentElement.innerHTML='&#x1F426;&#x200D;&#x1F525; EARLY PHOENIX'"></a>
+    <a href="/#projects" class="back-link">&larr; All Projects</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-tag">Case Study</div>
+    <h1>UK Pet Marketplace <span>Welfare Intelligence</span></h1>
+    <p>An automated system that monitors pet sales across the UK's biggest online marketplaces &mdash; giving welfare organisations, policymakers, and enforcement teams the data they've never had.</p>
+</div>
+
+<div class="content">
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-number">57k</div>
+            <div class="stat-label">Dogs tracked</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">13k</div>
+            <div class="stat-label">Cats tracked</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">9</div>
+            <div class="stat-label">Platforms monitored</div>
+        </div>
+    </div>
+
+    <h2>The <span>Problem</span></h2>
+    <p>Around a million puppies are sold in the UK each year. Most are listed on online marketplaces &mdash; but nobody was systematically tracking what was being sold, by whom, or whether sellers were meeting basic welfare and licensing requirements.</p>
+    <p>Welfare organisations relied on manual spot-checks. Enforcement teams didn't know where to focus. Policymakers lacked the evidence to push for change.</p>
+
+    <h2>What We <span>Built</span></h2>
+    <p>An automated intelligence pipeline that collects, deduplicates, and analyses pet sale listings daily across the UK's major marketplaces:</p>
+
+    <div class="platform-tags">
+        <span class="platform-tag">Pets4Homes</span>
+        <span class="platform-tag">FreeAds</span>
+        <span class="platform-tag">Gumtree</span>
+        <span class="platform-tag">Preloved</span>
+        <span class="platform-tag">Puppies.co.uk</span>
+        <span class="platform-tag">Kennel Club</span>
+        <span class="platform-tag">Petify</span>
+        <span class="platform-tag">ForeverPuppy</span>
+        <span class="platform-tag">Breeders.co.uk</span>
+    </div>
+
+    <p>The system captures listing data, seller profiles, pricing, welfare declarations, breeding license status, breed information, and geographic location &mdash; then structures it into actionable intelligence.</p>
+
+    <h2>Key <span>Findings</span></h2>
+
+    <div class="highlight-box">
+        <p>These marketplaces capture approximately 75% of first-time puppy sales in the UK &mdash; making this the most comprehensive view of the market available.</p>
+    </div>
+
+    <ul>
+        <li><strong>Welfare compliance varies wildly by platform.</strong> Some collect 6 of 7 welfare indicators from sellers. Others collect none.</li>
+        <li><strong>Breeding license gaps.</strong> One major platform with ~38% market share doesn't collect breeding license data at all &mdash; a significant regulatory blind spot.</li>
+        <li><strong>Geographic hotspots.</strong> High-volume listing concentrations in specific towns point to potential unlicensed commercial breeding operations.</li>
+        <li><strong>Breed welfare concerns.</strong> ~10% of dog listings are brachycephalic breeds with documented health issues. Platform breed bans (where enforced) are effective.</li>
+        <li><strong>Stale listings.</strong> Some platforms have listings over 6 months old still active &mdash; misleading buyers and inflating market size.</li>
+    </ul>
+
+    <h2>What This <span>Enables</span></h2>
+    <ul>
+        <li><strong>Enforcement targeting</strong> &mdash; identify unlicensed high-volume sellers and geographic hotspots for local authority investigation</li>
+        <li><strong>Platform accountability</strong> &mdash; compare welfare standards across marketplaces and push for minimum data requirements</li>
+        <li><strong>Policy evidence</strong> &mdash; data-backed arguments for regulatory change, including extending breeding regulations to cats</li>
+        <li><strong>Trend detection</strong> &mdash; monthly tracking reveals shifts in pricing, breed popularity, and compliance over time</li>
+    </ul>
+
+    <h2>How It <span>Works</span></h2>
+    <p>The system runs daily with no manual intervention. Automated collectors visit each platform, extract structured data, deduplicate across sources, and feed into analysis pipelines. Results are delivered as interactive dashboards and data decks &mdash; updated monthly.</p>
+
+    <div class="cta-section">
+        <h2>Want the <span>full data</span>?</h2>
+        <p>The complete intelligence deck includes detailed breakdowns by platform, breed, region, and compliance indicator.</p>
+        <div class="cta-buttons">
+            <a href="/welfare-deck-feb-2026/" class="btn btn-primary">View Full Intelligence Deck</a>
+            <a href="/#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Early Phoenix. &nbsp;|&nbsp; <a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
