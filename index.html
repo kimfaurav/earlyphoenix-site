@@ -17,19 +17,19 @@
         }
 
         :root {
-            --bg-primary: #f5f0e8;
-            --bg-secondary: #ebe5d9;
-            --bg-card: #ffffff;
-            --bg-card-hover: #faf7f2;
-            --accent: #e07040;
-            --accent-light: #f0a080;
-            --accent-dim: rgba(224, 112, 64, 0.12);
-            --accent-glow: rgba(224, 112, 64, 0.25);
-            --text-primary: #2d2a26;
-            --text-secondary: #6b6560;
-            --text-muted: #9a9490;
-            --border: rgba(0, 0, 0, 0.08);
-            --border-accent: rgba(224, 112, 64, 0.25);
+            --bg-primary: #0c0f1e;
+            --bg-secondary: #111527;
+            --bg-card: #1a1f35;
+            --bg-card-hover: #1f2540;
+            --accent: #E8740C;
+            --accent-light: #F5B731;
+            --accent-dim: rgba(232, 116, 12, 0.12);
+            --accent-glow: rgba(232, 116, 12, 0.3);
+            --text-primary: #fcfcff;
+            --text-secondary: #b0b4c0;
+            --text-muted: #606878;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-accent: rgba(232, 116, 12, 0.3);
         }
 
         html {
@@ -42,6 +42,27 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Constellation dot-grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
         }
 
         /* Navigation */
@@ -52,7 +73,7 @@
             right: 0;
             z-index: 100;
             padding: 0.5rem 2rem;
-            background: rgba(245, 240, 232, 0.92);
+            background: rgba(12, 15, 30, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -90,7 +111,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--accent);
+            color: var(--accent-light);
         }
 
         /* Hero */
@@ -104,6 +125,27 @@
             padding: 8rem 2rem 5rem;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        /* Radial glow behind hero text */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(232, 116, 12, 0.08) 0%, rgba(245, 183, 49, 0.03) 40%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero-icon {
@@ -124,7 +166,10 @@
             letter-spacing: 0.25em;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
         }
 
@@ -134,10 +179,14 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
+            color: var(--text-primary);
         }
 
         .hero h1 span {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-bio {
@@ -168,26 +217,27 @@
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: #fff;
         }
 
         .btn-primary:hover {
-            background: #cc5f33;
-            box-shadow: 0 4px 20px var(--accent-glow);
+            box-shadow: 0 4px 25px var(--accent-glow);
             transform: translateY(-1px);
+            filter: brightness(1.1);
         }
 
         .btn-secondary {
             background: var(--bg-card);
             color: var(--text-primary);
-            border: 1px solid var(--border);
+            border: 1px solid var(--accent);
         }
 
         .btn-secondary:hover {
-            border-color: var(--border-accent);
+            border-color: var(--accent-light);
             background: var(--bg-card-hover);
             transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(232, 116, 12, 0.15);
         }
 
         /* Sections */
@@ -202,7 +252,10 @@
             letter-spacing: 0.2em;
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
             margin-bottom: 0.75rem;
         }
@@ -213,10 +266,14 @@
             text-align: center;
             margin-bottom: 0.75rem;
             letter-spacing: -0.02em;
+            color: var(--text-primary);
         }
 
         .section-title span {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-subtitle {
@@ -242,13 +299,13 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 2.25rem;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
         .service-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
         }
 
         .service-icon {
@@ -267,6 +324,7 @@
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 0.6rem;
+            color: var(--text-primary);
         }
 
         .service-card p {
@@ -287,7 +345,7 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 2.25rem;
-            transition: all 0.3s;
+            transition: all 0.4s;
             position: relative;
             overflow: hidden;
         }
@@ -295,13 +353,13 @@
         .project-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
         }
 
         .project-tag {
             display: inline-block;
-            background: var(--accent-dim);
-            color: var(--accent);
+            background: linear-gradient(135deg, rgba(232, 116, 12, 0.15), rgba(245, 183, 49, 0.1));
+            color: var(--accent-light);
             font-size: 0.72rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -309,12 +367,14 @@
             padding: 0.35rem 0.75rem;
             border-radius: 6px;
             margin-bottom: 1rem;
+            border: 1px solid rgba(232, 116, 12, 0.2);
         }
 
         .project-card h3 {
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 0.6rem;
+            color: var(--text-primary);
         }
 
         .project-card p {
@@ -333,14 +393,18 @@
         .project-stat {
             font-size: 0.78rem;
             color: var(--text-muted);
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             padding: 0.3rem 0.7rem;
             border-radius: 6px;
             font-weight: 500;
+            border: 1px solid var(--border);
         }
 
         .project-stat strong {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 700;
         }
 
@@ -350,7 +414,7 @@
             gap: 0.35rem;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--accent-light);
             text-decoration: none;
             margin-top: 0.5rem;
             transition: gap 0.3s;
@@ -399,7 +463,7 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: var(--accent-dim);
+            background: var(--bg-primary);
             color: var(--accent);
             font-weight: 800;
             font-size: 1.1rem;
@@ -407,12 +471,14 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
+            border: 2px solid var(--accent);
         }
 
         .process-step h4 {
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 0.4rem;
+            color: var(--text-primary);
         }
 
         .process-step p {
@@ -438,6 +504,7 @@
         /* Training section */
         .training-section {
             background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 16px;
             padding: 3.5rem;
             margin-top: 1rem;
@@ -447,6 +514,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
         .training-section > p {
@@ -468,18 +536,20 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 1.5rem;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
         .training-item:hover {
             border-color: var(--border-accent);
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08);
         }
 
         .training-item h4 {
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 0.35rem;
+            color: var(--text-primary);
         }
 
         .training-item p {
@@ -520,13 +590,13 @@
             border-radius: 14px;
             padding: 2.25rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
         .team-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
         }
 
         .team-avatar {
@@ -542,6 +612,7 @@
             justify-content: center;
             margin: 0 auto 1.25rem;
             overflow: hidden;
+            border: 2px solid rgba(232, 116, 12, 0.2);
         }
 
         .team-avatar img {
@@ -554,11 +625,15 @@
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
+            color: var(--text-primary);
         }
 
         .team-card .team-role {
             font-size: 0.82rem;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
@@ -575,7 +650,7 @@
             gap: 0.35rem;
             font-size: 0.82rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--accent-light);
             text-decoration: none;
             margin-top: 0.75rem;
             transition: gap 0.3s;
@@ -614,14 +689,14 @@
         }
 
         footer a:hover {
-            color: var(--accent);
+            color: var(--accent-light);
         }
 
         /* Divider */
         .divider {
             width: 60px;
             height: 3px;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             border-radius: 3px;
             margin: 0 auto 3rem;
         }
@@ -720,7 +795,6 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#process">How We Work</a></li>
-        <li><a href="#training">Training</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -728,9 +802,9 @@
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-label">AI-Powered Data Intelligence</div>
-    <h1>We build the <span>data infrastructure</span> that powers decisions</h1>
-    <p class="hero-bio">Early Phoenix helps organisations unlock competitive advantage through intelligent data pipelines and market intelligence dashboards. We don't just present data &mdash; we build the systems that keep it fresh.</p>
+    <div class="hero-label">AI-Powered Business Intelligence</div>
+    <h1>We help businesses see what's really happening in their <span>markets</span></h1>
+    <p class="hero-bio">Early Phoenix turns fragmented market data into clear, actionable intelligence. We track competitive pricing, marketplace dynamics, and market share across European markets so you can make better strategic decisions.</p>
     <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">See Our Work</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -741,35 +815,35 @@
 <section id="services">
     <div class="section-label fade-in">What We Do</div>
     <h2 class="section-title fade-in">Capabilities</h2>
-    <p class="section-subtitle fade-in">From raw data to actionable intelligence &mdash; we build end-to-end.</p>
+    <p class="section-subtitle fade-in">From raw data to actionable intelligence, we build end-to-end.</p>
     <div class="services-grid">
         <div class="service-card fade-in fade-in-delay-1">
             <div class="service-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
             <h3>Market Intelligence</h3>
-            <p>Comprehensive market analysis across industries. Pricing insights, competitive benchmarking, marketplace sizing, and trend detection &mdash; delivered as live dashboards or structured data feeds.</p>
+            <p>We track competitive dynamics across industries. Pricing movements, marketplace volumes, new entrants, promotional activity. Delivered as live dashboards, structured data feeds, or strategic briefings.</p>
         </div>
         <div class="service-card fade-in fade-in-delay-2">
             <div class="service-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
-            <h3>AI &amp; Data Engineering</h3>
-            <p>Building intelligent pipelines that turn raw, messy data into clean, structured insight. Data integration, enrichment, and gap-filling &mdash; turning incomplete datasets into comprehensive market views. Classification, deduplication, canonical databases, and alerting systems.</p>
+            <h3>Data Intelligence</h3>
+            <p>Automated pipelines that collect, structure, and analyse market data at scale. We turn incomplete, messy datasets into comprehensive, auditable market views updated daily.</p>
         </div>
         <div class="service-card fade-in fade-in-delay-3">
             <div class="service-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
-            <h3>Business Intelligence</h3>
-            <p>Custom dashboards, interactive visualisations, and Excel-ready outputs for commercial decision-making. Pivot tables, trend analysis, and comparison tools tailored to your workflows.</p>
+            <h3>Business Analytics</h3>
+            <p>Interactive dashboards, data decks, and Excel-ready outputs for commercial decision-making. Trend analysis, market comparisons, and anomaly detection tailored to your workflows.</p>
         </div>
         <div class="service-card fade-in fade-in-delay-4">
             <div class="service-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>Team Enablement</h3>
-            <p>Upskilling product, design, analytics and engineering teams on AI tools and modern workflows. Hands-on training, not theory &mdash; we embed new capabilities into your team's daily work.</p>
+            <h3>AI Advisory</h3>
+            <p>Helping leadership and teams adopt AI effectively. From strategic planning to hands-on tool adoption, we embed AI capabilities into your organisation's daily operations.</p>
         </div>
     </div>
 </section>
@@ -783,10 +857,10 @@
         <div class="project-card fade-in fade-in-delay-1">
             <div class="project-tag">Animal Welfare</div>
             <h3>UK Pet Marketplace Intelligence</h3>
-            <p>Market sizing, pricing analysis, and breeder compliance insights across the UK pet sales landscape &mdash; supporting welfare-focused policy and advocacy work.</p>
+            <p>The UK's most comprehensive view of online pet sales. Tracking pricing, volumes, and breeder compliance across all major platforms to support welfare-focused policy and advocacy.</p>
             <div class="project-stats">
-                <span class="project-stat"><strong>National</strong> coverage</span>
-                <span class="project-stat"><strong>Multi-platform</strong> analysis</span>
+                <span class="project-stat"><strong>75%</strong> of UK online dog sales</span>
+                <span class="project-stat"><strong>Multi-platform</strong> daily tracking</span>
             </div>
             <a href="/case-studies/pet-welfare/" class="project-link">View Case Study &rarr;</a>
         </div>
@@ -795,27 +869,27 @@
             <h3>UK Breeder Registry</h3>
             <p>First national database of licensed breeders, consolidated from distributed local authority records across England into a single searchable view.</p>
             <div class="project-stats">
-                <span class="project-stat"><strong>National</strong> coverage</span>
-                <span class="project-stat"><strong>First</strong> of its kind</span>
+                <span class="project-stat"><strong>4,500+</strong> licensed breeders</span>
+                <span class="project-stat"><strong>First</strong> national database</span>
             </div>
             <a href="https://dashboard.earlyphoenix.uk/uk-breeders/" class="project-link" target="_blank">View Live Dashboard &rarr;</a>
         </div>
         <div class="project-card fade-in fade-in-delay-3">
             <div class="project-tag">Retail / FMCG</div>
             <h3>Retail Price Intelligence</h3>
-            <p>Competitive pricing insights across the UK grocery market &mdash; shelf prices, promotions, and loyalty deals delivered as live dashboards with Excel exports.</p>
+            <p>Automated daily tracking of competitor pricing across UK supermarkets. Shelf prices, promotions, and loyalty deals delivered as live dashboards with Excel exports.</p>
             <div class="project-stats">
-                <span class="project-stat"><strong>Thousands</strong> of products</span>
-                <span class="project-stat"><strong>Cross-market</strong> coverage</span>
+                <span class="project-stat"><strong>3,400+</strong> products tracked daily</span>
+                <span class="project-stat"><strong>12</strong> UK retailers</span>
             </div>
         </div>
         <div class="project-card fade-in fade-in-delay-4">
             <div class="project-tag">Classifieds</div>
             <h3>European Marketplace Sizing</h3>
-            <p>Volume estimation and competitive intelligence across classified and re-commerce platforms in multiple European markets.</p>
+            <p>Volume estimation and competitive intelligence across classified and re-commerce platforms spanning UK, Spain, and France.</p>
             <div class="project-stats">
-                <span class="project-stat"><strong>Multi-market</strong> coverage</span>
-                <span class="project-stat"><strong>Category</strong> sizing</span>
+                <span class="project-stat"><strong>3</strong> European markets</span>
+                <span class="project-stat"><strong>Category-level</strong> sizing</span>
             </div>
         </div>
     </div>
@@ -856,44 +930,6 @@
     </div>
 </section>
 
-<!-- Training & Enablement -->
-<section id="training">
-    <div class="section-label fade-in">Enablement</div>
-    <h2 class="section-title fade-in">AI Training &amp; <span>Upskilling</span></h2>
-    <p class="section-subtitle fade-in">From theory to practice &mdash; we embed AI into your team's daily work.</p>
-
-    <div class="training-section fade-in">
-        <h3>Helping teams work with AI, not just talk about it</h3>
-        <p>We run hands-on workshops and embedded training programmes for product, design, analytics, and engineering teams. The goal: make AI tools a natural part of how your team works, not a separate initiative.</p>
-        <div class="training-grid">
-            <div class="training-item">
-                <h4>AI Tools Adoption</h4>
-                <p>Practical training on Claude, ChatGPT, Copilot, and other tools &mdash; focused on real workflows, not demos.</p>
-            </div>
-            <div class="training-item">
-                <h4>Prompt Engineering</h4>
-                <p>Teaching teams to communicate effectively with AI &mdash; from simple queries to complex, multi-step agentic workflows.</p>
-            </div>
-            <div class="training-item">
-                <h4>Agentic Workflows</h4>
-                <p>Building autonomous AI pipelines that collect, process, analyse, and report &mdash; reducing manual work by orders of magnitude.</p>
-            </div>
-            <div class="training-item">
-                <h4>Data Literacy</h4>
-                <p>Enabling non-technical teams to work with data confidently &mdash; dashboards, Excel, SQL basics, and data storytelling.</p>
-            </div>
-        </div>
-        <div class="training-audiences">
-            <span class="audience-tag">Product Teams</span>
-            <span class="audience-tag">Design Teams</span>
-            <span class="audience-tag">Analytics Teams</span>
-            <span class="audience-tag">Engineering Teams</span>
-            <span class="audience-tag">Marketing Teams</span>
-            <span class="audience-tag">Leadership</span>
-        </div>
-    </div>
-</section>
-
 <!-- About -->
 <section id="about">
     <div class="section-label fade-in">Who We Are</div>
@@ -919,9 +955,9 @@
 <section id="contact" class="contact-section">
     <div class="section-label fade-in">Get Started</div>
     <h2 class="section-title fade-in">Let's <span>Talk</span></h2>
-    <p class="section-subtitle fade-in">Whether you need market intelligence, data engineering, or AI training &mdash; we'd love to hear about your challenge.</p>
+    <p class="section-subtitle fade-in">Whether you need market intelligence, competitive tracking, or AI advisory, we'd love to hear about your challenge.</p>
     <div class="contact-links fade-in">
-        <a href="mailto:kim@earlyphoenix.uk" class="btn btn-primary">Send Email</a>
+        <a href="mailto:kim@earlyphoenix.ai" class="btn btn-primary">Send Email</a>
         <a href="https://uk.linkedin.com/in/kimfaura" target="_blank" class="btn btn-secondary">LinkedIn</a>
     </div>
 </section>
