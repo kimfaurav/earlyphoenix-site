@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Signal — Daily Competitive Alerts for FMCG | Early Phoenix</title>
+    <meta name="description" content="Daily email alerts when competitors change prices, run promotions, or launch new products across European supermarkets. From EUR 500/month.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0c0f1e;
+            --bg-secondary: #111527;
+            --bg-card: #1a1f35;
+            --bg-card-hover: #1f2540;
+            --accent: #E8740C;
+            --accent-light: #F5B731;
+            --accent-dim: rgba(232, 116, 12, 0.12);
+            --accent-glow: rgba(232, 116, 12, 0.3);
+            --text-primary: #fcfcff;
+            --text-secondary: #b0b4c0;
+            --text-muted: #606878;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-accent: rgba(232, 116, 12, 0.3);
+            --green: #34d399;
+            --red: #f87171;
+            --yellow: #fbbf24;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        body > * { position: relative; z-index: 1; }
+
+        /* Nav */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 0.5rem 2rem;
+            background: rgba(12, 15, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo { font-weight: 800; font-size: 1.15rem; color: var(--text-primary); text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul li a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;
+        }
+        nav ul li a:hover { color: var(--accent-light); }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 8rem 2rem 4rem; max-width: 900px; margin: 0 auto;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -55%); width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(232, 116, 12, 0.08) 0%, rgba(245, 183, 49, 0.03) 40%, transparent 70%);
+            border-radius: 50%; pointer-events: none; z-index: 0;
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block; background: var(--accent-dim); border: 1px solid var(--border-accent);
+            color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 0.4rem 1rem; border-radius: 20px; margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem; font-weight: 800; line-height: 1.1;
+            margin-bottom: 1.5rem; letter-spacing: -0.03em;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.2rem; color: var(--text-secondary); line-height: 1.75;
+            max-width: 650px; margin-bottom: 2.5rem;
+        }
+        .hero-price {
+            font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem;
+        }
+        .hero-price strong {
+            font-size: 1.8rem; font-weight: 800; color: var(--text-primary);
+        }
+
+        .btn {
+            padding: 0.9rem 2.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 4px 25px var(--accent-glow); transform: translateY(-1px); filter: brightness(1.1);
+        }
+        .btn-secondary {
+            background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--accent);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent-light); background: var(--bg-card-hover);
+            transform: translateY(-1px); box-shadow: 0 4px 20px rgba(232, 116, 12, 0.15);
+        }
+        .hero-buttons { display: flex; gap: 1rem; }
+
+        /* Sections */
+        section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; font-weight: 600;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            text-align: center; margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: 2.5rem; font-weight: 800; text-align: center;
+            margin-bottom: 0.75rem; letter-spacing: -0.02em;
+        }
+        .section-title span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .section-subtitle {
+            text-align: center; color: var(--text-secondary); font-size: 1.05rem;
+            margin-bottom: 3.5rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7;
+        }
+
+        /* Email Preview */
+        .email-preview {
+            background: #1e2235; border: 1px solid var(--border); border-radius: 14px;
+            max-width: 700px; margin: 0 auto 4rem; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .email-header {
+            background: #252a40; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .email-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .email-dot-red { background: #f87171; }
+        .email-dot-yellow { background: #fbbf24; }
+        .email-dot-green { background: #34d399; }
+        .email-subject {
+            margin-left: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);
+        }
+        .email-subject strong { color: var(--text-primary); }
+        .email-body { padding: 1.5rem; font-family: 'Inter', monospace; font-size: 0.82rem; line-height: 1.8; }
+        .email-section-title {
+            font-weight: 700; color: var(--text-muted); font-size: 0.72rem;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1.25rem; margin-bottom: 0.5rem;
+        }
+        .email-section-title:first-child { margin-top: 0; }
+        .email-item { color: var(--text-secondary); padding-left: 0.5rem; }
+        .email-item .price-down { color: var(--green); font-weight: 600; }
+        .email-item .price-up { color: var(--red); font-weight: 600; }
+        .email-item .new { color: var(--accent-light); font-weight: 600; }
+        .email-item .stock { color: var(--yellow); font-weight: 600; }
+        .email-footer {
+            border-top: 1px solid var(--border); padding: 1rem 1.5rem;
+            font-size: 0.72rem; color: var(--text-muted); text-align: center;
+        }
+
+        /* Alerts grid */
+        .alerts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+        .alert-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.75rem; text-align: center; transition: all 0.3s;
+        }
+        .alert-card:hover {
+            border-color: var(--border-accent); transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08);
+        }
+        .alert-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .alert-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .alert-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* Pricing */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .pricing-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+            padding: 2.5rem 2rem; transition: all 0.4s; position: relative;
+        }
+        .pricing-card:hover {
+            border-color: var(--border-accent); transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1);
+        }
+        .pricing-card.featured {
+            border-color: var(--accent); box-shadow: 0 0 30px rgba(232, 116, 12, 0.15);
+        }
+        .pricing-card.featured::before {
+            content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; padding: 0.3rem 1rem; border-radius: 12px;
+        }
+        .pricing-tier {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em;
+            font-weight: 600; color: var(--accent-light); margin-bottom: 0.5rem;
+        }
+        .pricing-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+        .pricing-amount { margin-bottom: 1.5rem; }
+        .pricing-amount .price {
+            font-size: 2.5rem; font-weight: 800; color: var(--text-primary);
+        }
+        .pricing-amount .period { font-size: 0.9rem; color: var(--text-muted); }
+        .pricing-amount .note { font-size: 0.78rem; color: var(--text-muted); display: block; margin-top: 0.25rem; }
+        .pricing-features { list-style: none; margin-bottom: 2rem; }
+        .pricing-features li {
+            font-size: 0.85rem; color: var(--text-secondary); padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.5rem;
+        }
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+        /* Countries */
+        .countries-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .country-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.5rem; text-align: center; transition: all 0.3s;
+        }
+        .country-card:hover { border-color: var(--border-accent); }
+        .country-flag { font-size: 2rem; margin-bottom: 0.5rem; }
+        .country-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .country-card p { font-size: 0.78rem; color: var(--text-muted); }
+        .country-card .retailer-count {
+            font-size: 0.82rem; color: var(--accent-light); font-weight: 600; margin-top: 0.5rem;
+        }
+        .country-card.coming-soon { opacity: 0.5; }
+        .country-card.coming-soon .retailer-count { color: var(--text-muted); }
+
+        /* How it works */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .step-card { text-align: center; }
+        .step-number {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--bg-primary); color: var(--accent); font-weight: 800; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; border: 2px solid var(--accent);
+        }
+        .step-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .step-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* CTA */
+        .cta-section {
+            text-align: center; padding: 5rem 2rem;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; margin: 2rem auto; max-width: 1100px;
+        }
+        .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .cta-section p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 2.5rem 2rem; color: var(--text-muted);
+            font-size: 0.8rem; border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--accent-light); }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
+            section { padding: 3.5rem 1.5rem; }
+            .alerts-grid, .pricing-grid, .countries-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .alerts-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
+    <ul>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/shelf-signal" style="color: var(--accent-light);">Shelf Signal</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-badge">Early Phoenix Product</div>
+    <h1>Every morning, know what <span>changed on the shelf</span></h1>
+    <p class="hero-sub">Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major supermarkets in your country.</p>
+    <div class="hero-price">
+        From <strong>&euro;500</strong>/month
+        <br>One category. One country. All major retailers.
+    </div>
+    <div class="hero-buttons">
+        <a href="#pricing" class="btn btn-primary">See Pricing</a>
+        <a href="shelf-signal-signup.html" class="btn btn-secondary">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Email Preview -->
+<section>
+    <div class="section-label fade-in">What You Get</div>
+    <h2 class="section-title fade-in">Your <span>7am email</span></h2>
+    <p class="section-subtitle fade-in">Everything that changed yesterday in your category, at every retailer, in your inbox before your first meeting.</p>
+
+    <div class="email-preview fade-in">
+        <div class="email-header">
+            <div class="email-dot email-dot-red"></div>
+            <div class="email-dot email-dot-yellow"></div>
+            <div class="email-dot email-dot-green"></div>
+            <div class="email-subject"><strong>Shelf Signal:</strong> Ice Cream, Portugal &mdash; 22 March 2026</div>
+        </div>
+        <div class="email-body">
+            <div class="email-section-title">Price Changes (3)</div>
+            <div class="email-item"><span class="price-up">&FilledSmallSquare;</span> Magnum Classic 4pk: Continente &euro;3.50 &rarr; &euro;3.99 <span class="price-up">(+14%)</span></div>
+            <div class="email-item"><span class="price-down">&FilledSmallSquare;</span> Ben & Jerry's Cookie Dough 465ml: Pingo Doce &euro;5.50 &rarr; &euro;4.00 <span class="price-down">(-27%)</span></div>
+            <div class="email-item"><span class="price-down">&FilledSmallSquare;</span> Own Label Vanilla 900ml: Auchan &euro;2.00 &rarr; &euro;1.75 <span class="price-down">(-12%)</span></div>
+
+            <div class="email-section-title">Promotions (2)</div>
+            <div class="email-item"><span class="new">&FilledSmallSquare;</span> <span class="new">Started:</span> Magnum Almond 3pk at Continente &mdash; &euro;5.69 &rarr; &euro;4.09 (-28%)</div>
+            <div class="email-item"><span class="price-up">&FilledSmallSquare;</span> <span class="price-up">Ended:</span> Cornetto Classico 6pk at Auchan &mdash; back to &euro;5.99</div>
+
+            <div class="email-section-title">New Listings (1)</div>
+            <div class="email-item"><span class="new">&FilledSmallSquare;</span> Magnum Pistachio 3pk: listed at Pingo Doce, &euro;4.50</div>
+
+            <div class="email-section-title">Out of Stock (2)</div>
+            <div class="email-item"><span class="stock">&FilledSmallSquare;</span> Ferrero Rocher Stick 4pk: Continente <span class="stock">(was in stock yesterday)</span></div>
+            <div class="email-item"><span class="stock">&FilledSmallSquare;</span> H&auml;agen-Dazs Salted Caramel 460ml: Auchan</div>
+
+            <div class="email-section-title">Back in Stock (1)</div>
+            <div class="email-item"><span class="price-down">&FilledSmallSquare;</span> Cornetto Classico 6pk: Continente</div>
+        </div>
+        <div class="email-footer">
+            Shelf Signal by Early Phoenix &nbsp;|&nbsp; Manage preferences &nbsp;|&nbsp; earlyphoenix.ai
+        </div>
+    </div>
+</section>
+
+<!-- What We Track -->
+<section>
+    <div class="section-label fade-in">Alert Types</div>
+    <h2 class="section-title fade-in">Six triggers, <span>every day</span></h2>
+    <p class="section-subtitle fade-in">We only email you when something actually changes. No noise, no empty inboxes.</p>
+
+    <div class="alerts-grid">
+        <div class="alert-card fade-in fade-in-delay-1">
+            <div class="alert-icon">&darr;</div>
+            <h4>Price Drops</h4>
+            <p>Competitor cuts a price. You know before your buyer calls.</p>
+        </div>
+        <div class="alert-card fade-in fade-in-delay-2">
+            <div class="alert-icon">&uarr;</div>
+            <h4>Price Increases</h4>
+            <p>Someone raises prices. Spot margin opportunities in real time.</p>
+        </div>
+        <div class="alert-card fade-in fade-in-delay-3">
+            <div class="alert-icon">&starf;</div>
+            <h4>Promotions</h4>
+            <p>New promotions starting, ending, or changing depth. By retailer.</p>
+        </div>
+        <div class="alert-card fade-in fade-in-delay-4">
+            <div class="alert-icon">+</div>
+            <h4>New Listings</h4>
+            <p>A competitor launches a new SKU at a retailer. You see it the next morning.</p>
+        </div>
+        <div class="alert-card fade-in fade-in-delay-1">
+            <div class="alert-icon">&minus;</div>
+            <h4>Delistings</h4>
+            <p>A product disappears from a retailer. Distribution gaps spotted instantly.</p>
+        </div>
+        <div class="alert-card fade-in fade-in-delay-2">
+            <div class="alert-icon">!</div>
+            <h4>Stock Changes</h4>
+            <p>Out of stock or back in stock. Track availability across every retailer, daily.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Countries -->
+<section>
+    <div class="section-label fade-in">Coverage</div>
+    <h2 class="section-title fade-in">European <span>retailers</span></h2>
+    <p class="section-subtitle fade-in">All major supermarkets in each country. Captured daily.</p>
+
+    <div class="countries-grid">
+        <div class="country-card fade-in fade-in-delay-1">
+            <div class="country-flag">&#127468;&#127463;</div>
+            <h4>United Kingdom</h4>
+            <p>Tesco, Sainsbury's, Asda, Morrisons, Waitrose, Ocado, Aldi, Lidl, Co-op, M&amp;S, Iceland</p>
+            <div class="retailer-count">12+ retailers</div>
+        </div>
+        <div class="country-card fade-in fade-in-delay-2">
+            <div class="country-flag">&#127477;&#127481;</div>
+            <h4>Portugal</h4>
+            <p>Continente, Pingo Doce, Auchan, Mercadona, Minipreco, Intermarch&eacute;</p>
+            <div class="retailer-count">6 retailers</div>
+        </div>
+        <div class="country-card fade-in fade-in-delay-3">
+            <div class="country-flag">&#127466;&#127480;</div>
+            <h4>Spain</h4>
+            <p>Mercadona, Carrefour, Alcampo, DIA, El Corte Ingl&eacute;s, Lidl, Aldi</p>
+            <div class="retailer-count">7+ retailers</div>
+        </div>
+        <div class="country-card fade-in fade-in-delay-4">
+            <div class="country-flag">&#127467;&#127479;</div>
+            <h4>France</h4>
+            <p>Carrefour, Monoprix, Intermarch&eacute;, Auchan, E.Leclerc</p>
+            <div class="retailer-count">5+ retailers</div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing">
+    <div class="section-label fade-in">Pricing</div>
+    <h2 class="section-title fade-in">Simple, <span>transparent</span> pricing</h2>
+    <p class="section-subtitle fade-in">Pick a plan. Tell us your brand, category, and competitors. First email arrives tomorrow morning.</p>
+
+    <div class="pricing-grid">
+        <div class="pricing-card fade-in fade-in-delay-1">
+            <div class="pricing-tier">Starter</div>
+            <h3>One category, one country</h3>
+            <div class="pricing-amount">
+                <span class="price">&euro;500</span><span class="period">/month</span>
+                <span class="note">No annual commitment</span>
+            </div>
+            <ul class="pricing-features">
+                <li><span class="check">&check;</span> 1 category across all major retailers</li>
+                <li><span class="check">&check;</span> 1 country</li>
+                <li><span class="check">&check;</span> Daily email alerts</li>
+                <li><span class="check">&check;</span> Monthly summary report</li>
+                <li><span class="check">&check;</span> CSV data export</li>
+                <li><span class="check">&check;</span> Email support</li>
+            </ul>
+            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+        </div>
+        <div class="pricing-card featured fade-in fade-in-delay-2">
+            <div class="pricing-tier">Professional</div>
+            <h3>Three categories, one country</h3>
+            <div class="pricing-amount">
+                <span class="price">&euro;1,200</span><span class="period">/month</span>
+                <span class="note">Save &euro;300 vs 3x Starter</span>
+            </div>
+            <ul class="pricing-features">
+                <li><span class="check">&check;</span> 3 categories across all major retailers</li>
+                <li><span class="check">&check;</span> 1 country</li>
+                <li><span class="check">&check;</span> Daily email alerts</li>
+                <li><span class="check">&check;</span> Monthly summary report</li>
+                <li><span class="check">&check;</span> CSV data export</li>
+                <li><span class="check">&check;</span> Priority email support</li>
+            </ul>
+            <a href="shelf-signal-signup.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+        </div>
+        <div class="pricing-card fade-in fade-in-delay-3">
+            <div class="pricing-tier">Enterprise</div>
+            <h3>Multiple countries and categories</h3>
+            <div class="pricing-amount">
+                <span class="price">Custom</span>
+                <span class="note">Tailored to your market coverage</span>
+            </div>
+            <ul class="pricing-features">
+                <li><span class="check">&check;</span> Unlimited categories</li>
+                <li><span class="check">&check;</span> Multiple countries</li>
+                <li><span class="check">&check;</span> Daily email alerts</li>
+                <li><span class="check">&check;</span> Monthly analyst-written report</li>
+                <li><span class="check">&check;</span> API data access</li>
+                <li><span class="check">&check;</span> Dedicated account manager</li>
+            </ul>
+            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;">Talk to Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section>
+    <div class="section-label fade-in">How It Works</div>
+    <h2 class="section-title fade-in">Live in <span>24 hours</span></h2>
+    <p class="section-subtitle fade-in">No integration. No onboarding project. No IT involvement.</p>
+
+    <div class="steps-grid">
+        <div class="step-card fade-in fade-in-delay-1">
+            <div class="step-number">1</div>
+            <h4>Tell us your category</h4>
+            <p>Your brand, your competitors, your country. A 15-minute call to scope exactly what you need.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-2">
+            <div class="step-number">2</div>
+            <h4>We configure your feed</h4>
+            <p>We set up daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3">
+            <div class="step-number">3</div>
+            <h4>Check your inbox</h4>
+            <p>Every morning at 7am, your Shelf Signal arrives. Only when something changed. No noise.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-in">
+    <h2>Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span></h2>
+    <p>Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
+        <a href="/" class="btn btn-secondary">Back to Early Phoenix</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
+</footer>
+
+<!-- Scroll Animations -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

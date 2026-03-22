@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started with Shelf Signal | Early Phoenix</title>
+    <meta name="description" content="Configure your Shelf Signal daily competitive alerts. Choose your categories, countries, and competitors.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0c0f1e; --bg-secondary: #111527; --bg-card: #1a1f35;
+            --bg-card-hover: #1f2540; --bg-input: #151a2e;
+            --accent: #E8740C; --accent-light: #F5B731;
+            --accent-dim: rgba(232, 116, 12, 0.12); --accent-glow: rgba(232, 116, 12, 0.3);
+            --text-primary: #fcfcff; --text-secondary: #b0b4c0; --text-muted: #606878;
+            --border: rgba(255, 255, 255, 0.06); --border-accent: rgba(232, 116, 12, 0.3);
+            --border-input: rgba(255, 255, 255, 0.12); --green: #34d399;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden;
+        }
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        body > * { position: relative; z-index: 1; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.5rem 2rem;
+            background: rgba(12, 15, 30, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo { text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul li a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--accent-light); }
+
+        .page-container { max-width: 880px; margin: 0 auto; padding: 7rem 2rem 4rem; }
+        .page-header { text-align: center; margin-bottom: 3rem; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+        .page-header h1 span { background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
+
+        .steps-indicator { display: flex; justify-content: center; gap: 0; margin-bottom: 3rem; }
+        .step-dot { display: flex; align-items: center; }
+        .step-circle {
+            width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.82rem; font-weight: 700; background: var(--bg-card); border: 2px solid var(--border);
+            color: var(--text-muted); transition: all 0.3s;
+        }
+        .step-circle.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .step-circle.done { background: var(--green); border-color: var(--green); color: #fff; }
+        .step-line { width: 60px; height: 2px; background: var(--border); align-self: center; transition: background 0.3s; }
+        .step-line.done { background: var(--green); }
+        .step-label { font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 0.4rem; font-weight: 500; }
+        .step-label.active { color: var(--accent-light); }
+
+        .form-section { display: none; animation: fadeIn 0.4s ease; }
+        .form-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; margin-bottom: 1.5rem; }
+        .form-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .form-card .subtitle { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+        /* Country grid - multi-select */
+        .country-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+        .country-option {
+            background: var(--bg-input); border: 2px solid var(--border-input); border-radius: 10px;
+            padding: 1rem; cursor: pointer; transition: all 0.3s; text-align: center;
+        }
+        .country-option:hover { border-color: var(--text-muted); }
+        .country-option.selected { border-color: var(--accent); background: var(--accent-dim); }
+        .country-option .flag { font-size: 1.6rem; margin-bottom: 0.3rem; }
+        .country-option .country-name { font-size: 0.82rem; font-weight: 600; }
+        .country-option .country-detail { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem; line-height: 1.3; }
+        .country-option.coming-soon { opacity: 0.45; cursor: default; }
+        .country-option.coming-soon:hover { border-color: var(--border-input); }
+        .country-option .badge-live {
+            display: inline-block; background: rgba(52, 211, 153, 0.15); color: var(--green);
+            font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 0.15rem 0.4rem; border-radius: 3px; margin-top: 0.3rem;
+        }
+        .country-option .badge-soon {
+            display: inline-block; background: rgba(255,255,255,0.05); color: var(--text-muted);
+            font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+            padding: 0.15rem 0.4rem; border-radius: 3px; margin-top: 0.3rem;
+        }
+        .selected-countries { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 30px; }
+        .selected-tag {
+            background: var(--accent-dim); border: 1px solid var(--border-accent); color: var(--accent-light);
+            font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 6px;
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .selected-tag .remove { cursor: pointer; opacity: 0.7; font-size: 0.9rem; }
+        .selected-tag .remove:hover { opacity: 1; }
+
+        /* Category grid */
+        .category-section-title {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+            font-weight: 600; color: var(--text-muted); margin-bottom: 0.6rem; margin-top: 1.25rem;
+        }
+        .category-section-title:first-of-type { margin-top: 0; }
+        .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+        .category-chip {
+            background: var(--bg-input); border: 2px solid var(--border-input); border-radius: 8px;
+            padding: 0.6rem 0.75rem; cursor: pointer; transition: all 0.3s; text-align: center;
+            font-size: 0.8rem; font-weight: 500; color: var(--text-secondary); user-select: none;
+        }
+        .category-chip:hover { border-color: var(--text-muted); color: var(--text-primary); }
+        .category-chip.selected { border-color: var(--accent); background: var(--accent-dim); color: var(--accent-light); font-weight: 600; }
+        .category-custom { margin-top: 1.25rem; }
+        .category-custom input {
+            width: 100%; padding: 0.75rem 1rem; background: var(--bg-input); border: 2px solid var(--border-input);
+            border-radius: 8px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.88rem;
+            outline: none; transition: border-color 0.3s;
+        }
+        .category-custom input:focus { border-color: var(--accent); }
+        .category-custom input::placeholder { color: var(--text-muted); }
+
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.75rem 1rem; background: var(--bg-input); border: 2px solid var(--border-input);
+            border-radius: 8px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.88rem;
+            outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+
+        .price-summary {
+            background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.5rem; margin-top: 1.5rem;
+        }
+        .price-summary .summary-line {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 0.4rem 0; font-size: 0.85rem; color: var(--text-secondary);
+        }
+        .price-summary .summary-line .value { color: var(--text-primary); font-weight: 600; text-align: right; max-width: 60%; }
+        .price-summary .summary-total {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.75rem 0 0; margin-top: 0.5rem; border-top: 1px solid var(--border);
+            font-size: 1.1rem; font-weight: 700;
+        }
+        .price-summary .summary-total .total-price {
+            font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .price-summary .summary-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; text-align: right; }
+        .enterprise-note {
+            background: var(--accent-dim); border: 1px solid var(--border-accent); border-radius: 8px;
+            padding: 0.75rem 1rem; margin-top: 0.75rem; font-size: 0.82rem; color: var(--accent-light);
+        }
+
+        .btn {
+            padding: 0.9rem 2.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff; }
+        .btn-primary:hover { box-shadow: 0 4px 25px var(--accent-glow); transform: translateY(-1px); filter: brightness(1.1); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--text-muted); }
+        .form-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+
+        .confirmation { text-align: center; padding: 3rem 2rem; }
+        .confirmation-icon {
+            width: 80px; height: 80px; border-radius: 50%; background: rgba(52, 211, 153, 0.15);
+            border: 2px solid var(--green); display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin: 0 auto 1.5rem;
+        }
+        .confirmation h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .confirmation p { color: var(--text-secondary); font-size: 1rem; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+        .confirmation .detail-box {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 1.5rem; margin: 2rem auto; max-width: 420px; text-align: left;
+        }
+        .confirmation .detail-line { display: flex; justify-content: space-between; padding: 0.35rem 0; font-size: 0.85rem; }
+        .confirmation .detail-line .label { color: var(--text-muted); }
+        .confirmation .detail-line .value { color: var(--text-primary); font-weight: 600; text-align: right; max-width: 55%; }
+
+        footer {
+            text-align: center; padding: 2.5rem 2rem; color: var(--text-muted);
+            font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent-light); }
+
+        @media (max-width: 700px) {
+            .country-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-header h1 { font-size: 2rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
+    <ul>
+        <li><a href="shelf-signal.html" style="color: var(--accent-light);">Shelf Signal</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-container">
+    <div class="page-header">
+        <h1>Configure your <span>Shelf Signal</span></h1>
+        <p>Choose your countries, categories, and tell us about your brand. Takes two minutes.</p>
+    </div>
+
+    <div class="steps-indicator">
+        <div class="step-dot"><div><div class="step-circle active" id="sc-1">1</div><div class="step-label active" id="sl-1">Countries</div></div></div>
+        <div class="step-line" id="sln-1"></div>
+        <div class="step-dot"><div><div class="step-circle" id="sc-2">2</div><div class="step-label" id="sl-2">Categories</div></div></div>
+        <div class="step-line" id="sln-2"></div>
+        <div class="step-dot"><div><div class="step-circle" id="sc-3">3</div><div class="step-label" id="sl-3">Your Brand</div></div></div>
+    </div>
+
+    <!-- STEP 1: Countries (multi-select) -->
+    <div class="form-section active" id="step-1">
+        <div class="form-card">
+            <h3>Which countries do you want to monitor?</h3>
+            <p class="subtitle">Select one or more markets. Each country covers all major supermarkets.</p>
+
+            <div class="category-section-title">Live now</div>
+            <div class="country-grid" id="countries-live">
+                <div class="country-option" data-country="uk" data-label="United Kingdom"><div class="flag">&#127468;&#127463;</div><div class="country-name">United Kingdom</div><div class="country-detail">Tesco, Sainsbury's, Asda, Morrisons, Waitrose, Ocado and more</div><div class="badge-live">Live</div></div>
+                <div class="country-option" data-country="es" data-label="Spain"><div class="flag">&#127466;&#127480;</div><div class="country-name">Spain</div><div class="country-detail">Mercadona, Carrefour, El Corte Ingl&eacute;s, DIA, Alcampo and more</div><div class="badge-live">Live</div></div>
+                <div class="country-option" data-country="fr" data-label="France"><div class="flag">&#127467;&#127479;</div><div class="country-name">France</div><div class="country-detail">Carrefour, E.Leclerc, Monoprix, Auchan, Intermarch&eacute; and more</div><div class="badge-live">Live</div></div>
+                <div class="country-option" data-country="pt" data-label="Portugal"><div class="flag">&#127477;&#127481;</div><div class="country-name">Portugal</div><div class="country-detail">Continente, Pingo Doce, Auchan, Mercadona and more</div><div class="badge-live">Live</div></div>
+                <div class="country-option" data-country="de" data-label="Germany"><div class="flag">&#127465;&#127466;</div><div class="country-name">Germany</div><div class="country-detail">Rewe, Edeka, Aldi, Lidl, Kaufland, dm and more</div><div class="badge-live">Live</div></div>
+                <div class="country-option" data-country="it" data-label="Italy"><div class="flag">&#127470;&#127481;</div><div class="country-name">Italy</div><div class="country-detail">Esselunga, Conad, Coop, Carrefour, Eurospin and more</div><div class="badge-live">Live</div></div>
+            </div>
+
+            <div class="category-section-title">Available on request</div>
+            <div class="country-grid" id="countries-request">
+                <div class="country-option" data-country="nl" data-label="Netherlands"><div class="flag">&#127475;&#127473;</div><div class="country-name">Netherlands</div><div class="country-detail">Albert Heijn, Jumbo, Lidl and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="be" data-label="Belgium"><div class="flag">&#127463;&#127466;</div><div class="country-name">Belgium</div><div class="country-detail">Colruyt, Delhaize, Carrefour and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="pl" data-label="Poland"><div class="flag">&#127477;&#127473;</div><div class="country-name">Poland</div><div class="country-detail">Biedronka, Lidl, Kaufland and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="at" data-label="Austria"><div class="flag">&#127462;&#127481;</div><div class="country-name">Austria</div><div class="country-detail">Billa, Spar, Hofer, Lidl and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="ch" data-label="Switzerland"><div class="flag">&#127464;&#127469;</div><div class="country-name">Switzerland</div><div class="country-detail">Migros, Coop, Aldi, Lidl and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="ie" data-label="Ireland"><div class="flag">&#127470;&#127466;</div><div class="country-name">Ireland</div><div class="country-detail">Tesco, Dunnes, SuperValu, Aldi and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="se" data-label="Sweden"><div class="flag">&#127480;&#127466;</div><div class="country-name">Sweden</div><div class="country-detail">ICA, Coop, Willys, Lidl and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="dk" data-label="Denmark"><div class="flag">&#127465;&#127472;</div><div class="country-name">Denmark</div><div class="country-detail">F&oslash;tex, Coop, Rema 1000, Lidl and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="no" data-label="Norway"><div class="flag">&#127475;&#127476;</div><div class="country-name">Norway</div><div class="country-detail">NorgesGruppen, Coop, Rema 1000 and more</div><div class="badge-soon">On request</div></div>
+                <div class="country-option" data-country="gr" data-label="Greece"><div class="flag">&#127468;&#127479;</div><div class="country-name">Greece</div><div class="country-detail">Sklavenitis, AB Vassilopoulos, Lidl and more</div><div class="badge-soon">On request</div></div>
+            </div>
+
+            <div class="selected-countries" id="selected-countries-display"></div>
+        </div>
+        <div class="form-actions">
+            <div></div>
+            <button class="btn btn-primary" id="btn-step-1" disabled>Next: Choose Categories</button>
+        </div>
+    </div>
+
+    <!-- STEP 2: Categories -->
+    <div class="form-section" id="step-2">
+        <div class="form-card">
+            <h3>Which categories do you want to track?</h3>
+            <p class="subtitle">Select as many as you need. Pricing adjusts automatically.</p>
+
+            <div class="category-section-title">Frozen &amp; Chilled</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Ice Cream">Ice Cream</div>
+                <div class="category-chip" data-category="Frozen Pizza">Frozen Pizza</div>
+                <div class="category-chip" data-category="Frozen Ready Meals">Ready Meals</div>
+                <div class="category-chip" data-category="Yoghurt & Dairy">Yoghurt &amp; Dairy</div>
+            </div>
+
+            <div class="category-section-title">Snacks &amp; Confectionery</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Chocolate">Chocolate</div>
+                <div class="category-chip" data-category="Biscuits">Biscuits</div>
+                <div class="category-chip" data-category="Snacks & Crisps">Snacks &amp; Crisps</div>
+                <div class="category-chip" data-category="Nuts & Dried Fruit">Nuts &amp; Dried Fruit</div>
+                <div class="category-chip" data-category="Sweets & Gum">Sweets &amp; Gum</div>
+                <div class="category-chip" data-category="Dips & Spreads">Dips &amp; Spreads</div>
+            </div>
+
+            <div class="category-section-title">Drinks</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Soft Drinks">Soft Drinks</div>
+                <div class="category-chip" data-category="Water">Water</div>
+                <div class="category-chip" data-category="Juice">Juice</div>
+                <div class="category-chip" data-category="Coffee & Tea">Coffee &amp; Tea</div>
+                <div class="category-chip" data-category="Energy Drinks">Energy Drinks</div>
+                <div class="category-chip" data-category="Beer, Wine & Spirits">Beer, Wine &amp; Spirits</div>
+            </div>
+
+            <div class="category-section-title">Pantry &amp; Cooking</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Bread & Bakery">Bread &amp; Bakery</div>
+                <div class="category-chip" data-category="Cereal">Cereal</div>
+                <div class="category-chip" data-category="Pasta, Rice & Grains">Pasta, Rice &amp; Grains</div>
+                <div class="category-chip" data-category="Condiments & Sauces">Condiments &amp; Sauces</div>
+                <div class="category-chip" data-category="Cooking Oils">Cooking Oils</div>
+                <div class="category-chip" data-category="Canned & Jarred">Canned &amp; Jarred</div>
+            </div>
+
+            <div class="category-section-title">Baby, Pet &amp; Household</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Baby Food & Formula">Baby Food &amp; Formula</div>
+                <div class="category-chip" data-category="Baby Care">Baby Care</div>
+                <div class="category-chip" data-category="Pet Food">Pet Food</div>
+                <div class="category-chip" data-category="Laundry & Cleaning">Laundry &amp; Cleaning</div>
+                <div class="category-chip" data-category="Nappies & Wipes">Nappies &amp; Wipes</div>
+            </div>
+
+            <div class="category-section-title">Health &amp; Beauty</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Skincare">Skincare</div>
+                <div class="category-chip" data-category="Haircare">Haircare</div>
+                <div class="category-chip" data-category="Oral Care">Oral Care</div>
+                <div class="category-chip" data-category="Makeup & Cosmetics">Makeup &amp; Cosmetics</div>
+                <div class="category-chip" data-category="Men's Grooming">Men's Grooming</div>
+                <div class="category-chip" data-category="Sun Care">Sun Care</div>
+            </div>
+
+            <div class="category-section-title">Perfume &amp; Fragrance</div>
+            <div class="category-grid">
+                <div class="category-chip" data-category="Women's Fragrance">Women's Fragrance</div>
+                <div class="category-chip" data-category="Men's Fragrance">Men's Fragrance</div>
+                <div class="category-chip" data-category="Luxury Fragrance">Luxury Fragrance</div>
+                <div class="category-chip" data-category="Niche & Artisan Fragrance">Niche &amp; Artisan</div>
+            </div>
+            <div style="margin-top: 0.75rem; padding: 0.75rem 1rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; font-size: 0.78rem; color: var(--text-secondary);">
+                Fragrance and beauty categories are tracked across specialist retailers (Douglas, Sephora, Notino, The Perfume Shop, Primor, Druni, Marionnaud and more), not just supermarkets.
+            </div>
+
+            <div class="category-custom">
+                <input type="text" id="custom-category" placeholder="Don't see your category? Type it here (e.g. Plant-Based Milk, Sports Nutrition)">
+            </div>
+        </div>
+
+        <div class="price-summary" id="price-summary">
+            <div class="summary-line"><span>Countries</span><span class="value" id="summary-countries">-</span></div>
+            <div class="summary-line"><span>Categories</span><span class="value" id="summary-categories">-</span></div>
+            <div class="summary-line"><span>Plan</span><span class="value" id="summary-plan">-</span></div>
+            <div class="summary-total"><span>Monthly price</span><span class="total-price" id="summary-price">-</span></div>
+            <div class="summary-note">No annual commitment. Cancel anytime.</div>
+            <div class="enterprise-note" id="enterprise-note" style="display:none;">
+                Multi-country or 4+ category configurations are scoped as Enterprise. We'll get back to you with a tailored proposal.
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+            <button class="btn btn-primary" id="btn-step-2" disabled>Next: Your Details</button>
+        </div>
+    </div>
+
+    <!-- STEP 3: Contact -->
+    <div class="form-section" id="step-3">
+        <div class="form-card">
+            <h3>Tell us about your brand</h3>
+            <p class="subtitle">So we can configure your Shelf Signal with the right products and competitors.</p>
+            <div class="form-group"><label>Your name</label><input type="text" id="input-name" placeholder="e.g. Sarah Johnson"></div>
+            <div class="form-group"><label>Email address</label><input type="email" id="input-email" placeholder="e.g. sarah@yourcompany.com"></div>
+            <div class="form-group"><label>Company</label><input type="text" id="input-company" placeholder="e.g. Acme Foods"></div>
+            <div class="form-group"><label>Your brand(s)</label><input type="text" id="input-brands" placeholder="e.g. Brand A, Brand B, Brand C"></div>
+            <div class="form-group"><label>Key competitors to track</label><input type="text" id="input-competitors" placeholder="e.g. Top 3-5 competitor brands in your category"></div>
+            <div class="form-group"><label>Anything else? (optional)</label><textarea id="input-notes" placeholder="e.g. We're particularly interested in promotional activity and new product launches"></textarea></div>
+        </div>
+
+        <div class="price-summary">
+            <div class="summary-line"><span>Countries</span><span class="value" id="final-countries">-</span></div>
+            <div class="summary-line"><span>Categories</span><span class="value" id="final-categories">-</span></div>
+            <div class="summary-line"><span>Plan</span><span class="value" id="final-plan">-</span></div>
+            <div class="summary-total"><span>Monthly price</span><span class="total-price" id="final-price">-</span></div>
+            <div class="summary-note">No annual commitment. Cancel anytime.</div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-secondary" onclick="goToStep(2)">Back</button>
+            <button class="btn btn-primary" id="btn-submit" onclick="submitForm()">Submit Request</button>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION -->
+    <div class="form-section" id="step-confirm">
+        <div class="confirmation">
+            <div class="confirmation-icon">&#10003;</div>
+            <h2>We're setting things up.</h2>
+            <p>Your request is being processed. You'll receive an email within 24 hours with your setup confirmation and payment details.</p>
+            <div class="detail-box">
+                <div class="detail-line"><span class="label">Countries</span><span class="value" id="confirm-countries">-</span></div>
+                <div class="detail-line"><span class="label">Categories</span><span class="value" id="confirm-categories">-</span></div>
+                <div class="detail-line"><span class="label">Plan</span><span class="value" id="confirm-plan">-</span></div>
+                <div class="detail-line"><span class="label">Monthly price</span><span class="value" id="confirm-price">-</span></div>
+            </div>
+            <p style="font-size: 0.85rem; margin-top: 1.5rem;">Questions? Email <a href="mailto:kim@earlyphoenix.uk" style="color: var(--accent-light);">kim@earlyphoenix.uk</a></p>
+            <a href="shelf-signal.html" class="btn btn-secondary" style="margin-top: 1.5rem;">Back to Shelf Signal</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
+</footer>
+
+<script>
+let selectedCountries = [];
+let selectedCategories = [];
+let customCategory = '';
+
+// Country multi-select
+document.querySelectorAll('.country-option').forEach(el => {
+    el.addEventListener('click', () => {
+        if (el.classList.contains('coming-soon')) return;
+        const code = el.dataset.country;
+        const label = el.dataset.label;
+        if (el.classList.contains('selected')) {
+            el.classList.remove('selected');
+            selectedCountries = selectedCountries.filter(c => c.code !== code);
+        } else {
+            el.classList.add('selected');
+            selectedCountries.push({ code, label });
+        }
+        renderCountryTags();
+        document.getElementById('btn-step-1').disabled = selectedCountries.length === 0;
+    });
+});
+
+function renderCountryTags() {
+    const container = document.getElementById('selected-countries-display');
+    container.innerHTML = selectedCountries.map(c =>
+        `<span class="selected-tag">${c.label} <span class="remove" data-code="${c.code}">&times;</span></span>`
+    ).join('');
+    container.querySelectorAll('.remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const code = btn.dataset.code;
+            selectedCountries = selectedCountries.filter(c => c.code !== code);
+            document.querySelector(`.country-option[data-country="${code}"]`).classList.remove('selected');
+            renderCountryTags();
+            document.getElementById('btn-step-1').disabled = selectedCountries.length === 0;
+        });
+    });
+}
+
+// Category selection (unlimited)
+document.querySelectorAll('.category-chip').forEach(el => {
+    el.addEventListener('click', () => {
+        const cat = el.dataset.category;
+        if (el.classList.contains('selected')) {
+            el.classList.remove('selected');
+            selectedCategories = selectedCategories.filter(c => c !== cat);
+        } else {
+            selectedCategories.push(cat);
+            el.classList.add('selected');
+        }
+        updatePriceSummary();
+    });
+});
+
+document.getElementById('custom-category').addEventListener('input', (e) => {
+    customCategory = e.target.value.trim();
+    updatePriceSummary();
+});
+
+function getTotalCategories() {
+    let count = selectedCategories.length;
+    if (customCategory) count += 1;
+    return count;
+}
+
+function getAllCategoryNames() {
+    let names = [...selectedCategories];
+    if (customCategory) names.push(customCategory);
+    return names;
+}
+
+function getPlan(catCount, countryCount) {
+    if (countryCount > 1 || catCount > 3) return { name: 'Enterprise', price: null };
+    if (catCount === 3) return { name: 'Professional', price: 1200 };
+    if (catCount === 2) return { name: 'Professional', price: 1000 };
+    if (catCount === 1) return { name: 'Starter', price: 500 };
+    return { name: '-', price: null };
+}
+
+function updatePriceSummary() {
+    const catCount = getTotalCategories();
+    const countryCount = selectedCountries.length;
+    const plan = getPlan(catCount, countryCount);
+    const catNames = getAllCategoryNames();
+    const countryNames = selectedCountries.map(c => c.label).join(', ') || '-';
+
+    // Step 2 summary
+    document.getElementById('summary-countries').textContent = countryNames;
+    document.getElementById('summary-categories').textContent = catNames.length ? catNames.join(', ') : '-';
+    document.getElementById('summary-plan').textContent = plan.name;
+    document.getElementById('summary-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}` : 'Custom';
+    document.getElementById('enterprise-note').style.display = (plan.name === 'Enterprise') ? 'block' : 'none';
+
+    // Step 3 summary
+    document.getElementById('final-countries').textContent = countryNames;
+    document.getElementById('final-categories').textContent = catNames.length ? catNames.join(', ') : '-';
+    document.getElementById('final-plan').textContent = plan.name;
+    document.getElementById('final-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}` : 'Custom';
+
+    document.getElementById('btn-step-2').disabled = catCount === 0;
+}
+
+function goToStep(step) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(`step-${step}`).classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+        const circle = document.getElementById(`sc-${i}`);
+        const label = document.getElementById(`sl-${i}`);
+        const line = document.getElementById(`sln-${i}`);
+        circle.classList.remove('active', 'done');
+        label.classList.remove('active');
+        if (i < step) { circle.classList.add('done'); circle.textContent = '\u2713'; if (line) line.classList.add('done'); }
+        else if (i === step) { circle.classList.add('active'); circle.textContent = i; label.classList.add('active'); }
+        else { circle.textContent = i; if (line) line.classList.remove('done'); }
+    }
+    if (step === 2) updatePriceSummary();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('btn-step-1').addEventListener('click', () => goToStep(2));
+document.getElementById('btn-step-2').addEventListener('click', () => goToStep(3));
+
+function submitForm() {
+    const catCount = getTotalCategories();
+    const countryCount = selectedCountries.length;
+    const plan = getPlan(catCount, countryCount);
+    const catNames = getAllCategoryNames();
+    const countryNames = selectedCountries.map(c => c.label).join(', ');
+
+    const name = document.getElementById('input-name').value;
+    const email = document.getElementById('input-email').value;
+    const company = document.getElementById('input-company').value;
+    const brands = document.getElementById('input-brands').value;
+    const competitors = document.getElementById('input-competitors').value;
+    const notes = document.getElementById('input-notes').value;
+
+    if (!name || !email || !company || !brands) {
+        alert('Please fill in your name, email, company, and brand(s).');
+        return;
+    }
+
+    const subject = `Shelf Signal Request: ${company} - ${catNames.join(', ')} (${countryNames})`;
+    const body = [
+        'NEW SHELF SIGNAL REQUEST', '',
+        `Plan: ${plan.name}`,
+        `Price: ${plan.price ? '\u20AC' + plan.price + '/month' : 'Enterprise (custom)'}`, '',
+        `Countries: ${countryNames}`,
+        `Categories: ${catNames.join(', ')}`, '',
+        `Name: ${name}`, `Email: ${email}`, `Company: ${company}`,
+        `Brand(s): ${brands}`, `Competitors: ${competitors}`,
+        `Notes: ${notes || 'None'}`
+    ].join('\n');
+
+    // Send silently
+    const a = document.createElement('a');
+    a.href = `mailto:kim@earlyphoenix.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    a.target = '_blank'; a.style.display = 'none';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+
+    // Show confirmation
+    document.getElementById('confirm-countries').textContent = countryNames;
+    document.getElementById('confirm-categories').textContent = catNames.join(', ');
+    document.getElementById('confirm-plan').textContent = plan.name;
+    document.getElementById('confirm-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}/month` : 'Custom (we\'ll be in touch)';
+
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-confirm').classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById(`sc-${i}`).classList.remove('active');
+        document.getElementById(`sc-${i}`).classList.add('done');
+        document.getElementById(`sc-${i}`).textContent = '\u2713';
+        const l = document.getElementById(`sln-${i}`); if (l) l.classList.add('done');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
