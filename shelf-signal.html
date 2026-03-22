@@ -311,11 +311,6 @@
 <nav>
     <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
     <ul>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/shelf-signal" style="color: var(--accent-light);">Shelf Signal</a></li>
-        <li><a href="/#projects">Projects</a></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#contact">Contact</a></li>
         <li style="position: relative;">
             <a href="#" id="lang-toggle" style="font-size: 0.85rem;" onclick="var m=document.getElementById('lang-menu'); m.style.display = m.style.display==='block'?'none':'block'; event.preventDefault();">
                 <span id="lang-current">EN</span> &#9662;
@@ -334,24 +329,23 @@
 
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-badge">Early Phoenix Product</div>
-    <h1>Every morning, know what <span>changed on the shelf</span></h1>
-    <p class="hero-sub">Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major supermarkets in your country.</p>
-    <div class="hero-price">
+    <h1 data-i18n="hero_title">Every morning, know what <span>changed on the shelf</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major supermarkets in your country.</p>
+    <div class="hero-price" data-i18n="hero_price">
         From <strong>&pound;500</strong>/month
         <br>One category. One country. All major retailers.
     </div>
     <div class="hero-buttons">
-        <a href="#pricing" class="btn btn-primary">See Pricing</a>
-        <a href="shelf-signal-signup.html" class="btn btn-secondary">Get in Touch</a>
+        <a href="#pricing" class="btn btn-primary" data-i18n="hero_cta1">See Pricing</a>
+        <a href="shelf-signal-signup.html" class="btn btn-secondary" data-i18n="hero_cta2">Get in Touch</a>
     </div>
 </section>
 
 <!-- Email Preview -->
 <section>
-    <div class="section-label fade-in">What You Get</div>
-    <h2 class="section-title fade-in">Your <span>7am email</span></h2>
-    <p class="section-subtitle fade-in">Everything that changed yesterday in your category, at every retailer, in your inbox before your first meeting.</p>
+    <div class="section-label fade-in" data-i18n="email_label">What You Get</div>
+    <h2 class="section-title fade-in" data-i18n="email_title">Your <span>7am email</span></h2>
+    <p class="section-subtitle fade-in" data-i18n="email_sub">Everything that changed yesterday in your category, at every retailer, in your inbox before your first meeting.</p>
 
     <div class="email-preview fade-in">
         <div class="email-header">
@@ -388,40 +382,40 @@
 
 <!-- What We Track -->
 <section>
-    <div class="section-label fade-in">Alert Types</div>
-    <h2 class="section-title fade-in">Six triggers, <span>every day</span></h2>
-    <p class="section-subtitle fade-in">We only email you when something actually changes. No noise, no empty inboxes.</p>
+    <div class="section-label fade-in" data-i18n="alerts_label">Alert Types</div>
+    <h2 class="section-title fade-in" data-i18n="alerts_title">Six triggers, <span>every day</span></h2>
+    <p class="section-subtitle fade-in" data-i18n="alerts_sub">We only email you when something actually changes. No noise, no empty inboxes.</p>
 
     <div class="alerts-grid">
         <div class="alert-card fade-in fade-in-delay-1">
             <div class="alert-icon">&darr;</div>
-            <h4>Price Drops</h4>
-            <p>Competitor cuts a price. You know before your buyer calls.</p>
+            <h4 data-i18n="alert_1_title">Price Drops</h4>
+            <p data-i18n="alert_1_desc">Competitor cuts a price. You know before your buyer calls.</p>
         </div>
         <div class="alert-card fade-in fade-in-delay-2">
             <div class="alert-icon">&uarr;</div>
-            <h4>Price Increases</h4>
-            <p>Someone raises prices. Spot margin opportunities in real time.</p>
+            <h4 data-i18n="alert_2_title">Price Increases</h4>
+            <p data-i18n="alert_2_desc">Someone raises prices. Spot margin opportunities in real time.</p>
         </div>
         <div class="alert-card fade-in fade-in-delay-3">
             <div class="alert-icon">&starf;</div>
-            <h4>Promotions</h4>
-            <p>New promotions starting, ending, or changing depth. By retailer.</p>
+            <h4 data-i18n="alert_3_title">Promotions</h4>
+            <p data-i18n="alert_3_desc">New promotions starting, ending, or changing depth. By retailer.</p>
         </div>
         <div class="alert-card fade-in fade-in-delay-4">
             <div class="alert-icon">+</div>
-            <h4>New Listings</h4>
-            <p>A competitor launches a new SKU at a retailer. You see it the next morning.</p>
+            <h4 data-i18n="alert_4_title">New Listings</h4>
+            <p data-i18n="alert_4_desc">A competitor launches a new SKU at a retailer. You see it the next morning.</p>
         </div>
         <div class="alert-card fade-in fade-in-delay-1">
             <div class="alert-icon">&minus;</div>
-            <h4>Delistings</h4>
-            <p>A product disappears from a retailer. Distribution gaps spotted instantly.</p>
+            <h4 data-i18n="alert_5_title">Delistings</h4>
+            <p data-i18n="alert_5_desc">A product disappears from a retailer. Distribution gaps spotted instantly.</p>
         </div>
         <div class="alert-card fade-in fade-in-delay-2">
             <div class="alert-icon">!</div>
-            <h4>Stock Changes</h4>
-            <p>Out of stock or back in stock. Track availability across every retailer, daily.</p>
+            <h4 data-i18n="alert_6_title">Stock Changes</h4>
+            <p data-i18n="alert_6_desc">Out of stock or back in stock. Track availability across every retailer, daily.</p>
         </div>
     </div>
 </section>
@@ -488,9 +482,9 @@
 
 <!-- Pricing -->
 <section id="pricing">
-    <div class="section-label fade-in">Pricing</div>
-    <h2 class="section-title fade-in">Simple, <span>transparent</span> pricing</h2>
-    <p class="section-subtitle fade-in">Pick a plan. Tell us your brand, category, and competitors. First email arrives tomorrow morning.</p>
+    <div class="section-label fade-in" data-i18n="pricing_label">Pricing</div>
+    <h2 class="section-title fade-in" data-i18n="pricing_title">Simple, <span>transparent</span> pricing</h2>
+    <p class="section-subtitle fade-in" data-i18n="pricing_sub">Pick a plan. Tell us your brand, category, and competitors. First email arrives tomorrow morning.</p>
 
     <div class="pricing-grid">
         <div class="pricing-card fade-in fade-in-delay-1">
@@ -574,8 +568,8 @@
 
 <!-- CTA -->
 <div class="cta-section fade-in">
-    <h2>Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span></h2>
-    <p>Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
+    <h2 data-i18n="cta_title">Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span></h2>
+    <p data-i18n="cta_sub">Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
     <div style="display: flex; gap: 1rem; justify-content: center;">
         <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
     </div>
@@ -586,36 +580,179 @@
     <p>Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
 </footer>
 
-<!-- Scroll Animations + Language -->
+<!-- Scroll Animations + i18n -->
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Language selector
-    const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
-    function setLang(lang) {
-        document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
-        document.getElementById('lang-menu').style.display = 'none';
-        localStorage.setItem('ep-lang', lang);
-        // Future: swap page content based on lang
-    }
-    // Auto-detect on load
-    (function() {
-        const saved = localStorage.getItem('ep-lang');
-        if (saved) { setLang(saved); return; }
-        const browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
-        if (langLabels[browserLang]) setLang(browserLang);
-    })();
-    // Close menu on outside click
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
-            document.getElementById('lang-menu').style.display = 'none';
-        }
-    });
-    // Toggle menu
+const T = {
+en: {
+    hero_badge: 'Early Phoenix Product',
+    hero_title: 'Every morning, know what <span>changed on the shelf</span>',
+    hero_sub: 'Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major supermarkets in your country.',
+    hero_price: 'From <strong>\u00A3500</strong>/month<br>One category. One country. All major retailers.',
+    hero_cta1: 'See Pricing', hero_cta2: 'Get in Touch',
+    email_label: 'What You Get', email_title: 'Your <span>7am email</span>',
+    email_sub: 'Everything that changed yesterday in your category, at every retailer, in your inbox before your first meeting.',
+    alerts_label: 'Alert Types', alerts_title: 'Six triggers, <span>every day</span>',
+    alerts_sub: 'We only email you when something actually changes. No noise, no empty inboxes.',
+    alert_1_title: 'Price Drops', alert_1_desc: 'Competitor cuts a price. You know before your buyer calls.',
+    alert_2_title: 'Price Increases', alert_2_desc: 'Someone raises prices. Spot margin opportunities in real time.',
+    alert_3_title: 'Promotions', alert_3_desc: 'New promotions starting, ending, or changing depth. By retailer.',
+    alert_4_title: 'New Listings', alert_4_desc: 'A competitor launches a new SKU at a retailer. You see it the next morning.',
+    alert_5_title: 'Delistings', alert_5_desc: 'A product disappears from a retailer. Distribution gaps spotted instantly.',
+    alert_6_title: 'Stock Changes', alert_6_desc: 'Out of stock or back in stock. Track availability across every retailer, daily.',
+    pricing_label: 'Pricing', pricing_title: 'Simple, <span>transparent</span> pricing',
+    pricing_sub: 'Pick a plan. Tell us your brand, category, and competitors. First email arrives tomorrow morning.',
+    cta_title: 'Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span>',
+    cta_sub: 'Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.',
+    currency: '\u00A3', p1: '500', p2: '1,200'
+},
+es: {
+    hero_badge: 'Producto Early Phoenix',
+    hero_title: 'Cada ma\u00F1ana, sabe qu\u00E9 <span>cambi\u00F3 en el lineal</span>',
+    hero_sub: 'Alertas diarias por email cuando la competencia cambia precios, lanza promociones, lista nuevos productos o se queda sin stock. En todos los supermercados de tu pa\u00EDs.',
+    hero_price: 'Desde <strong>\u20AC600</strong>/mes<br>Una categor\u00EDa. Un pa\u00EDs. Todos los supermercados.',
+    hero_cta1: 'Ver Precios', hero_cta2: 'Contactar',
+    email_label: 'Qu\u00E9 Recibes', email_title: 'Tu email de las <span>7am</span>',
+    email_sub: 'Todo lo que cambi\u00F3 ayer en tu categor\u00EDa, en cada supermercado, en tu bandeja antes de tu primera reuni\u00F3n.',
+    alerts_label: 'Tipos de Alerta', alerts_title: 'Seis alertas, <span>cada d\u00EDa</span>',
+    alerts_sub: 'Solo te enviamos un email cuando algo cambia. Sin ruido, sin bandejas vac\u00EDas.',
+    alert_1_title: 'Bajadas de Precio', alert_1_desc: 'La competencia baja un precio. Lo sabes antes que tu comprador.',
+    alert_2_title: 'Subidas de Precio', alert_2_desc: 'Alguien sube precios. Detecta oportunidades de margen en tiempo real.',
+    alert_3_title: 'Promociones', alert_3_desc: 'Nuevas promociones que empiezan, terminan o cambian. Por supermercado.',
+    alert_4_title: 'Nuevos Listados', alert_4_desc: 'Un competidor lanza un nuevo SKU en un supermercado. Lo ves a la ma\u00F1ana siguiente.',
+    alert_5_title: 'Deslistados', alert_5_desc: 'Un producto desaparece de un supermercado. Huecos de distribuci\u00F3n detectados al instante.',
+    alert_6_title: 'Cambios de Stock', alert_6_desc: 'Sin stock o de vuelta. Seguimiento de disponibilidad en cada supermercado, cada d\u00EDa.',
+    pricing_label: 'Precios', pricing_title: 'Precios <span>transparentes</span>',
+    pricing_sub: 'Elige un plan. Dinos tu marca, categor\u00EDa y competidores. El primer email llega ma\u00F1ana.',
+    cta_title: '\u00BFListo para ver qu\u00E9 cambi\u00F3 <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ayer?</span>',
+    cta_sub: 'Dinos tu categor\u00EDa y pa\u00EDs. Tu primer Shelf Signal llega ma\u00F1ana por la ma\u00F1ana.',
+    currency: '\u20AC', p1: '600', p2: '1,400'
+},
+fr: {
+    hero_badge: 'Produit Early Phoenix',
+    hero_title: 'Chaque matin, sachez ce qui a <span>chang\u00E9 en rayon</span>',
+    hero_sub: 'Alertes quotidiennes par email quand vos concurrents changent leurs prix, lancent des promotions, r\u00E9f\u00E9rencent de nouveaux produits ou sont en rupture. Dans tous les supermarch\u00E9s de votre pays.',
+    hero_price: '\u00C0 partir de <strong>\u20AC600</strong>/mois<br>Une cat\u00E9gorie. Un pays. Tous les supermarch\u00E9s.',
+    hero_cta1: 'Voir les Tarifs', hero_cta2: 'Nous Contacter',
+    email_label: 'Ce Que Vous Recevez', email_title: 'Votre email de <span>7h</span>',
+    email_sub: 'Tout ce qui a chang\u00E9 hier dans votre cat\u00E9gorie, chez chaque enseigne, dans votre bo\u00EEte avant votre premi\u00E8re r\u00E9union.',
+    alerts_label: 'Types d\'Alertes', alerts_title: 'Six alertes, <span>chaque jour</span>',
+    alerts_sub: 'Nous n\'envoyons un email que lorsque quelque chose change. Pas de bruit, pas de bo\u00EEtes vides.',
+    alert_1_title: 'Baisses de Prix', alert_1_desc: 'Un concurrent baisse un prix. Vous le savez avant votre acheteur.',
+    alert_2_title: 'Hausses de Prix', alert_2_desc: 'Quelqu\'un augmente ses prix. Rep\u00E9rez les opportunit\u00E9s de marge en temps r\u00E9el.',
+    alert_3_title: 'Promotions', alert_3_desc: 'Nouvelles promotions qui d\u00E9marrent, se terminent ou changent. Par enseigne.',
+    alert_4_title: 'Nouveaux R\u00E9f\u00E9rencements', alert_4_desc: 'Un concurrent lance un nouveau SKU chez une enseigne. Vous le voyez le lendemain matin.',
+    alert_5_title: 'D\u00E9r\u00E9f\u00E9rencements', alert_5_desc: 'Un produit dispara\u00EEt d\'une enseigne. Lacunes de distribution d\u00E9tect\u00E9es instantan\u00E9ment.',
+    alert_6_title: 'Changements de Stock', alert_6_desc: 'En rupture ou de retour. Suivi de la disponibilit\u00E9 chez chaque enseigne, chaque jour.',
+    pricing_label: 'Tarifs', pricing_title: 'Des tarifs <span>transparents</span>',
+    pricing_sub: 'Choisissez un plan. Dites-nous votre marque, cat\u00E9gorie et concurrents. Le premier email arrive demain matin.',
+    cta_title: 'Pr\u00EAt \u00E0 voir ce qui a chang\u00E9 <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">hier ?</span>',
+    cta_sub: 'Dites-nous votre cat\u00E9gorie et votre pays. Votre premier Shelf Signal arrive demain matin.',
+    currency: '\u20AC', p1: '600', p2: '1,400'
+},
+pt: {
+    hero_badge: 'Produto Early Phoenix',
+    hero_title: 'Todas as manh\u00E3s, saiba o que <span>mudou na prateleira</span>',
+    hero_sub: 'Alertas di\u00E1rios por email quando os concorrentes mudam pre\u00E7os, lan\u00E7am promo\u00E7\u00F5es, listam novos produtos ou ficam sem stock. Em todos os supermercados do seu pa\u00EDs.',
+    hero_price: 'A partir de <strong>\u20AC600</strong>/m\u00EAs<br>Uma categoria. Um pa\u00EDs. Todos os supermercados.',
+    hero_cta1: 'Ver Pre\u00E7os', hero_cta2: 'Contactar',
+    email_label: 'O Que Recebe', email_title: 'O seu email das <span>7h</span>',
+    email_sub: 'Tudo o que mudou ontem na sua categoria, em cada supermercado, na sua caixa de entrada antes da primeira reuni\u00E3o.',
+    alerts_label: 'Tipos de Alerta', alerts_title: 'Seis alertas, <span>todos os dias</span>',
+    alerts_sub: 'S\u00F3 enviamos email quando algo muda. Sem ru\u00EDdo, sem caixas vazias.',
+    alert_1_title: 'Descidas de Pre\u00E7o', alert_1_desc: 'A concorr\u00EAncia baixa um pre\u00E7o. Sabe antes do seu comprador.',
+    alert_2_title: 'Subidas de Pre\u00E7o', alert_2_desc: 'Algu\u00E9m sobe pre\u00E7os. Detete oportunidades de margem em tempo real.',
+    alert_3_title: 'Promo\u00E7\u00F5es', alert_3_desc: 'Novas promo\u00E7\u00F5es que come\u00E7am, terminam ou mudam. Por supermercado.',
+    alert_4_title: 'Novos Produtos', alert_4_desc: 'Um concorrente lan\u00E7a um novo SKU num supermercado. V\u00EA na manh\u00E3 seguinte.',
+    alert_5_title: 'Deslistagens', alert_5_desc: 'Um produto desaparece de um supermercado. Falhas de distribui\u00E7\u00E3o detetadas instant\u00E2neamente.',
+    alert_6_title: 'Altera\u00E7\u00F5es de Stock', alert_6_desc: 'Sem stock ou de volta. Acompanhamento de disponibilidade em cada supermercado, diariamente.',
+    pricing_label: 'Pre\u00E7os', pricing_title: 'Pre\u00E7os <span>transparentes</span>',
+    pricing_sub: 'Escolha um plano. Diga-nos a sua marca, categoria e concorrentes. O primeiro email chega amanh\u00E3.',
+    cta_title: 'Pronto para ver o que mudou <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ontem?</span>',
+    cta_sub: 'Diga-nos a sua categoria e pa\u00EDs. O seu primeiro Shelf Signal chega amanh\u00E3 de manh\u00E3.',
+    currency: '\u20AC', p1: '600', p2: '1,400'
+},
+de: {
+    hero_badge: 'Early Phoenix Produkt',
+    hero_title: 'Jeden Morgen wissen, was sich <span>im Regal ge\u00E4ndert hat</span>',
+    hero_sub: 'T\u00E4gliche E-Mail-Benachrichtigungen wenn Wettbewerber Preise \u00E4ndern, Aktionen starten, neue Produkte listen oder ausverkauft sind. In allen gro\u00DFen Superm\u00E4rkten Ihres Landes.',
+    hero_price: 'Ab <strong>\u20AC600</strong>/Monat<br>Eine Kategorie. Ein Land. Alle gro\u00DFen Superm\u00E4rkte.',
+    hero_cta1: 'Preise ansehen', hero_cta2: 'Kontakt',
+    email_label: 'Was Sie bekommen', email_title: 'Ihre <span>7-Uhr-E-Mail</span>',
+    email_sub: 'Alles, was sich gestern in Ihrer Kategorie ge\u00E4ndert hat, bei jedem H\u00E4ndler, in Ihrem Posteingang vor dem ersten Meeting.',
+    alerts_label: 'Alarm-Typen', alerts_title: 'Sechs Ausl\u00F6ser, <span>jeden Tag</span>',
+    alerts_sub: 'Wir senden nur eine E-Mail, wenn sich etwas \u00E4ndert. Kein L\u00E4rm, keine leeren Postf\u00E4cher.',
+    alert_1_title: 'Preissenkungen', alert_1_desc: 'Ein Wettbewerber senkt einen Preis. Sie wissen es vor Ihrem Eink\u00E4ufer.',
+    alert_2_title: 'Preiserh\u00F6hungen', alert_2_desc: 'Jemand erh\u00F6ht Preise. Erkennen Sie Margen-Chancen in Echtzeit.',
+    alert_3_title: 'Aktionen', alert_3_desc: 'Neue Aktionen die starten, enden oder sich \u00E4ndern. Pro H\u00E4ndler.',
+    alert_4_title: 'Neue Listungen', alert_4_desc: 'Ein Wettbewerber listet ein neues Produkt bei einem H\u00E4ndler. Sie sehen es am n\u00E4chsten Morgen.',
+    alert_5_title: 'Auslistungen', alert_5_desc: 'Ein Produkt verschwindet bei einem H\u00E4ndler. Distributionsl\u00FCcken sofort erkannt.',
+    alert_6_title: 'Bestandsanderungen', alert_6_desc: 'Ausverkauft oder wieder verf\u00FCgbar. Verf\u00FCgbarkeit bei jedem H\u00E4ndler, t\u00E4glich.',
+    pricing_label: 'Preise', pricing_title: 'Einfache, <span>transparente</span> Preise',
+    pricing_sub: 'W\u00E4hlen Sie einen Plan. Nennen Sie uns Ihre Marke, Kategorie und Wettbewerber. Die erste E-Mail kommt morgen fr\u00FCh.',
+    cta_title: 'Bereit zu sehen, was sich <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">gestern ge\u00E4ndert hat?</span>',
+    cta_sub: 'Nennen Sie uns Ihre Kategorie und Ihr Land. Ihr erstes Shelf Signal kommt morgen fr\u00FCh.',
+    currency: '\u20AC', p1: '600', p2: '1,400'
+},
+it: {
+    hero_badge: 'Prodotto Early Phoenix',
+    hero_title: 'Ogni mattina, sapere cosa \u00E8 <span>cambiato sullo scaffale</span>',
+    hero_sub: 'Avvisi giornalieri via email quando i concorrenti cambiano prezzi, lanciano promozioni, inseriscono nuovi prodotti o vanno in esaurimento. In tutti i principali supermercati del tuo paese.',
+    hero_price: 'Da <strong>\u20AC600</strong>/mese<br>Una categoria. Un paese. Tutti i principali supermercati.',
+    hero_cta1: 'Vedi Prezzi', hero_cta2: 'Contattaci',
+    email_label: 'Cosa Ricevi', email_title: 'La tua email delle <span>7</span>',
+    email_sub: 'Tutto ci\u00F2 che \u00E8 cambiato ieri nella tua categoria, in ogni supermercato, nella tua casella prima della prima riunione.',
+    alerts_label: 'Tipi di Avviso', alerts_title: 'Sei avvisi, <span>ogni giorno</span>',
+    alerts_sub: 'Ti inviamo un\'email solo quando qualcosa cambia. Niente rumore, niente caselle vuote.',
+    alert_1_title: 'Riduzioni di Prezzo', alert_1_desc: 'Un concorrente abbassa un prezzo. Lo sai prima del tuo buyer.',
+    alert_2_title: 'Aumenti di Prezzo', alert_2_desc: 'Qualcuno alza i prezzi. Individua opportunit\u00E0 di margine in tempo reale.',
+    alert_3_title: 'Promozioni', alert_3_desc: 'Nuove promozioni che iniziano, finiscono o cambiano. Per supermercato.',
+    alert_4_title: 'Nuovi Inserimenti', alert_4_desc: 'Un concorrente lancia un nuovo SKU in un supermercato. Lo vedi la mattina dopo.',
+    alert_5_title: 'Cancellazioni', alert_5_desc: 'Un prodotto scompare da un supermercato. Gap distributivi rilevati istantaneamente.',
+    alert_6_title: 'Variazioni di Stock', alert_6_desc: 'Esaurito o tornato disponibile. Monitora la disponibilit\u00E0 in ogni supermercato, ogni giorno.',
+    pricing_label: 'Prezzi', pricing_title: 'Prezzi <span>trasparenti</span>',
+    pricing_sub: 'Scegli un piano. Dicci il tuo brand, categoria e concorrenti. La prima email arriva domani mattina.',
+    cta_title: 'Pronto a vedere cosa \u00E8 cambiato <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ieri?</span>',
+    cta_sub: 'Dicci la tua categoria e il tuo paese. Il tuo primo Shelf Signal arriva domani mattina.',
+    currency: '\u20AC', p1: '600', p2: '1,400'
+}
+};
+
+const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
+
+function setLang(lang) {
+    document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
     document.getElementById('lang-menu').style.display = 'none';
+    localStorage.setItem('ep-lang', lang);
+    var t = T[lang] || T.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.innerHTML = t[key];
+    });
+    // Update pricing cards currency
+    var c = t.currency || '\u00A3';
+    document.querySelectorAll('.pricing-card .price').forEach(function(el, i) {
+        if (i === 0) el.innerHTML = c + t.p1;
+        else if (i === 1) el.innerHTML = c + t.p2;
+    });
+}
+
+(function() {
+    var saved = localStorage.getItem('ep-lang');
+    if (saved && T[saved]) { setLang(saved); return; }
+    var bl = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (T[bl]) setLang(bl);
+})();
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
+        document.getElementById('lang-menu').style.display = 'none';
+    }
+});
 </script>
 
 </body>
