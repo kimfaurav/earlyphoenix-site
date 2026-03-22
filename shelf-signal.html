@@ -185,7 +185,7 @@
         }
 
         /* Alerts grid */
-        .alerts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+        .alerts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
         .alert-card {
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
             padding: 1.75rem; text-align: center; transition: all 0.3s;
@@ -316,6 +316,19 @@
         <li><a href="/#projects">Projects</a></li>
         <li><a href="/#about">About</a></li>
         <li><a href="/#contact">Contact</a></li>
+        <li style="position: relative;">
+            <a href="#" id="lang-toggle" style="font-size: 0.85rem;" onclick="document.getElementById('lang-menu').classList.toggle('show'); event.preventDefault();">
+                <span id="lang-current">EN</span> &#9662;
+            </a>
+            <div id="lang-menu" style="display:none; position:absolute; top:100%; right:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0; min-width:140px; margin-top:0.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:200;">
+                <a href="#" onclick="setLang('en'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127468;&#127463; English</a>
+                <a href="#" onclick="setLang('es'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127466;&#127480; Espa&ntilde;ol</a>
+                <a href="#" onclick="setLang('fr'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127467;&#127479; Fran&ccedil;ais</a>
+                <a href="#" onclick="setLang('pt'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127477;&#127481; Portugu&ecirc;s</a>
+                <a href="#" onclick="setLang('de'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127465;&#127466; Deutsch</a>
+                <a href="#" onclick="setLang('it'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127470;&#127481; Italiano</a>
+            </div>
+        </li>
     </ul>
 </nav>
 
@@ -325,7 +338,7 @@
     <h1>Every morning, know what <span>changed on the shelf</span></h1>
     <p class="hero-sub">Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major supermarkets in your country.</p>
     <div class="hero-price">
-        From <strong>&euro;500</strong>/month
+        From <strong>&pound;500</strong>/month
         <br>One category. One country. All major retailers.
     </div>
     <div class="hero-buttons">
@@ -484,7 +497,7 @@
             <div class="pricing-tier">Starter</div>
             <h3>One category, one country</h3>
             <div class="pricing-amount">
-                <span class="price">&euro;500</span><span class="period">/month</span>
+                <span class="price">&pound;500</span><span class="period">/month</span>
                 <span class="note">No annual commitment</span>
             </div>
             <ul class="pricing-features">
@@ -501,8 +514,8 @@
             <div class="pricing-tier">Professional</div>
             <h3>Up to 3 categories, one country</h3>
             <div class="pricing-amount">
-                <span class="price">&euro;1,000&ndash;1,200</span><span class="period">/month</span>
-                <span class="note">2 categories &euro;1,000 &middot; 3 categories &euro;1,200</span>
+                <span class="price">&pound;1,000&ndash;1,200</span><span class="period">/month</span>
+                <span class="note">2 categories &pound;1,000 &middot; 3 categories &pound;1,200</span>
             </div>
             <ul class="pricing-features">
                 <li><span class="check">&check;</span> 2 or 3 categories across all major retailers</li>
@@ -574,12 +587,36 @@
     <p>Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
 </footer>
 
-<!-- Scroll Animations -->
+<!-- Scroll Animations + Language -->
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Language selector
+    const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
+    function setLang(lang) {
+        document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
+        document.getElementById('lang-menu').style.display = 'none';
+        localStorage.setItem('ep-lang', lang);
+        // Future: swap page content based on lang
+    }
+    // Auto-detect on load
+    (function() {
+        const saved = localStorage.getItem('ep-lang');
+        if (saved) { setLang(saved); return; }
+        const browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+        if (langLabels[browserLang]) setLang(browserLang);
+    })();
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
+            document.getElementById('lang-menu').style.display = 'none';
+        }
+    });
+    // Toggle menu
+    document.getElementById('lang-menu').style.display = 'none';
 </script>
 
 </body>
