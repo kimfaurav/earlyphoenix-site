@@ -317,7 +317,7 @@
         <li><a href="/#about">About</a></li>
         <li><a href="/#contact">Contact</a></li>
         <li style="position: relative;">
-            <a href="#" id="lang-toggle" style="font-size: 0.85rem;" onclick="document.getElementById('lang-menu').classList.toggle('show'); event.preventDefault();">
+            <a href="#" id="lang-toggle" style="font-size: 0.85rem;" onclick="var m=document.getElementById('lang-menu'); m.style.display = m.style.display==='block'?'none':'block'; event.preventDefault();">
                 <span id="lang-current">EN</span> &#9662;
             </a>
             <div id="lang-menu" style="display:none; position:absolute; top:100%; right:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0; min-width:140px; margin-top:0.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:200;">

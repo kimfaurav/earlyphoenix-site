@@ -798,6 +798,19 @@
         <li><a href="#process">How We Work</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li style="position: relative;">
+            <a href="#" id="lang-toggle" style="font-size: 0.85rem; cursor: pointer;" onclick="var m=document.getElementById('lang-menu'); m.style.display = m.style.display==='block'?'none':'block'; event.preventDefault();">
+                <span id="lang-current">EN</span> &#9662;
+            </a>
+            <div id="lang-menu" style="display:none; position:absolute; top:100%; right:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0; min-width:140px; margin-top:0.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:200;">
+                <a href="#" onclick="setLang('en'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127468;&#127463; English</a>
+                <a href="#" onclick="setLang('es'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127466;&#127480; Espa&ntilde;ol</a>
+                <a href="#" onclick="setLang('fr'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127467;&#127479; Fran&ccedil;ais</a>
+                <a href="#" onclick="setLang('pt'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127477;&#127481; Portugu&ecirc;s</a>
+                <a href="#" onclick="setLang('de'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127465;&#127466; Deutsch</a>
+                <a href="#" onclick="setLang('it'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127470;&#127481; Italiano</a>
+            </div>
+        </li>
     </ul>
 </nav>
 
@@ -809,24 +822,6 @@
     <div class="hero-buttons">
         <a href="shelf-signal.html" class="btn btn-primary">Learn More</a>
         <a href="shelf-signal-signup.html" class="btn btn-secondary">Get Started</a>
-    </div>
-</section>
-
-<!-- Shelf Signal feature bar -->
-<section style="padding: 2rem 2rem 0; max-width: 1100px; margin: -3rem auto 0;">
-    <div style="background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 14px; padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
-        <div style="flex: 1; min-width: 200px;">
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-light); font-weight: 600; margin-bottom: 0.3rem;">What you get</div>
-            <div style="font-size: 0.9rem; color: var(--text-secondary);">Price changes, promotions, new listings, delistings, stock alerts. Every morning at 7am.</div>
-        </div>
-        <div style="flex: 0.7; min-width: 150px;">
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-light); font-weight: 600; margin-bottom: 0.3rem;">Coverage</div>
-            <div style="font-size: 0.9rem; color: var(--text-secondary);">UK, Spain, France, Portugal, Germany, Italy. More on request.</div>
-        </div>
-        <div style="flex: 0.5; min-width: 120px; text-align: right;">
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-light); font-weight: 600; margin-bottom: 0.3rem;">From</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);">&pound;500<span style="font-size: 0.85rem; font-weight: 500; color: var(--text-muted);">/month</span></div>
-        </div>
     </div>
 </section>
 
@@ -874,35 +869,15 @@
     <p class="section-subtitle fade-in">Real-world data intelligence systems, built and running in production.</p>
     <div class="projects-grid">
         <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-tag">Animal Welfare</div>
-            <h3>UK Pet Marketplace Intelligence</h3>
-            <p>The UK's most comprehensive view of online pet sales. Tracking pricing, volumes, and breeder compliance across all major platforms to support welfare-focused policy and advocacy.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>75%</strong> of UK online dog sales</span>
-                <span class="project-stat"><strong>Multi-platform</strong> daily tracking</span>
-            </div>
-            <a href="/case-studies/pet-welfare/" class="project-link">View Case Study &rarr;</a>
-        </div>
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-tag">Public Data</div>
-            <h3>UK Breeder Registry</h3>
-            <p>First national database of licensed breeders, consolidated from distributed local authority records across England into a single searchable view.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>4,500+</strong> licensed breeders</span>
-                <span class="project-stat"><strong>First</strong> national database</span>
-            </div>
-            <a href="https://dashboard.earlyphoenix.ai/uk-breeders/" class="project-link" target="_blank">View Live Dashboard &rarr;</a>
-        </div>
-        <div class="project-card fade-in fade-in-delay-3">
             <div class="project-tag">Retail / FMCG</div>
             <h3>Retail Price Intelligence</h3>
-            <p>Automated daily tracking of competitor pricing across UK supermarkets. Shelf prices, promotions, and loyalty deals delivered as live dashboards with Excel exports.</p>
+            <p>Automated daily tracking of competitor pricing across European supermarkets. Shelf prices, promotions, and loyalty deals across 6 countries delivered as live dashboards.</p>
             <div class="project-stats">
                 <span class="project-stat"><strong>3,400+</strong> products tracked daily</span>
-                <span class="project-stat"><strong>12</strong> UK retailers</span>
+                <span class="project-stat"><strong>6</strong> European markets</span>
             </div>
         </div>
-        <div class="project-card fade-in fade-in-delay-4">
+        <div class="project-card fade-in fade-in-delay-2">
             <div class="project-tag">Classifieds</div>
             <h3>European Marketplace Sizing</h3>
             <p>Volume estimation and competitive intelligence across classified and re-commerce platforms spanning UK, Spain, and France.</p>
@@ -910,6 +885,26 @@
                 <span class="project-stat"><strong>3</strong> European markets</span>
                 <span class="project-stat"><strong>Category-level</strong> sizing</span>
             </div>
+        </div>
+        <div class="project-card fade-in fade-in-delay-3">
+            <div class="project-tag">Animal Welfare</div>
+            <h3>UK Pet Marketplace Intelligence</h3>
+            <p>The UK's most comprehensive view of online pet sales. Tracking pricing, volumes, and breeder compliance across all major platforms.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>75%</strong> of UK online dog sales</span>
+                <span class="project-stat"><strong>Multi-platform</strong> daily tracking</span>
+            </div>
+            <a href="/case-studies/pet-welfare/" class="project-link">View Case Study &rarr;</a>
+        </div>
+        <div class="project-card fade-in fade-in-delay-4">
+            <div class="project-tag">Public Data</div>
+            <h3>UK Breeder Registry</h3>
+            <p>First national database of licensed breeders, consolidated from distributed local authority records across England.</p>
+            <div class="project-stats">
+                <span class="project-stat"><strong>4,500+</strong> licensed breeders</span>
+                <span class="project-stat"><strong>First</strong> national database</span>
+            </div>
+            <a href="https://dashboard.earlyphoenix.ai/uk-breeders/" class="project-link" target="_blank">View Live Dashboard &rarr;</a>
         </div>
     </div>
 </section>
@@ -943,9 +938,6 @@
                 <p>Insight delivered how you need it: live dashboards, weekly briefings, data exports, or direct integration with your tools.</p>
             </div>
         </div>
-        <div class="process-callout">
-            <p>Your market view stays current automatically. When competitors change prices, new players enter, or market dynamics shift, you know about it first.</p>
-        </div>
     </div>
 </section>
 
@@ -972,12 +964,12 @@
 
 <!-- Contact -->
 <section id="contact" class="contact-section">
-    <div class="section-label fade-in">Get Started</div>
-    <h2 class="section-title fade-in">Let's <span>Talk</span></h2>
-    <p class="section-subtitle fade-in">Whether you need market intelligence, competitive tracking, or AI advisory, we'd love to hear about your challenge.</p>
+    <div class="section-label fade-in">Contact</div>
+    <h2 class="section-title fade-in">Get in <span>Touch</span></h2>
+    <p class="section-subtitle fade-in">Tell us your category and country. We'll show you what your competitive landscape looks like.</p>
     <div class="contact-links fade-in">
-        <a href="mailto:kim@earlyphoenix.ai" class="btn btn-primary">Send Email</a>
-        <a href="https://uk.linkedin.com/in/kimfaura" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started with Shelf Signal</a>
+        <a href="mailto:kim@earlyphoenix.ai" class="btn btn-secondary">Email Us</a>
     </div>
 </section>
 
@@ -997,6 +989,25 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Language selector
+    const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
+    function setLang(lang) {
+        document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
+        document.getElementById('lang-menu').style.display = 'none';
+        localStorage.setItem('ep-lang', lang);
+    }
+    (function() {
+        var saved = localStorage.getItem('ep-lang');
+        if (saved && langLabels[saved]) { document.getElementById('lang-current').textContent = langLabels[saved]; return; }
+        var bl = (navigator.language || '').slice(0, 2).toLowerCase();
+        if (langLabels[bl]) document.getElementById('lang-current').textContent = langLabels[bl];
+    })();
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
+            document.getElementById('lang-menu').style.display = 'none';
+        }
+    });
 </script>
 
 </body>
