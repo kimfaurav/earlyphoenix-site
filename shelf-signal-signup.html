@@ -563,11 +563,32 @@ function submitForm() {
         `Notes: ${notes || 'None'}`
     ].join('\n');
 
-    // Send silently
-    const a = document.createElement('a');
-    a.href = `mailto:kim@earlyphoenix.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    a.target = '_blank'; a.style.display = 'none';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    // Send via Formspree (or fallback fetch to avoid mailto)
+    var formData = {
+        _subject: subject,
+        plan: plan.name,
+        price: plan.price ? '\u00A3' + plan.price + '/month' : 'Enterprise (custom)',
+        countries: countryNames,
+        categories: catNames.join(', '),
+        name: name,
+        email: email,
+        company: company,
+        brands: brands,
+        competitors: competitors,
+        notes: notes || 'None'
+    };
+
+    // POST to Formspree - replace FORM_ID with your actual Formspree form ID
+    // Sign up free at formspree.io, create a form pointing to kim@earlyphoenix.ai
+    // Then replace 'YOUR_FORM_ID' below with the ID (e.g. 'xdkogyqr')
+    var formspreeId = 'YOUR_FORM_ID';
+    if (formspreeId !== 'YOUR_FORM_ID') {
+        fetch('https://formspree.io/f/' + formspreeId, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(formData)
+        }).catch(function() {});
+    }
 
     // Show confirmation
     document.getElementById('confirm-countries').textContent = countryNames;
