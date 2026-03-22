@@ -212,7 +212,7 @@
             border-color: var(--accent); box-shadow: 0 0 30px rgba(232, 116, 12, 0.15);
         }
         .pricing-card.featured::before {
-            content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            content: attr(data-badge); position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
             letter-spacing: 0.08em; padding: 0.3rem 1rem; border-radius: 12px;
@@ -422,50 +422,50 @@
 
 <!-- Countries -->
 <section>
-    <div class="section-label fade-in">Coverage</div>
-    <h2 class="section-title fade-in">European <span>retailers</span></h2>
-    <p class="section-subtitle fade-in">All major supermarkets in each country. Captured daily.</p>
+    <div class="section-label fade-in" data-i18n="coverage_label">Coverage</div>
+    <h2 class="section-title fade-in" data-i18n="coverage_title">European <span>retailers</span></h2>
+    <p class="section-subtitle fade-in" data-i18n="coverage_sub">All major supermarkets in each country. Captured daily.</p>
 
-    <p style="text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: #34d399; margin-bottom: 1rem;">Live now</p>
+    <p style="text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: #34d399; margin-bottom: 1rem;" data-i18n="coverage_live">Live now</p>
     <div class="countries-grid" style="grid-template-columns: repeat(3, 1fr);">
         <div class="country-card fade-in fade-in-delay-1">
             <div class="country-flag">&#127468;&#127463;</div>
             <h4>United Kingdom</h4>
-            <p>Tesco, Sainsbury's, Asda, Morrisons, Waitrose, Ocado and more</p>
-            <div class="retailer-count">12+ retailers</div>
+            <p>Tesco, Sainsbury's, Asda, Morrisons, Waitrose, Ocado <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">12+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
         <div class="country-card fade-in fade-in-delay-2">
             <div class="country-flag">&#127466;&#127480;</div>
             <h4>Spain</h4>
-            <p>Mercadona, Carrefour, El Corte Ingl&eacute;s, DIA, Alcampo and more</p>
-            <div class="retailer-count">7+ retailers</div>
+            <p>Mercadona, Carrefour, El Corte Ingl&eacute;s, DIA, Alcampo <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">7+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
         <div class="country-card fade-in fade-in-delay-3">
             <div class="country-flag">&#127467;&#127479;</div>
             <h4>France</h4>
-            <p>Carrefour, E.Leclerc, Monoprix, Auchan, Intermarch&eacute; and more</p>
-            <div class="retailer-count">5+ retailers</div>
+            <p>Carrefour, E.Leclerc, Monoprix, Auchan, Intermarch&eacute; <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">5+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
         <div class="country-card fade-in fade-in-delay-1">
             <div class="country-flag">&#127477;&#127481;</div>
             <h4>Portugal</h4>
-            <p>Continente, Pingo Doce, Auchan, Mercadona and more</p>
-            <div class="retailer-count">6+ retailers</div>
+            <p>Continente, Pingo Doce, Auchan, Mercadona <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">6+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
         <div class="country-card fade-in fade-in-delay-2">
             <div class="country-flag">&#127465;&#127466;</div>
             <h4>Germany</h4>
-            <p>Rewe, Edeka, Aldi, Lidl, Kaufland, dm and more</p>
-            <div class="retailer-count">6+ retailers</div>
+            <p>Rewe, Edeka, Aldi, Lidl, Kaufland, dm <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">6+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
         <div class="country-card fade-in fade-in-delay-3">
             <div class="country-flag">&#127470;&#127481;</div>
             <h4>Italy</h4>
-            <p>Esselunga, Conad, Coop, Carrefour, Eurospin and more</p>
-            <div class="retailer-count">6+ retailers</div>
+            <p>Esselunga, Conad, Coop, Carrefour, Eurospin <span data-i18n="and_more">and more</span></p>
+            <div class="retailer-count">6+ <span data-i18n="retailers_word">retailers</span></div>
         </div>
     </div>
-    <p style="text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: var(--text-muted); margin-top: 2rem; margin-bottom: 1rem;">Available on request</p>
+    <p style="text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; color: var(--text-muted); margin-top: 2rem; margin-bottom: 1rem;" data-i18n="coverage_request">Available on request</p>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; max-width: 700px; margin: 0 auto;">
         <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.9rem; font-size: 0.82rem; color: var(--text-secondary);">&#127475;&#127473; Netherlands</span>
         <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.9rem; font-size: 0.82rem; color: var(--text-secondary);">&#127463;&#127466; Belgium</span>
@@ -488,80 +488,80 @@
 
     <div class="pricing-grid">
         <div class="pricing-card fade-in fade-in-delay-1">
-            <div class="pricing-tier">Starter</div>
-            <h3>One category, one country</h3>
+            <div class="pricing-tier" data-i18n="tier1_name">Starter</div>
+            <h3 data-i18n="tier1_desc">One category, one country</h3>
             <div class="pricing-amount">
-                <span class="price">&pound;500</span><span class="period">/month</span>
-                <span class="note">No annual commitment</span>
+                <span class="price">&pound;500</span><span class="period" data-i18n="price_period">/month</span>
+                <span class="note" data-i18n="tier1_note">No annual commitment</span>
             </div>
             <ul class="pricing-features">
-                <li><span class="check">&check;</span> 1 category across all major retailers</li>
-                <li><span class="check">&check;</span> 1 country</li>
-                <li><span class="check">&check;</span> Daily email alerts</li>
-                <li><span class="check">&check;</span> Monthly summary report</li>
-                <li><span class="check">&check;</span> CSV data export</li>
-                <li><span class="check">&check;</span> Email support</li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f1">1 category across all major retailers</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f2">1 country</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f3">Daily email alerts</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f4">Monthly summary report</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f5">CSV data export</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier1_f6">Email support</span></li>
             </ul>
-            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
+            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;" data-i18n="btn_get_started">Get Started</a>
         </div>
-        <div class="pricing-card featured fade-in fade-in-delay-2">
-            <div class="pricing-tier">Professional</div>
-            <h3>Up to 3 categories, one country</h3>
+        <div class="pricing-card featured fade-in fade-in-delay-2" data-badge="Most Popular" data-i18n-badge="most_popular">
+            <div class="pricing-tier" data-i18n="tier2_name">Professional</div>
+            <h3 data-i18n="tier2_desc">Up to 3 categories, one country</h3>
             <div class="pricing-amount">
-                <span class="price">&pound;1,200</span><span class="period">/month</span>
-                <span class="note">No annual commitment</span>
+                <span class="price">&pound;1,200</span><span class="period" data-i18n="price_period">/month</span>
+                <span class="note" data-i18n="tier2_note">No annual commitment</span>
             </div>
             <ul class="pricing-features">
-                <li><span class="check">&check;</span> Up to 3 categories across all major retailers</li>
-                <li><span class="check">&check;</span> 1 country</li>
-                <li><span class="check">&check;</span> Daily email alerts</li>
-                <li><span class="check">&check;</span> Monthly summary report</li>
-                <li><span class="check">&check;</span> CSV data export</li>
-                <li><span class="check">&check;</span> Priority email support</li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f1">Up to 3 categories across all major retailers</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f2">1 country</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f3">Daily email alerts</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f4">Monthly summary report</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f5">CSV data export</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier2_f6">Priority email support</span></li>
             </ul>
-            <a href="shelf-signal-signup.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+            <a href="shelf-signal-signup.html" class="btn btn-primary" style="width: 100%; justify-content: center;" data-i18n="btn_get_started">Get Started</a>
         </div>
         <div class="pricing-card fade-in fade-in-delay-3">
-            <div class="pricing-tier">Enterprise</div>
-            <h3>Multiple countries and categories</h3>
+            <div class="pricing-tier" data-i18n="tier3_name">Enterprise</div>
+            <h3 data-i18n="tier3_desc">Multiple countries and categories</h3>
             <div class="pricing-amount">
-                <span class="price">Custom</span>
-                <span class="note">Tailored to your market coverage</span>
+                <span class="price" data-i18n="tier3_price">Custom</span>
+                <span class="note" data-i18n="tier3_note">Tailored to your market coverage</span>
             </div>
             <ul class="pricing-features">
-                <li><span class="check">&check;</span> Unlimited categories</li>
-                <li><span class="check">&check;</span> Multiple countries</li>
-                <li><span class="check">&check;</span> Daily email alerts</li>
-                <li><span class="check">&check;</span> Monthly analyst-written report</li>
-                <li><span class="check">&check;</span> API data access</li>
-                <li><span class="check">&check;</span> Dedicated account manager</li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f1">Unlimited categories</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f2">Multiple countries</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f3">Daily email alerts</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f4">Monthly analyst-written report</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f5">API data access</span></li>
+                <li><span class="check">&check;</span> <span data-i18n="tier3_f6">Dedicated account manager</span></li>
             </ul>
-            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;">Talk to Us</a>
+            <a href="shelf-signal-signup.html" class="btn btn-secondary" style="width: 100%; justify-content: center;" data-i18n="btn_talk_to_us">Talk to Us</a>
         </div>
     </div>
 </section>
 
 <!-- How it works -->
 <section>
-    <div class="section-label fade-in">How It Works</div>
-    <h2 class="section-title fade-in">Live in <span>24 hours</span></h2>
-    <p class="section-subtitle fade-in">No integration. No onboarding project. No IT involvement.</p>
+    <div class="section-label fade-in" data-i18n="how_label">How It Works</div>
+    <h2 class="section-title fade-in" data-i18n="how_title">Live in <span>24 hours</span></h2>
+    <p class="section-subtitle fade-in" data-i18n="how_sub">No integration. No onboarding project. No IT involvement.</p>
 
     <div class="steps-grid">
         <div class="step-card fade-in fade-in-delay-1">
             <div class="step-number">1</div>
-            <h4>Tell us your category</h4>
-            <p>Your brand, your competitors, your country. A 15-minute call to scope exactly what you need.</p>
+            <h4 data-i18n="step1_title">Tell us your category</h4>
+            <p data-i18n="step1_desc">Your brand, your competitors, your country. A 15-minute call to scope exactly what you need.</p>
         </div>
         <div class="step-card fade-in fade-in-delay-2">
             <div class="step-number">2</div>
-            <h4>We configure your feed</h4>
-            <p>We set up daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.</p>
+            <h4 data-i18n="step2_title">We configure your feed</h4>
+            <p data-i18n="step2_desc">We set up daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.</p>
         </div>
         <div class="step-card fade-in fade-in-delay-3">
             <div class="step-number">3</div>
-            <h4>Check your inbox</h4>
-            <p>Every morning at 7am, your Shelf Signal arrives. Only when something changed. No noise.</p>
+            <h4 data-i18n="step3_title">Check your inbox</h4>
+            <p data-i18n="step3_desc">Every morning at 7am, your Shelf Signal arrives. Only when something changed. No noise.</p>
         </div>
     </div>
 </section>
@@ -571,13 +571,13 @@
     <h2 data-i18n="cta_title">Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span></h2>
     <p data-i18n="cta_sub">Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
     <div style="display: flex; gap: 1rem; justify-content: center;">
-        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
+        <a href="shelf-signal-signup.html" class="btn btn-primary" data-i18n="btn_get_started">Get Started</a>
     </div>
 </div>
 
 <!-- Footer -->
 <footer>
-    <p>Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
+    <p data-i18n="footer_text">Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026</p>
 </footer>
 
 <!-- Scroll Animations + i18n -->
@@ -604,10 +604,40 @@ en: {
     alert_4_title: 'New Listings', alert_4_desc: 'A competitor launches a new SKU at a retailer. You see it the next morning.',
     alert_5_title: 'Delistings', alert_5_desc: 'A product disappears from a retailer. Distribution gaps spotted instantly.',
     alert_6_title: 'Stock Changes', alert_6_desc: 'Out of stock or back in stock. Track availability across every retailer, daily.',
+    coverage_label: 'Coverage', coverage_title: 'European <span>retailers</span>',
+    coverage_sub: 'All major supermarkets in each country. Captured daily.',
+    coverage_live: 'Live now', coverage_request: 'Available on request',
+    and_more: 'and more', retailers_word: 'retailers',
     pricing_label: 'Pricing', pricing_title: 'Simple, <span>transparent</span> pricing',
     pricing_sub: 'Pick a plan. Tell us your brand, category, and competitors. First email arrives tomorrow morning.',
+    tier1_name: 'Starter', tier1_desc: 'One category, one country',
+    price_period: '/month', tier1_note: 'No annual commitment',
+    tier1_f1: '1 category across all major retailers', tier1_f2: '1 country',
+    tier1_f3: 'Daily email alerts', tier1_f4: 'Monthly summary report',
+    tier1_f5: 'CSV data export', tier1_f6: 'Email support',
+    tier2_name: 'Professional', tier2_desc: 'Up to 3 categories, one country',
+    tier2_note: 'No annual commitment',
+    tier2_f1: 'Up to 3 categories across all major retailers', tier2_f2: '1 country',
+    tier2_f3: 'Daily email alerts', tier2_f4: 'Monthly summary report',
+    tier2_f5: 'CSV data export', tier2_f6: 'Priority email support',
+    most_popular: 'Most Popular',
+    tier3_name: 'Enterprise', tier3_desc: 'Multiple countries and categories',
+    tier3_price: 'Custom', tier3_note: 'Tailored to your market coverage',
+    tier3_f1: 'Unlimited categories', tier3_f2: 'Multiple countries',
+    tier3_f3: 'Daily email alerts', tier3_f4: 'Monthly analyst-written report',
+    tier3_f5: 'API data access', tier3_f6: 'Dedicated account manager',
+    btn_get_started: 'Get Started', btn_talk_to_us: 'Talk to Us',
+    how_label: 'How It Works', how_title: 'Live in <span>24 hours</span>',
+    how_sub: 'No integration. No onboarding project. No IT involvement.',
+    step1_title: 'Tell us your category',
+    step1_desc: 'Your brand, your competitors, your country. A 15-minute call to scope exactly what you need.',
+    step2_title: 'We configure your feed',
+    step2_desc: 'We set up daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.',
+    step3_title: 'Check your inbox',
+    step3_desc: 'Every morning at 7am, your Shelf Signal arrives. Only when something changed. No noise.',
     cta_title: 'Ready to see what changed <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">yesterday?</span>',
     cta_sub: 'Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.',
+    footer_text: 'Shelf Signal is a product of <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026',
     currency: '\u00A3', p1: '500', p2: '1,200'
 },
 es: {
@@ -626,11 +656,41 @@ es: {
     alert_4_title: 'Nuevos Listados', alert_4_desc: 'Un competidor lanza un nuevo SKU en un supermercado. Lo ves a la ma\u00F1ana siguiente.',
     alert_5_title: 'Deslistados', alert_5_desc: 'Un producto desaparece de un supermercado. Huecos de distribuci\u00F3n detectados al instante.',
     alert_6_title: 'Cambios de Stock', alert_6_desc: 'Sin stock o de vuelta. Seguimiento de disponibilidad en cada supermercado, cada d\u00EDa.',
+    coverage_label: 'Cobertura', coverage_title: '<span>Supermercados</span> europeos',
+    coverage_sub: 'Todos los supermercados principales de cada pa\u00EDs. Capturados a diario.',
+    coverage_live: 'Activo', coverage_request: 'Disponible bajo petici\u00F3n',
+    and_more: 'y m\u00E1s', retailers_word: 'supermercados',
     pricing_label: 'Precios', pricing_title: 'Precios <span>transparentes</span>',
     pricing_sub: 'Elige un plan. Dinos tu marca, categor\u00EDa y competidores. El primer email llega ma\u00F1ana.',
+    tier1_name: 'Starter', tier1_desc: 'Una categor\u00EDa, un pa\u00EDs',
+    price_period: '/mes', tier1_note: 'Sin compromiso anual',
+    tier1_f1: '1 categor\u00EDa en todos los supermercados', tier1_f2: '1 pa\u00EDs',
+    tier1_f3: 'Alertas diarias por email', tier1_f4: 'Informe mensual',
+    tier1_f5: 'Exportaci\u00F3n de datos en CSV', tier1_f6: 'Soporte por email',
+    tier2_name: 'Professional', tier2_desc: 'Hasta 3 categor\u00EDas, un pa\u00EDs',
+    tier2_note: 'Sin compromiso anual',
+    tier2_f1: 'Hasta 3 categor\u00EDas en todos los supermercados', tier2_f2: '1 pa\u00EDs',
+    tier2_f3: 'Alertas diarias por email', tier2_f4: 'Informe mensual',
+    tier2_f5: 'Exportaci\u00F3n de datos en CSV', tier2_f6: 'Soporte prioritario por email',
+    most_popular: 'M\u00E1s Popular',
+    tier3_name: 'Enterprise', tier3_desc: 'M\u00FAltiples pa\u00EDses y categor\u00EDas',
+    tier3_price: 'A medida', tier3_note: 'Adaptado a tu cobertura de mercado',
+    tier3_f1: 'Categor\u00EDas ilimitadas', tier3_f2: 'M\u00FAltiples pa\u00EDses',
+    tier3_f3: 'Alertas diarias por email', tier3_f4: 'Informe mensual redactado por analistas',
+    tier3_f5: 'Acceso a datos por API', tier3_f6: 'Account manager dedicado',
+    btn_get_started: 'Empezar', btn_talk_to_us: 'Contactar',
+    how_label: 'C\u00F3mo Funciona', how_title: 'Activo en <span>24 horas</span>',
+    how_sub: 'Sin integraci\u00F3n. Sin proyecto de onboarding. Sin intervenci\u00F3n de IT.',
+    step1_title: 'Dinos tu categor\u00EDa',
+    step1_desc: 'Tu marca, tus competidores, tu pa\u00EDs. Una llamada de 15 minutos para definir exactamente lo que necesitas.',
+    step2_title: 'Configuramos tu feed',
+    step2_desc: 'Activamos la monitorizaci\u00F3n diaria en todos los supermercados de tu mercado. Tus productos y competidores, seguidos a nivel de SKU.',
+    step3_title: 'Revisa tu bandeja',
+    step3_desc: 'Cada ma\u00F1ana a las 7am, tu Shelf Signal est\u00E1 listo. Solo cuando algo cambia. Sin ruido.',
     cta_title: '\u00BFListo para ver qu\u00E9 cambi\u00F3 <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ayer?</span>',
     cta_sub: 'Dinos tu categor\u00EDa y pa\u00EDs. Tu primer Shelf Signal llega ma\u00F1ana por la ma\u00F1ana.',
-    currency: '\u20AC', p1: '500', p2: '1,200'
+    footer_text: 'Shelf Signal es un producto de <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Pol\u00EDtica de Privacidad</a> &nbsp;|&nbsp; &copy; 2026',
+    currency: '\u20AC', p1: '500', p2: '1.200'
 },
 fr: {
     hero_badge: 'Produit Early Phoenix',
@@ -648,11 +708,41 @@ fr: {
     alert_4_title: 'Nouveaux R\u00E9f\u00E9rencements', alert_4_desc: 'Un concurrent lance un nouveau SKU chez une enseigne. Vous le voyez le lendemain matin.',
     alert_5_title: 'D\u00E9r\u00E9f\u00E9rencements', alert_5_desc: 'Un produit dispara\u00EEt d\'une enseigne. Lacunes de distribution d\u00E9tect\u00E9es instantan\u00E9ment.',
     alert_6_title: 'Changements de Stock', alert_6_desc: 'En rupture ou de retour. Suivi de la disponibilit\u00E9 chez chaque enseigne, chaque jour.',
+    coverage_label: 'Couverture', coverage_title: '<span>Enseignes</span> europ\u00E9ennes',
+    coverage_sub: 'Tous les supermarch\u00E9s majeurs de chaque pays. Captur\u00E9s quotidiennement.',
+    coverage_live: 'Actif', coverage_request: 'Disponible sur demande',
+    and_more: 'et plus', retailers_word: 'enseignes',
     pricing_label: 'Tarifs', pricing_title: 'Des tarifs <span>transparents</span>',
     pricing_sub: 'Choisissez un plan. Dites-nous votre marque, cat\u00E9gorie et concurrents. Le premier email arrive demain matin.',
+    tier1_name: 'Starter', tier1_desc: 'Une cat\u00E9gorie, un pays',
+    price_period: '/mois', tier1_note: 'Sans engagement annuel',
+    tier1_f1: '1 cat\u00E9gorie dans toutes les enseignes', tier1_f2: '1 pays',
+    tier1_f3: 'Alertes quotidiennes par email', tier1_f4: 'Rapport mensuel',
+    tier1_f5: 'Export de donn\u00E9es en CSV', tier1_f6: 'Support par email',
+    tier2_name: 'Professional', tier2_desc: 'Jusqu\'\u00E0 3 cat\u00E9gories, un pays',
+    tier2_note: 'Sans engagement annuel',
+    tier2_f1: 'Jusqu\'\u00E0 3 cat\u00E9gories dans toutes les enseignes', tier2_f2: '1 pays',
+    tier2_f3: 'Alertes quotidiennes par email', tier2_f4: 'Rapport mensuel',
+    tier2_f5: 'Export de donn\u00E9es en CSV', tier2_f6: 'Support prioritaire par email',
+    most_popular: 'Le Plus Populaire',
+    tier3_name: 'Enterprise', tier3_desc: 'Plusieurs pays et cat\u00E9gories',
+    tier3_price: 'Sur mesure', tier3_note: 'Adapt\u00E9 \u00E0 votre couverture march\u00E9',
+    tier3_f1: 'Cat\u00E9gories illimit\u00E9es', tier3_f2: 'Plusieurs pays',
+    tier3_f3: 'Alertes quotidiennes par email', tier3_f4: 'Rapport mensuel r\u00E9dig\u00E9 par des analystes',
+    tier3_f5: 'Acc\u00E8s aux donn\u00E9es par API', tier3_f6: 'Account manager d\u00E9di\u00E9',
+    btn_get_started: 'D\u00E9marrer', btn_talk_to_us: 'Nous Contacter',
+    how_label: 'Comment \u00C7a Marche', how_title: 'Actif en <span>24 heures</span>',
+    how_sub: 'Pas d\'int\u00E9gration. Pas de projet d\'onboarding. Pas d\'intervention IT.',
+    step1_title: 'Indiquez votre cat\u00E9gorie',
+    step1_desc: 'Votre marque, vos concurrents, votre pays. Un appel de 15 minutes pour d\u00E9finir pr\u00E9cis\u00E9ment vos besoins.',
+    step2_title: 'Nous configurons votre flux',
+    step2_desc: 'Nous activons le suivi quotidien dans toutes les enseignes de votre march\u00E9. Vos produits et concurrents, suivis au niveau SKU.',
+    step3_title: 'Consultez votre bo\u00EEte de r\u00E9ception',
+    step3_desc: 'Chaque matin \u00E0 7h, votre Shelf Signal est l\u00E0. Uniquement quand quelque chose a chang\u00E9. Pas de bruit.',
     cta_title: 'Pr\u00EAt \u00E0 voir ce qui a chang\u00E9 <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">hier ?</span>',
     cta_sub: 'Dites-nous votre cat\u00E9gorie et votre pays. Votre premier Shelf Signal arrive demain matin.',
-    currency: '\u20AC', p1: '500', p2: '1,200'
+    footer_text: 'Shelf Signal est un produit d\'<a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Politique de Confidentialit\u00E9</a> &nbsp;|&nbsp; &copy; 2026',
+    currency: '\u20AC', p1: '500', p2: '1.200'
 },
 pt: {
     hero_badge: 'Produto Early Phoenix',
@@ -670,11 +760,41 @@ pt: {
     alert_4_title: 'Novos Produtos', alert_4_desc: 'Um concorrente lan\u00E7a um novo SKU num supermercado. V\u00EA na manh\u00E3 seguinte.',
     alert_5_title: 'Deslistagens', alert_5_desc: 'Um produto desaparece de um supermercado. Falhas de distribui\u00E7\u00E3o detetadas instant\u00E2neamente.',
     alert_6_title: 'Altera\u00E7\u00F5es de Stock', alert_6_desc: 'Sem stock ou de volta. Acompanhamento de disponibilidade em cada supermercado, diariamente.',
+    coverage_label: 'Cobertura', coverage_title: '<span>Supermercados</span> europeus',
+    coverage_sub: 'Todos os principais supermercados de cada pa\u00EDs. Capturados diariamente.',
+    coverage_live: 'Ativo', coverage_request: 'Dispon\u00EDvel a pedido',
+    and_more: 'e mais', retailers_word: 'supermercados',
     pricing_label: 'Pre\u00E7os', pricing_title: 'Pre\u00E7os <span>transparentes</span>',
     pricing_sub: 'Escolha um plano. Diga-nos a sua marca, categoria e concorrentes. O primeiro email chega amanh\u00E3.',
+    tier1_name: 'Starter', tier1_desc: 'Uma categoria, um pa\u00EDs',
+    price_period: '/m\u00EAs', tier1_note: 'Sem compromisso anual',
+    tier1_f1: '1 categoria em todos os supermercados', tier1_f2: '1 pa\u00EDs',
+    tier1_f3: 'Alertas di\u00E1rios por email', tier1_f4: 'Relat\u00F3rio mensal',
+    tier1_f5: 'Exporta\u00E7\u00E3o de dados em CSV', tier1_f6: 'Suporte por email',
+    tier2_name: 'Professional', tier2_desc: 'At\u00E9 3 categorias, um pa\u00EDs',
+    tier2_note: 'Sem compromisso anual',
+    tier2_f1: 'At\u00E9 3 categorias em todos os supermercados', tier2_f2: '1 pa\u00EDs',
+    tier2_f3: 'Alertas di\u00E1rios por email', tier2_f4: 'Relat\u00F3rio mensal',
+    tier2_f5: 'Exporta\u00E7\u00E3o de dados em CSV', tier2_f6: 'Suporte priorit\u00E1rio por email',
+    most_popular: 'Mais Popular',
+    tier3_name: 'Enterprise', tier3_desc: 'V\u00E1rios pa\u00EDses e categorias',
+    tier3_price: 'Personalizado', tier3_note: 'Adaptado \u00E0 sua cobertura de mercado',
+    tier3_f1: 'Categorias ilimitadas', tier3_f2: 'V\u00E1rios pa\u00EDses',
+    tier3_f3: 'Alertas di\u00E1rios por email', tier3_f4: 'Relat\u00F3rio mensal redigido por analistas',
+    tier3_f5: 'Acesso a dados por API', tier3_f6: 'Account manager dedicado',
+    btn_get_started: 'Come\u00E7ar', btn_talk_to_us: 'Contactar',
+    how_label: 'Como Funciona', how_title: 'Ativo em <span>24 horas</span>',
+    how_sub: 'Sem integra\u00E7\u00E3o. Sem projeto de onboarding. Sem envolvimento de IT.',
+    step1_title: 'Diga-nos a sua categoria',
+    step1_desc: 'A sua marca, os seus concorrentes, o seu pa\u00EDs. Uma chamada de 15 minutos para definir exatamente o que precisa.',
+    step2_title: 'Configuramos o seu feed',
+    step2_desc: 'Ativamos a monitoriza\u00E7\u00E3o di\u00E1ria em todos os supermercados do seu mercado. Os seus produtos e concorrentes, monitorizados ao n\u00EDvel de SKU.',
+    step3_title: 'Consulte a sua caixa de entrada',
+    step3_desc: 'Todas as manh\u00E3s \u00E0s 7h, o seu Shelf Signal chega. S\u00F3 quando algo mudou. Sem ru\u00EDdo.',
     cta_title: 'Pronto para ver o que mudou <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ontem?</span>',
     cta_sub: 'Diga-nos a sua categoria e pa\u00EDs. O seu primeiro Shelf Signal chega amanh\u00E3 de manh\u00E3.',
-    currency: '\u20AC', p1: '500', p2: '1,200'
+    footer_text: 'Shelf Signal \u00E9 um produto da <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Pol\u00EDtica de Privacidade</a> &nbsp;|&nbsp; &copy; 2026',
+    currency: '\u20AC', p1: '500', p2: '1.200'
 },
 de: {
     hero_badge: 'Early Phoenix Produkt',
@@ -691,12 +811,42 @@ de: {
     alert_3_title: 'Aktionen', alert_3_desc: 'Neue Aktionen die starten, enden oder sich \u00E4ndern. Pro H\u00E4ndler.',
     alert_4_title: 'Neue Listungen', alert_4_desc: 'Ein Wettbewerber listet ein neues Produkt bei einem H\u00E4ndler. Sie sehen es am n\u00E4chsten Morgen.',
     alert_5_title: 'Auslistungen', alert_5_desc: 'Ein Produkt verschwindet bei einem H\u00E4ndler. Distributionsl\u00FCcken sofort erkannt.',
-    alert_6_title: 'Bestandsanderungen', alert_6_desc: 'Ausverkauft oder wieder verf\u00FCgbar. Verf\u00FCgbarkeit bei jedem H\u00E4ndler, t\u00E4glich.',
+    alert_6_title: 'Bestands\u00E4nderungen', alert_6_desc: 'Ausverkauft oder wieder verf\u00FCgbar. Verf\u00FCgbarkeit bei jedem H\u00E4ndler, t\u00E4glich.',
+    coverage_label: 'Abdeckung', coverage_title: 'Europ\u00E4ische <span>H\u00E4ndler</span>',
+    coverage_sub: 'Alle gro\u00DFen Superm\u00E4rkte in jedem Land. T\u00E4glich erfasst.',
+    coverage_live: 'Jetzt aktiv', coverage_request: 'Auf Anfrage verf\u00FCgbar',
+    and_more: 'und mehr', retailers_word: 'H\u00E4ndler',
     pricing_label: 'Preise', pricing_title: 'Einfache, <span>transparente</span> Preise',
     pricing_sub: 'W\u00E4hlen Sie einen Plan. Nennen Sie uns Ihre Marke, Kategorie und Wettbewerber. Die erste E-Mail kommt morgen fr\u00FCh.',
+    tier1_name: 'Starter', tier1_desc: 'Eine Kategorie, ein Land',
+    price_period: '/Monat', tier1_note: 'Keine Jahresbindung',
+    tier1_f1: '1 Kategorie bei allen gro\u00DFen H\u00E4ndlern', tier1_f2: '1 Land',
+    tier1_f3: 'T\u00E4gliche E-Mail-Alerts', tier1_f4: 'Monatlicher Bericht',
+    tier1_f5: 'CSV-Datenexport', tier1_f6: 'E-Mail-Support',
+    tier2_name: 'Professional', tier2_desc: 'Bis zu 3 Kategorien, ein Land',
+    tier2_note: 'Keine Jahresbindung',
+    tier2_f1: 'Bis zu 3 Kategorien bei allen gro\u00DFen H\u00E4ndlern', tier2_f2: '1 Land',
+    tier2_f3: 'T\u00E4gliche E-Mail-Alerts', tier2_f4: 'Monatlicher Bericht',
+    tier2_f5: 'CSV-Datenexport', tier2_f6: 'Priorisierter E-Mail-Support',
+    most_popular: 'Am Beliebtesten',
+    tier3_name: 'Enterprise', tier3_desc: 'Mehrere L\u00E4nder und Kategorien',
+    tier3_price: 'Individuell', tier3_note: 'Zugeschnitten auf Ihre Marktabdeckung',
+    tier3_f1: 'Unbegrenzte Kategorien', tier3_f2: 'Mehrere L\u00E4nder',
+    tier3_f3: 'T\u00E4gliche E-Mail-Alerts', tier3_f4: 'Monatlicher Analystenbericht',
+    tier3_f5: 'API-Datenzugang', tier3_f6: 'Dedizierter Account Manager',
+    btn_get_started: 'Jetzt starten', btn_talk_to_us: 'Kontakt',
+    how_label: 'So Funktioniert Es', how_title: 'Aktiv in <span>24 Stunden</span>',
+    how_sub: 'Keine Integration. Kein Onboarding-Projekt. Keine IT-Beteiligung.',
+    step1_title: 'Nennen Sie uns Ihre Kategorie',
+    step1_desc: 'Ihre Marke, Ihre Wettbewerber, Ihr Land. Ein 15-min\u00FCtiges Gespr\u00E4ch, um genau zu definieren, was Sie brauchen.',
+    step2_title: 'Wir konfigurieren Ihren Feed',
+    step2_desc: 'Wir richten die t\u00E4gliche \u00DCberwachung bei allen gro\u00DFen H\u00E4ndlern Ihres Marktes ein. Ihre Produkte und Wettbewerber, verfolgt auf SKU-Ebene.',
+    step3_title: 'Pr\u00FCfen Sie Ihren Posteingang',
+    step3_desc: 'Jeden Morgen um 7 Uhr kommt Ihr Shelf Signal. Nur wenn sich etwas ge\u00E4ndert hat. Kein L\u00E4rm.',
     cta_title: 'Bereit zu sehen, was sich <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">gestern ge\u00E4ndert hat?</span>',
     cta_sub: 'Nennen Sie uns Ihre Kategorie und Ihr Land. Ihr erstes Shelf Signal kommt morgen fr\u00FCh.',
-    currency: '\u20AC', p1: '500', p2: '1,200'
+    footer_text: 'Shelf Signal ist ein Produkt von <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Datenschutzerkl\u00E4rung</a> &nbsp;|&nbsp; &copy; 2026',
+    currency: '\u20AC', p1: '500', p2: '1.200'
 },
 it: {
     hero_badge: 'Prodotto Early Phoenix',
@@ -714,11 +864,41 @@ it: {
     alert_4_title: 'Nuovi Inserimenti', alert_4_desc: 'Un concorrente lancia un nuovo SKU in un supermercato. Lo vedi la mattina dopo.',
     alert_5_title: 'Cancellazioni', alert_5_desc: 'Un prodotto scompare da un supermercato. Gap distributivi rilevati istantaneamente.',
     alert_6_title: 'Variazioni di Stock', alert_6_desc: 'Esaurito o tornato disponibile. Monitora la disponibilit\u00E0 in ogni supermercato, ogni giorno.',
+    coverage_label: 'Copertura', coverage_title: '<span>Supermercati</span> europei',
+    coverage_sub: 'Tutti i principali supermercati di ogni paese. Rilevati quotidianamente.',
+    coverage_live: 'Attivo ora', coverage_request: 'Disponibile su richiesta',
+    and_more: 'e altri', retailers_word: 'supermercati',
     pricing_label: 'Prezzi', pricing_title: 'Prezzi <span>trasparenti</span>',
     pricing_sub: 'Scegli un piano. Dicci il tuo brand, categoria e concorrenti. La prima email arriva domani mattina.',
+    tier1_name: 'Starter', tier1_desc: 'Una categoria, un paese',
+    price_period: '/mese', tier1_note: 'Nessun impegno annuale',
+    tier1_f1: '1 categoria in tutti i supermercati', tier1_f2: '1 paese',
+    tier1_f3: 'Avvisi giornalieri via email', tier1_f4: 'Report mensile',
+    tier1_f5: 'Esportazione dati in CSV', tier1_f6: 'Supporto via email',
+    tier2_name: 'Professional', tier2_desc: 'Fino a 3 categorie, un paese',
+    tier2_note: 'Nessun impegno annuale',
+    tier2_f1: 'Fino a 3 categorie in tutti i supermercati', tier2_f2: '1 paese',
+    tier2_f3: 'Avvisi giornalieri via email', tier2_f4: 'Report mensile',
+    tier2_f5: 'Esportazione dati in CSV', tier2_f6: 'Supporto prioritario via email',
+    most_popular: 'Pi\u00F9 Popolare',
+    tier3_name: 'Enterprise', tier3_desc: 'Pi\u00F9 paesi e categorie',
+    tier3_price: 'Personalizzato', tier3_note: 'Su misura per la tua copertura di mercato',
+    tier3_f1: 'Categorie illimitate', tier3_f2: 'Pi\u00F9 paesi',
+    tier3_f3: 'Avvisi giornalieri via email', tier3_f4: 'Report mensile redatto da analisti',
+    tier3_f5: 'Accesso dati via API', tier3_f6: 'Account manager dedicato',
+    btn_get_started: 'Inizia Ora', btn_talk_to_us: 'Contattaci',
+    how_label: 'Come Funziona', how_title: 'Attivo in <span>24 ore</span>',
+    how_sub: 'Nessuna integrazione. Nessun progetto di onboarding. Nessun coinvolgimento IT.',
+    step1_title: 'Dicci la tua categoria',
+    step1_desc: 'Il tuo brand, i tuoi concorrenti, il tuo paese. Una chiamata di 15 minuti per definire esattamente ci\u00F2 che ti serve.',
+    step2_title: 'Configuriamo il tuo feed',
+    step2_desc: 'Attiviamo il monitoraggio giornaliero in tutti i supermercati del tuo mercato. I tuoi prodotti e concorrenti, tracciati a livello di SKU.',
+    step3_title: 'Controlla la tua casella',
+    step3_desc: 'Ogni mattina alle 7, il tuo Shelf Signal arriva. Solo quando qualcosa \u00E8 cambiato. Niente rumore.',
     cta_title: 'Pronto a vedere cosa \u00E8 cambiato <span style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ieri?</span>',
     cta_sub: 'Dicci la tua categoria e il tuo paese. Il tuo primo Shelf Signal arriva domani mattina.',
-    currency: '\u20AC', p1: '500', p2: '1,200'
+    footer_text: 'Shelf Signal \u00E8 un prodotto di <a href="/">Early Phoenix</a>. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; &copy; 2026',
+    currency: '\u20AC', p1: '500', p2: '1.200'
 }
 };
 
@@ -733,12 +913,20 @@ function setLang(lang) {
         var key = el.getAttribute('data-i18n');
         if (t[key]) el.innerHTML = t[key];
     });
-    // Update pricing cards currency
+    // Update pricing cards currency and amounts
     var c = t.currency || '\u00A3';
     document.querySelectorAll('.pricing-card .price').forEach(function(el, i) {
         if (i === 0) el.innerHTML = c + t.p1;
         else if (i === 1) el.innerHTML = c + t.p2;
+        // Enterprise "Custom" is handled by data-i18n="tier3_price"
     });
+    // Update "Most Popular" badge via data attribute
+    var badge = document.querySelector('[data-i18n-badge]');
+    if (badge && t.most_popular) {
+        badge.setAttribute('data-badge', t.most_popular);
+    }
+    // Update html lang attribute
+    document.documentElement.lang = lang;
 }
 
 (function() {
