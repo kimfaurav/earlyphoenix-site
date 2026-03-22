@@ -500,14 +500,14 @@ function updatePriceSummary() {
     document.getElementById('summary-countries').textContent = countryNames;
     document.getElementById('summary-categories').textContent = catNames.length ? catNames.join(', ') : '-';
     document.getElementById('summary-plan').textContent = plan.name;
-    document.getElementById('summary-price').textContent = plan.price ? `\u00A3${plan.price.toLocaleString()}` : 'Custom';
+    document.getElementById('summary-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}` : 'Custom';
     document.getElementById('enterprise-note').style.display = (plan.name === 'Enterprise') ? 'block' : 'none';
 
     // Step 3 summary
     document.getElementById('final-countries').textContent = countryNames;
     document.getElementById('final-categories').textContent = catNames.length ? catNames.join(', ') : '-';
     document.getElementById('final-plan').textContent = plan.name;
-    document.getElementById('final-price').textContent = plan.price ? `\u00A3${plan.price.toLocaleString()}` : 'Custom';
+    document.getElementById('final-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}` : 'Custom';
 
     document.getElementById('btn-step-2').disabled = catCount === 0;
 }
@@ -555,7 +555,7 @@ function submitForm() {
     const body = [
         'NEW SHELF SIGNAL REQUEST', '',
         `Plan: ${plan.name}`,
-        `Price: ${plan.price ? '\u00A3' + plan.price + '/month' : 'Enterprise (custom)'}`, '',
+        `Price: ${plan.price ? '\u20AC' + plan.price + '/month' : 'Enterprise (custom)'}`, '',
         `Countries: ${countryNames}`,
         `Categories: ${catNames.join(', ')}`, '',
         `Name: ${name}`, `Email: ${email}`, `Company: ${company}`,
@@ -567,7 +567,7 @@ function submitForm() {
     var formData = {
         _subject: subject,
         plan: plan.name,
-        price: plan.price ? '\u00A3' + plan.price + '/month' : 'Enterprise (custom)',
+        price: plan.price ? '\u20AC' + plan.price + '/month' : 'Enterprise (custom)',
         countries: countryNames,
         categories: catNames.join(', '),
         name: name,
@@ -594,7 +594,7 @@ function submitForm() {
     document.getElementById('confirm-countries').textContent = countryNames;
     document.getElementById('confirm-categories').textContent = catNames.join(', ');
     document.getElementById('confirm-plan').textContent = plan.name;
-    document.getElementById('confirm-price').textContent = plan.price ? `\u00A3${plan.price.toLocaleString()}/month` : 'Custom (we\'ll be in touch)';
+    document.getElementById('confirm-price').textContent = plan.price ? `\u20AC${plan.price.toLocaleString()}/month` : 'Custom (we\'ll be in touch)';
 
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.getElementById('step-confirm').classList.add('active');
