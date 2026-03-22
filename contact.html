@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Early Phoenix</title>
+    <meta name="description" content="Get in touch with Early Phoenix. Tell us about your competitive intelligence needs.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0c0f1e; --bg-secondary: #111527; --bg-card: #1a1f35;
+            --bg-input: #151a2e; --accent: #E8740C; --accent-light: #F5B731;
+            --accent-dim: rgba(232, 116, 12, 0.12); --accent-glow: rgba(232, 116, 12, 0.3);
+            --text-primary: #fcfcff; --text-secondary: #b0b4c0; --text-muted: #606878;
+            --border: rgba(255, 255, 255, 0.06); --border-input: rgba(255, 255, 255, 0.12);
+            --green: #34d399;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden;
+        }
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        body > * { position: relative; z-index: 1; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.5rem 2rem;
+            background: rgba(12, 15, 30, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo { text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+        nav ul li a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;
+        }
+        nav ul li a:hover { color: var(--accent-light); }
+
+        .page-container { max-width: 600px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+        .page-header { text-align: center; margin-bottom: 2.5rem; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+        .page-header h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-header p { color: var(--text-secondary); font-size: 1rem; max-width: 450px; margin: 0 auto; line-height: 1.7; }
+
+        .form-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem;
+        }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label {
+            display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 0.75rem 1rem; background: var(--bg-input); border: 2px solid var(--border-input);
+            border-radius: 8px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.88rem;
+            outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group select { cursor: pointer; }
+        .form-group select option { background: var(--bg-card); color: var(--text-primary); }
+
+        .btn {
+            padding: 0.9rem 2.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: center;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff; }
+        .btn-primary:hover { box-shadow: 0 4px 25px var(--accent-glow); transform: translateY(-1px); filter: brightness(1.1); }
+
+        .confirmation { display: none; text-align: center; padding: 3rem 0; }
+        .confirmation.show { display: block; }
+        .confirmation-icon {
+            width: 80px; height: 80px; border-radius: 50%; background: rgba(52, 211, 153, 0.15);
+            border: 2px solid var(--green); display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin: 0 auto 1.5rem;
+        }
+        .confirmation h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .confirmation p { color: var(--text-secondary); font-size: 1rem; max-width: 400px; margin: 0 auto; line-height: 1.7; }
+
+        footer {
+            text-align: center; padding: 2.5rem 2rem; color: var(--text-muted);
+            font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 4rem;
+        }
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent-light); }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+            .form-card { padding: 1.5rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="shelf-signal.html">Shelf Signal</a></li>
+    </ul>
+</nav>
+
+<div class="page-container">
+    <div class="page-header">
+        <h1>Get in <span>Touch</span></h1>
+        <p>Tell us about your competitive intelligence needs. We'll get back to you within 24 hours.</p>
+    </div>
+
+    <div class="form-card" id="contact-form-card">
+        <form id="contact-form" onsubmit="submitContact(event)">
+            <div class="form-group">
+                <label>Your name</label>
+                <input type="text" id="c-name" placeholder="e.g. Sarah Johnson" required>
+            </div>
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" id="c-email" placeholder="e.g. sarah@company.com" required>
+            </div>
+            <div class="form-group">
+                <label>Company</label>
+                <input type="text" id="c-company" placeholder="e.g. Your company name">
+            </div>
+            <div class="form-group">
+                <label>What can we help with?</label>
+                <select id="c-topic">
+                    <option value="Shelf Signal">Shelf Signal (daily pricing alerts)</option>
+                    <option value="Custom Intelligence">Custom intelligence project</option>
+                    <option value="Partnership">Partnership enquiry</option>
+                    <option value="General">General enquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Your message</label>
+                <textarea id="c-message" placeholder="Tell us about your needs, the categories and countries you're interested in, or any questions you have."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+
+    <div class="confirmation" id="confirmation">
+        <div class="confirmation-icon">&#10003;</div>
+        <h2>Message sent.</h2>
+        <p>We'll get back to you within 24 hours. If your enquiry is about Shelf Signal, we can usually have your first alert configured the same day.</p>
+        <a href="/" style="display: inline-block; margin-top: 1.5rem; color: var(--accent-light); text-decoration: none; font-weight: 600;">Back to Early Phoenix</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Early Phoenix &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
+</footer>
+
+<script>
+function submitContact(e) {
+    e.preventDefault();
+    var data = {
+        _subject: 'Early Phoenix Contact: ' + document.getElementById('c-topic').value,
+        name: document.getElementById('c-name').value,
+        email: document.getElementById('c-email').value,
+        company: document.getElementById('c-company').value,
+        topic: document.getElementById('c-topic').value,
+        message: document.getElementById('c-message').value
+    };
+    fetch('https://formspree.io/f/xgonbbkn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+    }).catch(function() {});
+    document.getElementById('contact-form-card').style.display = 'none';
+    document.getElementById('confirmation').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
