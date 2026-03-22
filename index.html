@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Early Phoenix — AI-Powered Data Intelligence</title>
-    <meta name="description" content="Early Phoenix delivers AI-powered market intelligence for brands, platforms, and investors. We track competitive pricing, marketplace dynamics, and market share across European markets, turning complex data into strategic advantage.">
+    <title>Early Phoenix — Competitive Intelligence for European Retail</title>
+    <meta name="description" content="Daily competitive pricing alerts across European supermarkets. Track competitor prices, promotions, new listings, and stock changes. From £500/month.">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-primary: #0c0f1e;
             --bg-secondary: #111527;
@@ -30,984 +25,399 @@
             --text-muted: #606878;
             --border: rgba(255, 255, 255, 0.06);
             --border-accent: rgba(232, 116, 12, 0.3);
+            --green: #34d399;
+            --red: #f87171;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
+            background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden;
         }
-
-        /* Constellation dot-grid background */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            background-image:
-                radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+        body > * { position: relative; z-index: 1; }
 
-        body > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Navigation */
+        /* Nav */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 0.5rem 2rem;
-            background: rgba(12, 15, 30, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.5rem 2rem;
+            background: rgba(12, 15, 30, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;
         }
-
-        nav .logo {
-            font-weight: 800;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        nav .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
+        nav .logo { text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
         nav ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            transition: color 0.3s;
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;
         }
-
-        nav ul li a:hover {
-            color: var(--accent-light);
+        nav ul li a:hover { color: var(--accent-light); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff !important;
+            padding: 0.5rem 1.2rem; border-radius: 6px; font-size: 0.8rem !important; font-weight: 600 !important;
+            letter-spacing: 0.04em !important; transition: all 0.3s;
         }
+        .nav-cta:hover { box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-1px); }
 
         /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 8rem 2rem 5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+            min-height: 92vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 8rem 2rem 3rem; max-width: 900px; margin: 0 auto; position: relative;
         }
-
-        /* Radial glow behind hero text */
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -55%);
-            width: 600px;
-            height: 600px;
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -55%); width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(232, 116, 12, 0.08) 0%, rgba(245, 183, 49, 0.03) 40%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
+            border-radius: 50%; pointer-events: none; z-index: 0;
         }
-
-        .hero > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-
-        .hero-label {
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
+        .hero > * { position: relative; z-index: 1; }
         .hero h1 {
-            font-size: 3.75rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
+            font-size: 3.75rem; font-weight: 800; line-height: 1.08;
+            margin-bottom: 1.5rem; letter-spacing: -0.03em;
         }
-
         .hero h1 span {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .hero-bio {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            line-height: 1.75;
-            max-width: 650px;
-            margin-bottom: 2.5rem;
+        .hero-sub {
+            font-size: 1.2rem; color: var(--text-secondary); line-height: 1.75;
+            max-width: 620px; margin-bottom: 2rem;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
+        .hero-price {
+            font-size: 1rem; color: var(--text-muted); margin-bottom: 2.5rem;
         }
-
+        .hero-price strong { font-size: 1.6rem; font-weight: 800; color: var(--text-primary); }
+        .hero-buttons { display: flex; gap: 1rem; }
         .btn {
-            padding: 0.9rem 2.25rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            padding: 0.9rem 2.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
         }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff; }
+        .btn-primary:hover { box-shadow: 0 4px 25px var(--accent-glow); transform: translateY(-1px); filter: brightness(1.1); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid rgba(255,255,255,0.15); }
+        .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
 
-        .btn-primary {
+        /* Stats bar */
+        .stats-bar {
+            max-width: 900px; margin: -2rem auto 0; padding: 0 2rem;
+        }
+        .stats-bar-inner {
+            display: flex; justify-content: center; gap: 3rem; padding: 1.5rem 0;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat-number {
+            font-size: 1.8rem; font-weight: 800;
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: #fff;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .btn-primary:hover {
-            box-shadow: 0 4px 25px var(--accent-glow);
-            transform: translateY(-1px);
-            filter: brightness(1.1);
-        }
-
-        .btn-secondary {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border: 1px solid var(--accent);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-light);
-            background: var(--bg-card-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 20px rgba(232, 116, 12, 0.15);
-        }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; margin-top: 0.15rem; }
 
         /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
         .section-label {
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.75rem;
-            font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; font-weight: 600;
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            margin-bottom: 0.75rem;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            text-align: center; margin-bottom: 0.75rem;
         }
-
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
-            color: var(--text-primary);
+            font-size: 2.5rem; font-weight: 800; text-align: center;
+            margin-bottom: 0.75rem; letter-spacing: -0.02em;
         }
-
         .section-title span {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
         .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 3.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
+            text-align: center; color: var(--text-secondary); font-size: 1.05rem;
+            margin-bottom: 3.5rem; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7;
         }
 
-        /* What We Do — 4 cards */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        /* Email preview */
+        .email-preview-section { display: flex; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .email-preview-text { flex: 1; }
+        .email-preview-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .email-preview-text p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+        .email-preview-text .feature-list { list-style: none; }
+        .email-preview-text .feature-list li {
+            padding: 0.5rem 0; font-size: 0.9rem; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 0.6rem;
         }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2.25rem;
-            transition: all 0.4s;
+        .feature-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        .email-preview-card {
+            flex: 1; background: #1e2235; border: 1px solid var(--border); border-radius: 14px;
+            overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 420px;
         }
-
-        .service-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
+        .email-header {
+            background: #252a40; padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 0.5rem;
         }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--accent-dim);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1.25rem;
+        .email-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .email-dot-red { background: #f87171; } .email-dot-yellow { background: #fbbf24; } .email-dot-green { background: #34d399; }
+        .email-subject { margin-left: 0.4rem; font-size: 0.75rem; color: var(--text-secondary); }
+        .email-subject strong { color: var(--text-primary); }
+        .email-body { padding: 1.25rem; font-size: 0.75rem; line-height: 1.7; }
+        .email-section-title {
+            font-weight: 700; color: var(--text-muted); font-size: 0.65rem;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem; margin-bottom: 0.35rem;
         }
+        .email-section-title:first-child { margin-top: 0; }
+        .email-item { color: var(--text-secondary); padding-left: 0.4rem; font-size: 0.73rem; }
+        .email-item .price-down { color: var(--green); font-weight: 600; }
+        .email-item .price-up { color: var(--red); font-weight: 600; }
+        .email-item .new { color: var(--accent-light); font-weight: 600; }
+        .email-item .stock { color: #fbbf24; font-weight: 600; }
 
-        .service-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            color: var(--text-primary);
+        /* How it works */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .step-card { text-align: center; }
+        .step-number {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent); font-weight: 800; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.25rem; border: 2px solid var(--accent);
         }
+        .step-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .step-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
+        /* Countries */
+        .countries-row {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+        .country-pill {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.6rem;
+            transition: all 0.3s;
         }
+        .country-pill:hover { border-color: var(--border-accent); }
+        .country-pill .flag { font-size: 1.3rem; }
+        .country-pill .name { font-size: 0.85rem; font-weight: 600; }
+        .country-pill .detail { font-size: 0.7rem; color: var(--text-muted); }
+        .country-pill.live .detail { color: var(--green); }
+        .more-countries { text-align: center; color: var(--text-muted); font-size: 0.82rem; margin-top: 0.5rem; }
 
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2.25rem;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
+        /* Use cases */
+        .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .usecase-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+            padding: 2rem; transition: all 0.3s;
         }
-
-        .project-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, rgba(232, 116, 12, 0.15), rgba(245, 183, 49, 0.1));
-            color: var(--accent-light);
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
+        .usecase-card:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08); }
+        .usecase-tag {
+            display: inline-block; background: var(--accent-dim); color: var(--accent-light);
+            font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;
             border: 1px solid rgba(232, 116, 12, 0.2);
         }
+        .usecase-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .usecase-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
-        .project-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            color: var(--text-primary);
+        /* CTA */
+        .cta-section {
+            text-align: center; padding: 4rem 2rem;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; margin: 0 auto; max-width: 1100px;
         }
-
-        .project-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .project-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .project-stat {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            padding: 0.3rem 0.7rem;
-            border-radius: 6px;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        .project-stat strong {
+        .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+        .cta-section h2 span {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-light);
-            text-decoration: none;
-            margin-top: 0.5rem;
-            transition: gap 0.3s;
-        }
-
-        .project-link:hover {
-            gap: 0.6rem;
-        }
-
-        /* How We Work — process steps */
-        .process-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 3.5rem;
-            margin-top: 1rem;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 24px;
-            right: -1rem;
-            width: 2rem;
-            height: 2px;
-            background: var(--border);
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .process-number {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            border: 2px solid var(--accent);
-        }
-
-        .process-step h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: var(--text-primary);
-        }
-
-        .process-step p {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .process-callout {
-            margin-top: 2.5rem;
-            padding: 1.5rem 2rem;
-            background: var(--accent-dim);
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .process-callout p {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* Training section */
-        .training-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 3.5rem;
-            margin-top: 1rem;
-        }
-
-        .training-section h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .training-section > p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 650px;
-            margin-bottom: 2rem;
-        }
-
-        .training-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-        }
-
-        .training-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: all 0.4s;
-        }
-
-        .training-item:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08);
-        }
-
-        .training-item h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-            color: var(--text-primary);
-        }
-
-        .training-item p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .training-audiences {
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .audience-tag {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.5rem 1rem;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        /* About / Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2.25rem;
-            text-align: center;
-            transition: all 0.4s;
-        }
-
-        .team-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(232, 116, 12, 0.1), 0 0 0 1px rgba(232, 116, 12, 0.1);
-        }
-
-        .team-avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            background: var(--accent-dim);
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.25rem;
-            overflow: hidden;
-            border: 2px solid rgba(232, 116, 12, 0.2);
-        }
-
-        .team-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-
-        .team-card .team-role {
-            font-size: 0.82rem;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .team-card p {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .team-card .team-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--accent-light);
-            text-decoration: none;
-            margin-top: 0.75rem;
-            transition: gap 0.3s;
-        }
-
-        .team-card .team-link:hover {
-            gap: 0.6rem;
-        }
-
-        /* Contact */
-        .contact-section {
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+        .cta-section p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
+            text-align: center; padding: 2.5rem 2rem; color: var(--text-muted);
+            font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 3rem;
         }
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent-light); }
 
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-delay-1 { transition-delay: 0.1s; } .fade-in-delay-2 { transition-delay: 0.2s; } .fade-in-delay-3 { transition-delay: 0.3s; }
 
-        footer a:hover {
-            color: var(--accent-light);
-        }
-
-        /* Divider */
-        .divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 3px;
-            margin: 0 auto 3rem;
-        }
-
-        /* Responsive */
         @media (max-width: 900px) {
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.75rem;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            .services-grid,
-            .projects-grid,
-            .training-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .process-step::after {
-                display: none;
-            }
-
-            .process-section,
-            .training-section {
-                padding: 2rem;
-            }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .hero h1 { font-size: 2.75rem; }
+            nav ul { display: none; }
+            section { padding: 3.5rem 1.5rem; }
+            .email-preview-section { flex-direction: column; }
+            .email-preview-card { max-width: 100%; }
+            .steps-grid, .usecases-grid { grid-template-columns: 1fr; }
+            .stats-bar-inner { gap: 1.5rem; flex-wrap: wrap; }
         }
-
         @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .hero-bio {
-                font-size: 1.05rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
+            .hero h1 { font-size: 2.25rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .section-title { font-size: 2rem; }
         }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-delay-1 { transition-delay: 0.1s; }
-        .fade-in-delay-2 { transition-delay: 0.2s; }
-        .fade-in-delay-3 { transition-delay: 0.3s; }
-        .fade-in-delay-4 { transition-delay: 0.4s; }
     </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Nav -->
 <nav>
-    <a href="#" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
+    <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
     <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="shelf-signal.html" style="color: #F5B731;">Shelf Signal</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#process">How We Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li style="position: relative;">
-            <a href="#" id="lang-toggle" style="font-size: 0.85rem; cursor: pointer;" onclick="var m=document.getElementById('lang-menu'); m.style.display = m.style.display==='block'?'none':'block'; event.preventDefault();">
-                <span id="lang-current">EN</span> &#9662;
-            </a>
-            <div id="lang-menu" style="display:none; position:absolute; top:100%; right:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0; min-width:140px; margin-top:0.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:200;">
-                <a href="#" onclick="setLang('en'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127468;&#127463; English</a>
-                <a href="#" onclick="setLang('es'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127466;&#127480; Espa&ntilde;ol</a>
-                <a href="#" onclick="setLang('fr'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127467;&#127479; Fran&ccedil;ais</a>
-                <a href="#" onclick="setLang('pt'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127477;&#127481; Portugu&ecirc;s</a>
-                <a href="#" onclick="setLang('de'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127465;&#127466; Deutsch</a>
-                <a href="#" onclick="setLang('it'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127470;&#127481; Italiano</a>
-            </div>
-        </li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="shelf-signal.html">Pricing</a></li>
+        <li><a href="shelf-signal-signup.html" class="nav-cta">Get Started</a></li>
     </ul>
 </nav>
 
-<!-- Hero: Shelf Signal -->
+<!-- Hero -->
 <section class="hero">
-    <div class="hero-label">Introducing Shelf Signal</div>
     <h1>Know what changed on the <span>shelf</span> yesterday</h1>
-    <p class="hero-bio">Daily email alerts when competitors change prices, launch promotions, list new products, or go out of stock. Across all major European supermarkets. From &pound;500/month.</p>
+    <p class="hero-sub">Daily competitive intelligence across European supermarkets. Price changes, promotions, new listings, delistings, and stock alerts. In your inbox every morning.</p>
+    <div class="hero-price">From <strong>&pound;500</strong>/month</div>
     <div class="hero-buttons">
-        <a href="shelf-signal.html" class="btn btn-primary">Learn More</a>
-        <a href="shelf-signal-signup.html" class="btn btn-secondary">Get Started</a>
+        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
+        <a href="shelf-signal.html" class="btn btn-secondary">See How It Works</a>
     </div>
 </section>
 
-<!-- What We Do -->
-<section id="services">
-    <div class="section-label fade-in">What We Do</div>
-    <h2 class="section-title fade-in">Capabilities</h2>
-    <p class="section-subtitle fade-in">The market insight your competitors wish they had.</p>
-    <div class="services-grid">
-        <div class="service-card fade-in fade-in-delay-1">
-            <div class="service-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-            <h3>Market Intelligence</h3>
-            <p>We track competitive dynamics across industries. Pricing movements, marketplace volumes, new entrants, promotional activity. Delivered as live dashboards, structured data feeds, or strategic briefings.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-2">
-            <div class="service-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h3>Data Intelligence</h3>
-            <p>Comprehensive, always-current market views built from sources others can't access or combine. Updated daily, auditable, and structured for immediate decision-making.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-3">
-            <div class="service-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-            </div>
-            <h3>Business Analytics</h3>
-            <p>Interactive dashboards, data decks, and Excel-ready outputs for commercial decision-making. Trend analysis, market comparisons, and anomaly detection tailored to your workflows.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-4">
-            <div class="service-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e07040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>AI Advisory</h3>
-            <p>Helping leadership and teams adopt AI effectively. From strategic planning to hands-on tool adoption, we embed AI capabilities into your organisation's daily operations.</p>
-        </div>
+<!-- Stats -->
+<div class="stats-bar">
+    <div class="stats-bar-inner fade-in">
+        <div class="stat"><div class="stat-number">6</div><div class="stat-label">Countries live</div></div>
+        <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Retailers tracked</div></div>
+        <div class="stat"><div class="stat-number">3,400+</div><div class="stat-label">Products daily</div></div>
+        <div class="stat"><div class="stat-number">7am</div><div class="stat-label">Daily delivery</div></div>
     </div>
-</section>
+</div>
 
-<!-- Projects -->
-<section id="projects">
-    <div class="section-label fade-in">Our Work</div>
-    <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
-    <p class="section-subtitle fade-in">Real-world data intelligence systems, built and running in production.</p>
-    <div class="projects-grid">
-        <div class="project-card fade-in fade-in-delay-1">
-            <div class="project-tag">Retail / FMCG</div>
-            <h3>Retail Price Intelligence</h3>
-            <p>Automated daily tracking of competitor pricing across European supermarkets. Shelf prices, promotions, and loyalty deals across 6 countries delivered as live dashboards.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>3,400+</strong> products tracked daily</span>
-                <span class="project-stat"><strong>6</strong> European markets</span>
-            </div>
+<!-- Product: Email preview -->
+<section id="product" style="padding-top: 6rem;">
+    <div class="email-preview-section fade-in">
+        <div class="email-preview-text">
+            <div class="section-label" style="text-align: left;">Shelf Signal</div>
+            <h2>Your competitive landscape, delivered every morning</h2>
+            <p>Every day at 7am, Shelf Signal scans all major retailers in your market and sends you a digest of everything that changed. No dashboard to log into. No reports to download. Just the changes that matter, in your inbox.</p>
+            <ul class="feature-list">
+                <li><span class="dot"></span>Price increases and decreases</li>
+                <li><span class="dot"></span>Promotions starting and ending</li>
+                <li><span class="dot"></span>New products listed at retailers</li>
+                <li><span class="dot"></span>Products delisted or out of stock</li>
+                <li><span class="dot"></span>Competitor moves you need to know about</li>
+            </ul>
         </div>
-        <div class="project-card fade-in fade-in-delay-2">
-            <div class="project-tag">Classifieds</div>
-            <h3>European Marketplace Sizing</h3>
-            <p>Volume estimation and competitive intelligence across classified and re-commerce platforms spanning UK, Spain, and France.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>3</strong> European markets</span>
-                <span class="project-stat"><strong>Category-level</strong> sizing</span>
+        <div class="email-preview-card">
+            <div class="email-header">
+                <div class="email-dot email-dot-red"></div>
+                <div class="email-dot email-dot-yellow"></div>
+                <div class="email-dot email-dot-green"></div>
+                <div class="email-subject"><strong>Shelf Signal:</strong> Ice Cream, Portugal</div>
             </div>
-        </div>
-        <div class="project-card fade-in fade-in-delay-3">
-            <div class="project-tag">Animal Welfare</div>
-            <h3>UK Pet Marketplace Intelligence</h3>
-            <p>The UK's most comprehensive view of online pet sales. Tracking pricing, volumes, and breeder compliance across all major platforms.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>75%</strong> of UK online dog sales</span>
-                <span class="project-stat"><strong>Multi-platform</strong> daily tracking</span>
-            </div>
-            <a href="/case-studies/pet-welfare/" class="project-link">View Case Study &rarr;</a>
-        </div>
-        <div class="project-card fade-in fade-in-delay-4">
-            <div class="project-tag">Public Data</div>
-            <h3>UK Breeder Registry</h3>
-            <p>First national database of licensed breeders, consolidated from distributed local authority records across England.</p>
-            <div class="project-stats">
-                <span class="project-stat"><strong>4,500+</strong> licensed breeders</span>
-                <span class="project-stat"><strong>First</strong> national database</span>
-            </div>
-            <a href="https://dashboard.earlyphoenix.ai/uk-breeders/" class="project-link" target="_blank">View Live Dashboard &rarr;</a>
-        </div>
-    </div>
-</section>
-
-<!-- How We Work -->
-<section id="process">
-    <div class="section-label fade-in">How We Work</div>
-    <h2 class="section-title fade-in">Our <span>Approach</span></h2>
-    <p class="section-subtitle fade-in">AI-native from day one. Continuous intelligence, not one-off reports.</p>
-
-    <div class="process-section fade-in">
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="process-number">1</div>
-                <h4>Scope</h4>
-                <p>We define the competitive questions that matter most to your business and identify the data sources that can answer them.</p>
-            </div>
-            <div class="process-step">
-                <div class="process-number">2</div>
-                <h4>Build</h4>
-                <p>AI-powered systems collect and structure market data continuously, creating a proprietary view of your competitive landscape.</p>
-            </div>
-            <div class="process-step">
-                <div class="process-number">3</div>
-                <h4>Interpret</h4>
-                <p>We surface the patterns and shifts that matter: pricing movements, new entrants, category trends, and emerging threats.</p>
-            </div>
-            <div class="process-step">
-                <div class="process-number">4</div>
-                <h4>Act</h4>
-                <p>Insight delivered how you need it: live dashboards, weekly briefings, data exports, or direct integration with your tools.</p>
+            <div class="email-body">
+                <div class="email-section-title">Price Changes (3)</div>
+                <div class="email-item"><span class="price-up">&bull;</span> Magnum Classic 4pk: Continente &euro;3.50 &rarr; &euro;3.99 <span class="price-up">(+14%)</span></div>
+                <div class="email-item"><span class="price-down">&bull;</span> Ben & Jerry's 465ml: Pingo Doce &euro;5.50 &rarr; &euro;4.00 <span class="price-down">(-27%)</span></div>
+                <div class="email-item"><span class="price-down">&bull;</span> Own Label Vanilla: Auchan &euro;2.00 &rarr; &euro;1.75 <span class="price-down">(-12%)</span></div>
+                <div class="email-section-title">Promotions (2)</div>
+                <div class="email-item"><span class="new">&bull;</span> <span class="new">Started:</span> Magnum Almond 3pk, Continente &minus;28%</div>
+                <div class="email-item"><span class="price-up">&bull;</span> <span class="price-up">Ended:</span> Cornetto 6pk, Auchan &rarr; back to &euro;5.99</div>
+                <div class="email-section-title">New Listings (1)</div>
+                <div class="email-item"><span class="new">&bull;</span> Magnum Pistachio 3pk: Pingo Doce, &euro;4.50</div>
+                <div class="email-section-title">Out of Stock (1)</div>
+                <div class="email-item"><span class="stock">&bull;</span> H&auml;agen-Dazs Salted Caramel: Auchan</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About -->
-<section id="about">
-    <div class="section-label fade-in">Who We Are</div>
-    <h2 class="section-title fade-in">The <span>Team</span></h2>
-    <p class="section-subtitle fade-in">A small, senior team that builds and ships &mdash; no layers, no handoffs.</p>
-    <div class="team-grid">
-        <div class="team-card fade-in fade-in-delay-1">
-            <div class="team-avatar"><img src="team-kim.jpg" alt="Kim Faura" onerror="this.parentElement.textContent='KF'"></div>
-            <h3>Kim Faura</h3>
-            <div class="team-role">CEO</div>
-            <p>Strategy, product, and client delivery. Background in business intelligence and AI transformation across FMCG, telco, marketplace, and classifieds sectors.</p>
+<!-- How it works -->
+<section id="how-it-works">
+    <div class="section-label fade-in">How It Works</div>
+    <h2 class="section-title fade-in">Live in <span>24 hours</span></h2>
+    <p class="section-subtitle fade-in">No integration. No IT project. No onboarding meetings.</p>
+
+    <div class="steps-grid">
+        <div class="step-card fade-in fade-in-delay-1">
+            <div class="step-number">1</div>
+            <h4>Tell us your category</h4>
+            <p>Your brand, your competitors, your country. Select online or a quick call to scope what you need.</p>
         </div>
-        <div class="team-card fade-in fade-in-delay-2">
-            <div class="team-avatar"><img src="team-tom.jpg?v=2" alt="Tom Pandolfo" onerror="this.parentElement.textContent='TP'"></div>
-            <h3>Tom Pandolfo</h3>
-            <div class="team-role">Chief Data Officer</div>
-            <p>Builds data functions that drive commercial outcomes. Background in analytics, AI, and data engineering across marketplace, telco, and infrastructure sectors.</p>
+        <div class="step-card fade-in fade-in-delay-2">
+            <div class="step-number">2</div>
+            <h4>We configure your feed</h4>
+            <p>Daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3">
+            <div class="step-number">3</div>
+            <h4>Check your inbox</h4>
+            <p>Every morning at 7am, your Shelf Signal arrives. Only when something changed. No noise.</p>
         </div>
     </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="contact-section">
-    <div class="section-label fade-in">Contact</div>
-    <h2 class="section-title fade-in">Get in <span>Touch</span></h2>
-    <p class="section-subtitle fade-in">Tell us your category and country. We'll show you what your competitive landscape looks like.</p>
-    <div class="contact-links fade-in">
-        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started with Shelf Signal</a>
-        <a href="mailto:kim@earlyphoenix.ai" class="btn btn-secondary">Email Us</a>
+<!-- Use cases -->
+<section>
+    <div class="section-label fade-in">Who It's For</div>
+    <h2 class="section-title fade-in">Built for <span>category teams</span></h2>
+    <p class="section-subtitle fade-in">Whether you manage pricing, track competitors, or report to the board.</p>
+
+    <div class="usecases-grid">
+        <div class="usecase-card fade-in fade-in-delay-1">
+            <div class="usecase-tag">Retail / FMCG</div>
+            <h4>Competitive Pricing</h4>
+            <p>Track competitor shelf prices, promotions, and assortment across European supermarkets. Daily, at SKU level, across every major retailer.</p>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-2">
+            <div class="usecase-tag">Fragrance / Beauty</div>
+            <h4>Brand Positioning</h4>
+            <p>Monitor pricing and availability across specialist beauty retailers. Douglas, Sephora, Notino, Primor, The Perfume Shop and more.</p>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-3">
+            <div class="usecase-tag">Marketplaces</div>
+            <h4>Marketplace Intelligence</h4>
+            <p>Listing volumes, competitive dynamics, and market sizing across European classified and re-commerce platforms.</p>
+        </div>
     </div>
 </section>
+
+<!-- Coverage -->
+<section id="coverage">
+    <div class="section-label fade-in">Coverage</div>
+    <h2 class="section-title fade-in">Across <span>Europe</span></h2>
+    <p class="section-subtitle fade-in">All major retailers in each market. Updated daily.</p>
+
+    <div class="countries-row fade-in">
+        <div class="country-pill live"><span class="flag">&#127468;&#127463;</span><div><div class="name">United Kingdom</div><div class="detail">12+ retailers</div></div></div>
+        <div class="country-pill live"><span class="flag">&#127466;&#127480;</span><div><div class="name">Spain</div><div class="detail">7+ retailers</div></div></div>
+        <div class="country-pill live"><span class="flag">&#127467;&#127479;</span><div><div class="name">France</div><div class="detail">5+ retailers</div></div></div>
+        <div class="country-pill live"><span class="flag">&#127477;&#127481;</span><div><div class="name">Portugal</div><div class="detail">6+ retailers</div></div></div>
+        <div class="country-pill live"><span class="flag">&#127465;&#127466;</span><div><div class="name">Germany</div><div class="detail">6+ retailers</div></div></div>
+        <div class="country-pill live"><span class="flag">&#127470;&#127481;</span><div><div class="name">Italy</div><div class="detail">6+ retailers</div></div></div>
+    </div>
+    <p class="more-countries fade-in">Plus Netherlands, Belgium, Poland, Austria, Switzerland, Ireland, Sweden, Denmark, Norway, Greece and more on request.</p>
+</section>
+
+<!-- CTA -->
+<div class="cta-section fade-in" style="margin: 2rem auto;">
+    <h2>See what your competitors changed <span>yesterday</span></h2>
+    <p>Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
+    <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
+</div>
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2026 Early Phoenix. &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    <p>&copy; 2026 Early Phoenix &nbsp;|&nbsp; <a href="mailto:kim@earlyphoenix.ai">kim@earlyphoenix.ai</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
 </footer>
 
-<!-- Scroll Animations -->
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Language selector
-    const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
-    function setLang(lang) {
-        document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
-        document.getElementById('lang-menu').style.display = 'none';
-        localStorage.setItem('ep-lang', lang);
-    }
-    (function() {
-        var saved = localStorage.getItem('ep-lang');
-        if (saved && langLabels[saved]) { document.getElementById('lang-current').textContent = langLabels[saved]; return; }
-        var bl = (navigator.language || '').slice(0, 2).toLowerCase();
-        if (langLabels[bl]) document.getElementById('lang-current').textContent = langLabels[bl];
-    })();
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
-            document.getElementById('lang-menu').style.display = 'none';
-        }
-    });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
