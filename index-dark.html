@@ -272,17 +272,30 @@
         <li><a href="#work">Our Work</a></li>
         <li><a href="shelf-signal.html">Pricing</a></li>
         <li><a href="shelf-signal-signup.html" class="nav-cta">Get Started</a></li>
+        <li style="position: relative;">
+            <a href="#" id="lang-toggle" style="font-size: 0.85rem; cursor: pointer;" onclick="var m=document.getElementById('lang-menu'); m.style.display = m.style.display==='block'?'none':'block'; event.preventDefault();">
+                <span id="lang-current">EN</span> &#9662;
+            </a>
+            <div id="lang-menu" style="display:none; position:absolute; top:100%; right:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0; min-width:140px; margin-top:0.5rem; box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:200;">
+                <a href="#" onclick="setLang('en'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127468;&#127463; English</a>
+                <a href="#" onclick="setLang('es'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127466;&#127480; Espa&ntilde;ol</a>
+                <a href="#" onclick="setLang('fr'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127467;&#127479; Fran&ccedil;ais</a>
+                <a href="#" onclick="setLang('pt'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127477;&#127481; Portugu&ecirc;s</a>
+                <a href="#" onclick="setLang('de'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127465;&#127466; Deutsch</a>
+                <a href="#" onclick="setLang('it'); return false;" style="display:block; padding:0.4rem 1rem; font-size:0.82rem; color:var(--text-secondary); text-decoration:none;">&#127470;&#127481; Italiano</a>
+            </div>
+        </li>
     </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <h1>Know what changed on the <span>shelf</span> yesterday</h1>
-    <p class="hero-sub">Daily competitive intelligence across European supermarkets. Price changes, promotions, new listings, delistings, and stock alerts. In your inbox every morning.</p>
-    <div class="hero-price">From <strong>&pound;500</strong>/month</div>
+    <h1 data-i18n="hero_title">Know what changed on the <span>shelf</span> yesterday</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Daily competitive intelligence across European supermarkets. Price changes, promotions, new listings, delistings, and stock alerts. In your inbox every morning.</p>
+    <div class="hero-price" data-i18n="hero_price">From <strong>&pound;500</strong>/month</div>
     <div class="hero-buttons">
-        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
-        <a href="shelf-signal.html" class="btn btn-secondary">See How It Works</a>
+        <a href="shelf-signal-signup.html" class="btn btn-primary" data-i18n="hero_cta1">Get Started</a>
+        <a href="shelf-signal.html" class="btn btn-secondary" data-i18n="hero_cta2">See How It Works</a>
     </div>
 </section>
 
@@ -468,6 +481,71 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const T = {
+en: {
+    hero_title: 'Know what changed on the <span>shelf</span> yesterday',
+    hero_sub: 'Daily competitive intelligence across European supermarkets. Price changes, promotions, new listings, delistings, and stock alerts. In your inbox every morning.',
+    hero_price: 'From <strong>\u00A3500</strong>/month',
+    hero_cta1: 'Get Started', hero_cta2: 'See How It Works'
+},
+es: {
+    hero_title: 'Sabe qu\u00E9 <span>cambi\u00F3 en el lineal</span> ayer',
+    hero_sub: 'Inteligencia competitiva diaria en supermercados europeos. Cambios de precio, promociones, nuevos listados y alertas de stock. En tu bandeja cada ma\u00F1ana.',
+    hero_price: 'Desde <strong>\u20AC500</strong>/mes',
+    hero_cta1: 'Empezar', hero_cta2: 'C\u00F3mo Funciona'
+},
+fr: {
+    hero_title: 'Sachez ce qui a <span>chang\u00E9 en rayon</span> hier',
+    hero_sub: 'Veille concurrentielle quotidienne dans les supermarch\u00E9s europ\u00E9ens. Changements de prix, promotions, nouveaux r\u00E9f\u00E9rencements et alertes de stock. Dans votre bo\u00EEte chaque matin.',
+    hero_price: '\u00C0 partir de <strong>\u20AC500</strong>/mois',
+    hero_cta1: 'Commencer', hero_cta2: 'Comment \u00E7a Marche'
+},
+pt: {
+    hero_title: 'Saiba o que <span>mudou na prateleira</span> ontem',
+    hero_sub: 'Intelig\u00EAncia competitiva di\u00E1ria nos supermercados europeus. Altera\u00E7\u00F5es de pre\u00E7o, promo\u00E7\u00F5es, novos produtos e alertas de stock. Na sua caixa todas as manh\u00E3s.',
+    hero_price: 'A partir de <strong>\u20AC500</strong>/m\u00EAs',
+    hero_cta1: 'Come\u00E7ar', hero_cta2: 'Como Funciona'
+},
+de: {
+    hero_title: 'Wissen, was sich <span>im Regal ge\u00E4ndert</span> hat',
+    hero_sub: 'T\u00E4gliche Wettbewerbsintelligenz in europ\u00E4ischen Superm\u00E4rkten. Preis\u00E4nderungen, Aktionen, neue Listungen und Bestandsalarme. Jeden Morgen in Ihrem Posteingang.',
+    hero_price: 'Ab <strong>\u20AC500</strong>/Monat',
+    hero_cta1: 'Loslegen', hero_cta2: 'So funktioniert es'
+},
+it: {
+    hero_title: 'Sapere cosa \u00E8 <span>cambiato sullo scaffale</span> ieri',
+    hero_sub: 'Intelligence competitiva quotidiana nei supermercati europei. Variazioni di prezzo, promozioni, nuovi inserimenti e avvisi di stock. Nella tua casella ogni mattina.',
+    hero_price: 'Da <strong>\u20AC500</strong>/mese',
+    hero_cta1: 'Inizia', hero_cta2: 'Come Funziona'
+}
+};
+
+const langLabels = { en: 'EN', es: 'ES', fr: 'FR', pt: 'PT', de: 'DE', it: 'IT' };
+
+function setLang(lang) {
+    document.getElementById('lang-current').textContent = langLabels[lang] || 'EN';
+    document.getElementById('lang-menu').style.display = 'none';
+    localStorage.setItem('ep-lang', lang);
+    var t = T[lang] || T.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.innerHTML = t[key];
+    });
+}
+
+(function() {
+    var saved = localStorage.getItem('ep-lang');
+    if (saved && T[saved]) { setLang(saved); return; }
+    var bl = (navigator.language || '').slice(0, 2).toLowerCase();
+    if (T[bl]) setLang(bl);
+})();
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('#lang-toggle') && !e.target.closest('#lang-menu')) {
+        document.getElementById('lang-menu').style.display = 'none';
+    }
+});
 </script>
 
 </body>
