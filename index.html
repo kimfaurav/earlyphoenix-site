@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Early Phoenix — Competitive Intelligence for European Retail</title>
-    <meta name="description" content="Daily competitive pricing alerts across European retailers. Track competitor prices, promotions, new listings, and stock changes across 100+ retailers in 20 European markets.">
+    <title>Early Phoenix — Competitive Intelligence Across European Markets</title>
+    <meta name="description" content="Competitive intelligence for retail, FMCG, animal welfare, and marketplace sectors. Daily pricing alerts, market surveillance, and policy-ready data across Europe.">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,12 +84,8 @@
         }
         .hero-sub {
             font-size: 1.2rem; color: var(--text-secondary); line-height: 1.75;
-            max-width: 620px; margin-bottom: 2rem;
+            max-width: 620px; margin-bottom: 2.5rem;
         }
-        .hero-price {
-            font-size: 1rem; color: var(--text-muted); margin-bottom: 2.5rem;
-        }
-        .hero-price strong { font-size: 1.6rem; font-weight: 800; color: var(--text-primary); }
         .hero-buttons { display: flex; gap: 1rem; }
         .btn {
             padding: 0.9rem 2.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
@@ -138,6 +134,21 @@
             margin-bottom: 3.5rem; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7;
         }
 
+        /* Vertical cards */
+        .usecase-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+            padding: 2rem; transition: all 0.3s;
+        }
+        .usecase-card:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08); }
+        .usecase-tag {
+            display: inline-block; background: var(--accent-dim); color: var(--accent-light);
+            font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;
+            border: 1px solid rgba(232, 116, 12, 0.2);
+        }
+        .usecase-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .usecase-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
         /* Email preview */
         .email-preview-section { display: flex; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
         .email-preview-text { flex: 1; }
@@ -185,39 +196,6 @@
         .step-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
         .step-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
 
-        /* Countries */
-        .countries-row {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .country-pill {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
-            padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.6rem;
-            transition: all 0.3s;
-        }
-        .country-pill:hover { border-color: var(--border-accent); }
-        .country-pill .flag { font-size: 1.3rem; }
-        .country-pill .name { font-size: 0.85rem; font-weight: 600; }
-        .country-pill .detail { font-size: 0.7rem; color: var(--text-muted); }
-        .country-pill.live .detail { color: var(--green); }
-        .more-countries { text-align: center; color: var(--text-muted); font-size: 0.82rem; margin-top: 0.5rem; }
-
-        /* Use cases */
-        .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .usecase-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
-            padding: 2rem; transition: all 0.3s;
-        }
-        .usecase-card:hover { border-color: var(--border-accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232, 116, 12, 0.08); }
-        .usecase-tag {
-            display: inline-block; background: var(--accent-dim); color: var(--accent-light);
-            font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
-            padding: 0.25rem 0.6rem; border-radius: 4px; margin-bottom: 1rem;
-            border: 1px solid rgba(232, 116, 12, 0.2);
-        }
-        .usecase-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .usecase-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
-
         /* CTA */
         .cta-section {
             text-align: center; padding: 4rem 2rem;
@@ -241,7 +219,7 @@
 
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .fade-in-delay-1 { transition-delay: 0.1s; } .fade-in-delay-2 { transition-delay: 0.2s; } .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-1 { transition-delay: 0.1s; } .fade-in-delay-2 { transition-delay: 0.2s; } .fade-in-delay-3 { transition-delay: 0.3s; } .fade-in-delay-4 { transition-delay: 0.3s; }
 
         @media (max-width: 900px) {
             .hero { padding: 7rem 1.5rem 3rem; }
@@ -250,7 +228,7 @@
             section { padding: 3.5rem 1.5rem; }
             .email-preview-section { flex-direction: column; }
             .email-preview-card { max-width: 100%; }
-            .steps-grid, .usecases-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
             .stats-bar-inner { gap: 1.5rem; flex-wrap: wrap; }
         }
         @media (max-width: 600px) {
@@ -266,23 +244,21 @@
 <nav>
     <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
     <ul>
-        <li><a href="#product">Product</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#verticals">What We Do</a></li>
         <li><a href="#work">Our Work</a></li>
-        <li><a href="shelf-signal.html">Pricing</a></li>
-        <li><a href="shelf-signal-signup.html" class="nav-cta">Get Started</a></li>
+        <li><a href="#shelf-signal">Shelf Signal</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="contact.html" class="nav-cta">Get In Touch</a></li>
     </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <h1>Know what changed on the <span>shelf</span> yesterday</h1>
-    <p class="hero-sub">Daily competitive intelligence across European retailers. Price changes, promotions, new listings, delistings, and stock alerts. In your inbox at 5am, every morning.</p>
-    <div class="hero-price"></div>
+    <h1>Competitive intelligence for <span>complex markets</span></h1>
+    <p class="hero-sub">We build data infrastructure that tracks what's happening across markets others can't see. Retail pricing, animal welfare, marketplace dynamics, and more. Across Europe, updated daily.</p>
     <div class="hero-buttons">
-        <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
-        <a href="shelf-signal.html" class="btn btn-secondary">See How It Works</a>
+        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+        <a href="#verticals" class="btn btn-secondary">See What We Do</a>
     </div>
 </section>
 
@@ -292,17 +268,115 @@
         <div class="stat"><div class="stat-number">20</div><div class="stat-label">European markets</div></div>
         <div class="stat"><div class="stat-number">100+</div><div class="stat-label">Retailers tracked</div></div>
         <div class="stat"><div class="stat-number">150,000+</div><div class="stat-label">Products daily</div></div>
-        <div class="stat"><div class="stat-number">5am</div><div class="stat-label">Daily delivery</div></div>
+        <div class="stat"><div class="stat-number">57,000+</div><div class="stat-label">Pet listings tracked</div></div>
     </div>
 </div>
 
-<!-- Product: Email preview -->
-<section id="product" style="padding-top: 6rem;">
+<!-- What We Do: Verticals -->
+<section id="verticals" style="padding-top: 6rem;">
+    <div class="section-label fade-in">What We Do</div>
+    <h2 class="section-title fade-in">Intelligence across <span>four verticals</span></h2>
+    <p class="section-subtitle fade-in">Each one built from the ground up. Custom data infrastructure, tailored to the questions that matter in your sector.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+        <div class="usecase-card fade-in fade-in-delay-1">
+            <div class="usecase-tag">Animal Welfare</div>
+            <h4>Market Surveillance</h4>
+            <p>The UK's most comprehensive view of online pet sales. We track 75% of all online dog listings across every major platform, with breed-level pricing, seller patterns, and welfare risk indicators. Used by leading charities and welfare bodies to shape policy and protect animal welfare.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Dogs, cats, exotics</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Multi-platform</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Policy-ready</span>
+            </div>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-2">
+            <div class="usecase-tag">Retail / FMCG</div>
+            <h4>Competitive Pricing</h4>
+            <p>Daily monitoring of competitor shelf prices, promotions, and assortment across 100+ European retailers. SKU-level tracking across grocery, beauty, and fragrance categories. Delivered as a daily email digest via our Shelf Signal product.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">20 countries</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">100+ retailers</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Daily updates</span>
+            </div>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-3">
+            <div class="usecase-tag">Marketplaces</div>
+            <h4>Marketplace Intelligence</h4>
+            <p>Listing volumes, competitive dynamics, and market sizing across European classified and re-commerce platforms. Built for platforms, investors, and teams evaluating competitive positioning across borders.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">10+ markets</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Category-level</span>
+            </div>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-4">
+            <div class="usecase-tag">Fragrance / Beauty</div>
+            <h4>Brand Positioning</h4>
+            <p>Pricing and availability monitoring across specialist beauty and fragrance retailers. Douglas, Sephora, Notino, Primor, The Perfume Shop, Druni, and more. Cross-market comparison for brands managing European distribution.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Specialist retailers</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Multi-country</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Work -->
+<section id="work">
+    <div class="section-label fade-in">Our Work</div>
+    <h2 class="section-title fade-in">Intelligence we've <span>built</span></h2>
+    <p class="section-subtitle fade-in">Live projects across welfare, retail, and public data.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+        <div class="usecase-card fade-in fade-in-delay-1">
+            <div class="usecase-tag">Animal Welfare</div>
+            <h4>UK Pet Marketplace Intelligence</h4>
+            <p>57,000+ pet listings tracked across all major UK platforms. Breed-level pricing, seller behaviour analysis, and welfare risk indicators. The most comprehensive dataset of its kind in the UK.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">57,000+ listings</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Dogs, cats, exotics</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Multi-platform</span>
+            </div>
+            <a href="/case-studies/pet-welfare/" style="display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; color: var(--accent-light); text-decoration: none; margin-top: 0.75rem;">View case study &rarr;</a>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-2">
+            <div class="usecase-tag">Public Data</div>
+            <h4>UK Breeder Registry</h4>
+            <p>The first national database of licensed dog breeders. Consolidated from distributed local authority records across 200+ councils in England into a single searchable view. Open and free to use.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">4,500+ breeders</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">First national DB</span>
+            </div>
+            <a href="https://dashboard.earlyphoenix.ai/uk-breeders/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; color: var(--accent-light); text-decoration: none; margin-top: 0.75rem;">View live dashboard &rarr;</a>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-3">
+            <div class="usecase-tag">Retail / FMCG</div>
+            <h4>European Grocery Pricing</h4>
+            <p>150,000+ products tracked daily across 100+ retailers in 20 European markets. Pricing, promotions, availability, and competitive positioning across grocery, beauty, and fragrance.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">20 countries</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">100+ retailers</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Daily updates</span>
+            </div>
+        </div>
+        <div class="usecase-card fade-in fade-in-delay-4">
+            <div class="usecase-tag">Classifieds</div>
+            <h4>European Marketplace Sizing</h4>
+            <p>Competitive intelligence across classified and re-commerce platforms spanning UK, Spain, and France. Volume estimation, category dynamics, and cross-platform analysis for platforms and investors.</p>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">10+ markets</span>
+                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Category-level</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shelf Signal: Product spotlight -->
+<section id="shelf-signal">
     <div class="email-preview-section fade-in">
         <div class="email-preview-text">
-            <div class="section-label" style="text-align: left;">Shelf Signal</div>
-            <h2>Your competitive landscape, delivered every morning</h2>
-            <p>Every day at 5am, Shelf Signal scans all major retailers in your market and sends you a digest of everything that changed. No dashboard to log into. No reports to download. Just the changes that matter, in your inbox.</p>
+            <div class="section-label" style="text-align: left;">Product</div>
+            <h2>Shelf Signal: daily pricing alerts for FMCG teams</h2>
+            <p>For retail and FMCG teams, we package our intelligence as Shelf Signal: a daily email digest of everything that changed on the shelf yesterday. Price moves, promotions, new listings, delistings, and stock changes. In your inbox at 5am.</p>
             <ul class="feature-list">
                 <li><span class="dot"></span><span>Price increases and decreases</span></li>
                 <li><span class="dot"></span><span>Promotions starting and ending</span></li>
@@ -310,6 +384,7 @@
                 <li><span class="dot"></span><span>Products delisted or out of stock</span></li>
                 <li><span class="dot"></span><span>Competitor moves you need to know about</span></li>
             </ul>
+            <a href="shelf-signal.html" class="btn btn-secondary" style="margin-top: 1.5rem;">Learn more about Shelf Signal</a>
         </div>
         <div class="email-preview-card">
             <div class="email-header">
@@ -345,132 +420,27 @@
     <div class="steps-grid">
         <div class="step-card fade-in fade-in-delay-1">
             <div class="step-number">1</div>
-            <h4>Tell us your category</h4>
-            <p>Your brand, your competitors, your country. Select online or a quick call to scope what you need.</p>
+            <h4>Tell us what you need</h4>
+            <p>Your market, your competitors, the questions you need answered. A quick call or email to scope the work.</p>
         </div>
         <div class="step-card fade-in fade-in-delay-2">
             <div class="step-number">2</div>
-            <h4>We configure your feed</h4>
-            <p>Daily monitoring across all major retailers in your market. Your products and competitors, tracked at SKU level.</p>
+            <h4>We build your feed</h4>
+            <p>Custom data infrastructure configured for your sector. Retailers, platforms, listings, or all three.</p>
         </div>
         <div class="step-card fade-in fade-in-delay-3">
             <div class="step-number">3</div>
-            <h4>Check your inbox</h4>
-            <p>Every morning at 5am, your Shelf Signal arrives. Only when something changed. No noise.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Use cases -->
-<section>
-    <div class="section-label fade-in">Who It's For</div>
-    <h2 class="section-title fade-in">Built for <span>category teams</span></h2>
-    <p class="section-subtitle fade-in">Whether you manage pricing, track competitors, or report to the board.</p>
-
-    <div class="usecases-grid">
-        <div class="usecase-card fade-in fade-in-delay-1">
-            <div class="usecase-tag">Retail / FMCG</div>
-            <h4>Competitive Pricing</h4>
-            <p>Track competitor shelf prices, promotions, and assortment across European retailers. Daily, at SKU level, across every major retailer.</p>
-        </div>
-        <div class="usecase-card fade-in fade-in-delay-2">
-            <div class="usecase-tag">Fragrance / Beauty</div>
-            <h4>Brand Positioning</h4>
-            <p>Monitor pricing and availability across specialist beauty retailers. Douglas, Sephora, Notino, Primor, The Perfume Shop and more.</p>
-        </div>
-        <div class="usecase-card fade-in fade-in-delay-3">
-            <div class="usecase-tag">Marketplaces</div>
-            <h4>Marketplace Intelligence</h4>
-            <p>Listing volumes, competitive dynamics, and market sizing across European classified and re-commerce platforms.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Coverage -->
-<section id="coverage">
-    <div class="section-label fade-in">Coverage</div>
-    <h2 class="section-title fade-in">Across <span>Europe</span></h2>
-    <p class="section-subtitle fade-in">All major retailers in each market. Updated daily.</p>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 800px; margin: 0 auto;" class="fade-in">
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127468;&#127463; United Kingdom</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127466;&#127480; Spain</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127467;&#127479; France</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127477;&#127481; Portugal</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127465;&#127466; Germany</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127470;&#127481; Italy</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127475;&#127473; Netherlands</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127463;&#127466; Belgium</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127477;&#127473; Poland</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127462;&#127481; Austria</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127464;&#127469; Switzerland</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127470;&#127466; Ireland</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127480;&#127466; Sweden</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127465;&#127472; Denmark</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127475;&#127476; Norway</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127467;&#127470; Finland</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127468;&#127479; Greece</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127464;&#127487; Czech Republic</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127479;&#127476; Romania</span>
-        <span style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">&#127469;&#127482; Hungary</span>
-    </div>
-    <p style="text-align: center; color: var(--text-muted); font-size: 0.82rem; margin-top: 1.25rem;" class="fade-in">100+ retailers across 20 European markets. More countries available on request.</p>
-</section>
-
-<!-- Case Studies -->
-<section id="work">
-    <div class="section-label fade-in">Our Work</div>
-    <h2 class="section-title fade-in">Intelligence we've <span>built</span></h2>
-    <p class="section-subtitle fade-in">Shelf Signal is our product. Here's some of the intelligence work behind it.</p>
-
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
-        <div class="usecase-card fade-in fade-in-delay-1">
-            <div class="usecase-tag">Retail / FMCG</div>
-            <h4>European Grocery Pricing</h4>
-            <p>150,000+ products tracked daily across 100+ retailers in 20 European markets. Pricing, promotions, availability, and competitive positioning across grocery, beauty, and fragrance.</p>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">20 countries</span>
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">100+ retailers</span>
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Daily updates</span>
-            </div>
-        </div>
-        <div class="usecase-card fade-in fade-in-delay-2">
-            <div class="usecase-tag">Classifieds</div>
-            <h4>European Marketplace Sizing</h4>
-            <p>Competitive intelligence across classified and re-commerce platforms spanning UK, Spain, and France. Volume estimation, category dynamics, and cross-platform analysis for platforms and investors.</p>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">10+ markets</span>
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Category-level</span>
-            </div>
-        </div>
-        <div class="usecase-card fade-in fade-in-delay-1">
-            <div class="usecase-tag">Animal Welfare</div>
-            <h4>UK Pet Marketplace Intelligence</h4>
-            <p>The UK's most comprehensive view of online pet sales. 75% of UK online dog sales tracked across all major platforms, supporting welfare policy and advocacy.</p>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">57,000+ listings</span>
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">Multi-platform</span>
-            </div>
-            <a href="/case-studies/pet-welfare/" style="display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; color: var(--accent-light); text-decoration: none; margin-top: 0.75rem;">View case study &rarr;</a>
-        </div>
-        <div class="usecase-card fade-in fade-in-delay-2">
-            <div class="usecase-tag">Public Data</div>
-            <h4>UK Breeder Registry</h4>
-            <p>First national database of licensed breeders, consolidated from distributed local authority records across 200+ councils in England into a single searchable view.</p>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap;">
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">4,500+ breeders</span>
-                <span style="font-size: 0.72rem; background: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-muted);">First national DB</span>
-            </div>
-            <a href="https://dashboard.earlyphoenix.ai/uk-breeders/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; color: var(--accent-light); text-decoration: none; margin-top: 0.75rem;">View live dashboard &rarr;</a>
+            <h4>Intelligence, delivered</h4>
+            <p>Daily alerts, monthly reports, or strategic deep dives. However you need it, on whatever schedule works.</p>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section fade-in" style="margin: 2rem auto;">
-    <h2>See what your competitors changed <span>yesterday</span></h2>
-    <p>Tell us your category and country. Your first Shelf Signal arrives tomorrow morning.</p>
-    <a href="shelf-signal-signup.html" class="btn btn-primary">Get Started</a>
+    <h2>Let's talk about your <span>market</span></h2>
+    <p>Tell us what you're trying to track and we'll show you what's possible.</p>
+    <a href="contact.html" class="btn btn-primary">Get In Touch</a>
 </div>
 
 <!-- Footer -->
