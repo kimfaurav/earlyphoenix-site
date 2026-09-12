@@ -115,7 +115,7 @@
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; margin-top: 0.15rem; }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; margin-top: 0.15rem; white-space: nowrap; }
 
         /* Operator credibility strip */
         .operator {
@@ -281,6 +281,7 @@
             .email-preview-card { max-width: 100%; }
             .steps-grid { grid-template-columns: 1fr; }
             .stats-bar-inner { gap: 1.5rem; flex-wrap: wrap; }
+            .stat-label { white-space: normal; }
         }
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.25rem; }
