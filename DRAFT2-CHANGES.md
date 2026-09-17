@@ -14,3 +14,12 @@ Brief: `04-Projects/Early_Phoenix_Website_Brief.md` (v2). Nothing live.
 10. Checks passed: 0 em dashes, 0 spelled-out numbers, 0 "not a" constructions, no horizontal scroll at 400px, all fade-ins render.
 
 Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tracking"; Ireland runs all 6, snapshot 6 Sep) and the councils count is OFF the homepage entirely (Kim 07:21: "definitely not... it needs to be in a case study, not in a headline message"). The register card describes what the register is, no count. The number belongs on the register page, stated against its denominator. Coverage is UK AND IRELAND, reflected in the species label. Kim may still move the coverage-strip specifics; the hero is agreed.
+
+## 17 Sep: 4 changes for go-live (Dex brief, Kim-approved; target Tue 22 Sep after sign-off)
+
+11. Marketplaces tile under The Work: a 5th, full-width card, "Has Vinted won Europe? Listing velocity across 4 markets" (Vinted against the local classifieds leaders in France, Germany, Italy and Spain; with Tom Pandolfo for AIM Group, April 2026; source `04-Projects/Vinted_EU_Analysis/Narrative_Draft_v2.md`). Described, NOT linked, until Kim clears the AIM link. Section subtitle reworded so it no longer promises every tile opens. For the RecommerceBuzz traffic from 17 Sep.
+12. Rooms line, new: one muted line under the 3-name client strip, "Speaking at RecommerceBuzz, Berlin, October 2026." No rooms line existed on draft 2 before this (the 10 Sep ruling left Defra, Scottish Government, RSPCA, Cats Protection, RKC, CFSG OFF the page); it now carries only what the 17 Sep brief named. Whether the older rooms join it is Kim's call.
+13. Ireland: "Presented to the Advisory Council on Companion Animal Welfare, Department of Agriculture, Food and the Marine, Ireland" is written into the rooms line as an HTML comment, to be uncommented ONLY once Kim confirms the 17 Sep 14:30 session happened. Not rendered.
+14. Battersea unchanged on the strip. Nothing about the Desirability Index.
+15. Mobile menu: hamburger below 900px (44px button, aria-expanded/aria-controls), stacked links, closes on tap of any link. Tested at 400px: opens, closes, anchors land, no horizontal scroll. Hidden at desktop.
+16. Not touched: prices, free/paid, SalesAPE, advisory scope, hero, coverage strip, findings, newsletter.

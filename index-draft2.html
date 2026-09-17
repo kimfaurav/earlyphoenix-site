@@ -60,6 +60,19 @@
             letter-spacing: 0.04em !important; transition: all 0.3s;
         }
         .nav-cta:hover { box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-1px); }
+        .nav-toggle {
+            display: none; background: none; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+            width: 44px; height: 44px; cursor: pointer; padding: 0; align-items: center; justify-content: center;
+        }
+        .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+            display: block; width: 20px; height: 2px; background: var(--text-primary); border-radius: 2px;
+            transition: transform 0.25s, opacity 0.25s; content: ''; position: relative;
+        }
+        .nav-toggle span::before { position: absolute; top: -6px; }
+        .nav-toggle span::after { position: absolute; top: 6px; }
+        nav.open .nav-toggle span { background: transparent; }
+        nav.open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
+        nav.open .nav-toggle span::after { transform: translateY(-6px) rotate(-45deg); }
 
         /* Hero */
         .hero {
@@ -197,6 +210,7 @@
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem 1.1rem;
         }
         .client-name .paid { color: var(--accent-light); font-weight: 700; }
+        .rooms { margin-top: 1.5rem; font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
 
         /* Email preview */
         .email-preview-section { display: flex; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
@@ -273,7 +287,15 @@
         @media (max-width: 900px) {
             .hero { padding: 7rem 1.5rem 3rem; }
             .hero h1 { font-size: 2.75rem; }
-            nav ul { display: none; }
+            nav { flex-wrap: wrap; padding: 0.5rem 1.25rem; }
+            .nav-toggle { display: inline-flex; }
+            nav ul {
+                display: none; flex-direction: column; align-items: stretch; gap: 0;
+                width: 100%; flex-basis: 100%; padding: 0.5rem 0 0.75rem; border-top: 1px solid var(--border); margin-top: 0.5rem;
+            }
+            nav.open ul { display: flex; }
+            nav ul li a { display: block; padding: 0.85rem 0.25rem; font-size: 0.95rem; }
+            nav ul li a.nav-cta { display: inline-block; margin-top: 0.5rem; text-align: center; }
             section { padding: 3.5rem 1.5rem; }
             .pillars-grid { grid-template-columns: 1fr; }
             .operator-inner { flex-direction: column; text-align: center; }
@@ -295,6 +317,7 @@
         .work-card { display: flex; flex-direction: column; }
         .work-card p { flex: 1; }
         .work-card .usecase-tag { align-self: flex-start; }
+        .work-card-wide { grid-column: 1 / -1; }
         .findings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .finding-card {
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem;
@@ -350,7 +373,8 @@
 <!-- Nav -->
 <nav>
     <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+    <ul id="nav-menu">
         <li><a href="#work">The Work</a></li>
         <li><a href="#findings">Findings</a></li>
         <li><a href="#advisory">Advisory</a></li>
@@ -391,7 +415,7 @@
 <section id="work">
     <div class="section-label fade-in">The Work</div>
     <h2 class="section-title fade-in">Live dashboards <span>and published decks</span></h2>
-    <p class="section-subtitle fade-in">Everything below is running now and updated monthly. Open any of them.</p>
+    <p class="section-subtitle fade-in">The pet market work runs monthly and is open to read. The marketplaces piece is the same engine pointed at a different market.</p>
     <div class="work-grid">
         <div class="usecase-card work-card fade-in">
             <span class="usecase-tag">Dogs &amp; Cats</span>
@@ -416,6 +440,12 @@
             <h4>UK Small Furries Marketplace Intelligence</h4>
             <p>Rabbits, guinea pigs, hamsters and the rest: the category with the least welfare data captured at the point of sale, measured for the first time.</p>
             <a class="card-link" href="/small-mammal-deck-feb-2026/">Open the deck &rarr;</a>
+        </div>
+        <!-- Marketplaces strand, added 17 Sep for the RecommerceBuzz audience. Described, not linked, until Kim clears the AIM link. -->
+        <div class="usecase-card work-card work-card-wide fade-in fade-in-delay-4">
+            <span class="usecase-tag">Marketplaces &amp; Recommerce</span>
+            <h4>Has Vinted won Europe? Listing velocity across 4 markets</h4>
+            <p>New listings per hour, per platform: Vinted against the local classifieds leaders in France, Germany, Italy and Spain, category by category. Written with Tom Pandolfo for AIM Group, April 2026.</p>
         </div>
     </div>
     <p style="text-align:center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">Full write-up: <a href="/case-studies/pet-welfare/" style="color: var(--accent-light); text-decoration: none; font-weight: 600;">UK pet welfare intelligence, the case study &rarr;</a></p>
@@ -506,6 +536,8 @@
         <span class="client-name">NatureWatch</span>
         <span class="client-name">Nutrition &amp; Sant&eacute; (Lactalis)</span>
     </div>
+    <!-- Rooms line: where the work has been presented. Separate from the client strip above, which stays at 3 names. -->
+    <p class="rooms fade-in">Speaking at RecommerceBuzz, Berlin, October 2026.<!-- IRELAND, uncomment only once Kim confirms the 17 Sep session happened: <br>Presented to the Advisory Council on Companion Animal Welfare, Department of Agriculture, Food and the Marine, Ireland. --></p>
 </section>
 
 <!-- Advisory band (ruling A closed 12 Sep: advisory appears on the EP site; one band, no prices, not a pillar) -->
@@ -535,6 +567,14 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const nav = document.querySelector('nav'), navToggle = document.querySelector('.nav-toggle');
+navToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+document.querySelectorAll('#nav-menu a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false');
+}));
 </script>
 
 </body>
