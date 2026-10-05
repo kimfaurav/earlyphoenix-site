@@ -388,6 +388,41 @@
         .back { display: block; text-align: center; margin: 1rem auto 0; font-size: 0.88rem; color: var(--text-muted); text-decoration: none; }
             h1, h2, h3, h4, .hero-sub { text-wrap: balance; }
         p { text-wrap: pretty; }
+            .email-preview-section { display: flex; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .email-preview-text { flex: 1; }
+        .email-preview-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .email-preview-text p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+        .email-preview-text .feature-list { list-style: none; }
+        .email-preview-text .feature-list li {
+            padding: 0.5rem 0; font-size: 0.9rem; color: var(--text-secondary);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .feature-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        .email-preview-card {
+            flex: 1; background: #1e2235; border: 1px solid var(--border); border-radius: 14px;
+            overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 420px;
+        }
+        .email-header {
+            background: #252a40; padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .email-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .email-dot-red { background: #f87171; } .email-dot-yellow { background: #fbbf24; } .email-dot-green { background: #34d399; }
+        .email-subject { margin-left: 0.4rem; font-size: 0.75rem; color: var(--text-secondary); }
+        .email-subject strong { color: var(--text-primary); }
+        .email-body { padding: 1.25rem; font-size: 0.75rem; line-height: 1.7; }
+        .email-section-title {
+            font-weight: 700; color: var(--text-muted); font-size: 0.65rem;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1rem; margin-bottom: 0.35rem;
+        }
+        .email-section-title:first-child { margin-top: 0; }
+        .email-item { color: var(--text-secondary); padding-left: 0.4rem; font-size: 0.73rem; }
+        .email-item .price-down { color: var(--green); font-weight: 600; }
+        .email-item .price-up { color: var(--red); font-weight: 600; }
+        .email-item .new { color: var(--accent-light); font-weight: 600; }
+        .email-item .stock { color: #fbbf24; font-weight: 600; }
+        .shelf-hero { padding-top: 9rem; }
+        @media (max-width: 900px) { .email-preview-section { flex-direction: column; } .email-preview-card { max-width: 100%; } }
     </style>
 </head>
 <body>
@@ -397,33 +432,58 @@
     <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
     <ul id="nav-menu">
         <li><a href="../#work">The Work</a></li>
+        <li><a href="../#how-it-works">How It Works</a></li>
         <li><a href="../#findings">Findings</a></li>
         <li><a href="../#advisory">Advisory</a></li>
         <li><a href="../contact.html" class="nav-cta">Get In Touch</a></li>
     </ul>
 </nav>
 
-<section class="hero plan-hero">
-    <div class="hero-eyebrow">Grocery &amp; FMCG &middot; Shelf Signal</div>
-    <h1>What changed on the shelf yesterday, <span>in your inbox at 5am.</span></h1>
-    <p class="hero-sub">A daily email digest of everything that changed on the shelf yesterday. Price moves, promotions, new listings, delistings, and stock changes. In your inbox at 5am.</p>
-    <p class="credit">Commissioned by <strong>Nutrition &amp; Sant&eacute; (Lactalis)</strong></p>
+<!-- Rebuilt 5 Oct 13:58 from the LIVE homepage Shelf Signal section (Kim: "what we had here was way better"); wording, feature list and sample email verbatim from master. -->
+<section id="shelf-signal" class="shelf-hero">
+    <div class="email-preview-section fade-in">
+        <div class="email-preview-text">
+            <div class="section-label" style="text-align: left;">Product</div>
+            <h2>Shelf Signal: daily pricing alerts for FMCG teams</h2>
+            <p>For retail and FMCG teams, we package our intelligence as Shelf Signal: a daily email digest of everything that changed on the shelf yesterday. Price moves, promotions, new listings, delistings, and stock changes. In your inbox at 5am.</p>
+            <ul class="feature-list">
+                <li><span class="dot"></span><span>Price increases and decreases</span></li>
+                <li><span class="dot"></span><span>Promotions starting and ending</span></li>
+                <li><span class="dot"></span><span>New products listed at retailers</span></li>
+                <li><span class="dot"></span><span>Products delisted or out of stock</span></li>
+                <li><span class="dot"></span><span>Competitor moves you need to know about</span></li>
+            </ul>
+            <p class="credit" style="text-align:left; margin: 1.5rem 0 0;">Commissioned by <strong>Nutrition &amp; Sant&eacute; (Lactalis)</strong></p>
+        </div>
+        <div class="email-preview-card">
+            <div class="email-header">
+                <div class="email-dot email-dot-red"></div>
+                <div class="email-dot email-dot-yellow"></div>
+                <div class="email-dot email-dot-green"></div>
+                <div class="email-subject"><strong>Shelf Signal:</strong> Ice Cream, Portugal</div>
+            </div>
+            <div class="email-body">
+                <div class="email-section-title">Price Changes (3)</div>
+                <div class="email-item"><span class="price-up">&bull;</span> Magnum Classic 4pk: Continente &euro;3.50 &rarr; &euro;3.99 <span class="price-up">(+14%)</span></div>
+                <div class="email-item"><span class="price-down">&bull;</span> Ben & Jerry's 465ml: Pingo Doce &euro;5.50 &rarr; &euro;4.00 <span class="price-down">(-27%)</span></div>
+                <div class="email-item"><span class="price-down">&bull;</span> Own Label Vanilla: Auchan &euro;2.00 &rarr; &euro;1.75 <span class="price-down">(-12%)</span></div>
+                <div class="email-section-title">Promotions (2)</div>
+                <div class="email-item"><span class="new">&bull;</span> <span class="new">Started:</span> Magnum Almond 3pk, Continente &minus;28%</div>
+                <div class="email-item"><span class="price-up">&bull;</span> <span class="price-up">Ended:</span> Cornetto 6pk, Auchan &rarr; back to &euro;5.99</div>
+                <div class="email-section-title">New Listings (1)</div>
+                <div class="email-item"><span class="new">&bull;</span> Magnum Pistachio 3pk: Pingo Doce, &euro;4.50</div>
+                <div class="email-section-title">Out of Stock (2)</div>
+                <div class="email-item"><span class="stock">&bull;</span> Ferrero Rocher Stick 4pk: Continente</div>
+                <div class="email-item"><span class="stock">&bull;</span> H&auml;agen-Dazs Salted Caramel: Auchan</div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section style="padding-top: 1rem;">
-    <div class="plan-grid">
-        <div class="plan-card fade-in">
-            <h4>What it watches</h4>
-            <p>Every supermarket in your markets, read overnight. Your own products and your competitors&rsquo;, retailer by retailer.</p>
-        </div>
-        <div class="plan-card fade-in fade-in-delay-1">
-            <h4>What the email tells you</h4>
-            <ul><li>Price moves</li><li>Promotions</li><li>New listings</li><li>Delistings</li><li>Stock changes</li></ul>
-        </div>
-        <div class="plan-card fade-in fade-in-delay-2">
-            <h4>Markets</h4>
-            <ul><li>United Kingdom</li><li>France</li><li>Spain</li><li>Portugal</li></ul>
-        </div>
+<section style="padding-top: 0;">
+    <div class="plan-card fade-in" style="max-width: 820px; margin: 0 auto; text-align: center;">
+        <h4>Markets we cover in depth</h4>
+        <p>United Kingdom &middot; France &middot; Spain &middot; Portugal</p>
     </div>
 </section>
 
