@@ -321,6 +321,10 @@
         /* v4: coverage strip removed (Kim, 5 Oct), so the work sits straight under the hero */
         .hero { min-height: 70vh; padding-bottom: 1rem; }
         #work { padding-top: 2rem; }
+        /* No orphan words in headings and lead lines (Kim, 5 Oct); body copy wraps "pretty" */
+        h1, h2, h3, h4, .hero-sub, .section-subtitle { text-wrap: balance; }
+        p { text-wrap: pretty; }
+        @media (min-width: 601px) { .hero-sub .keep { white-space: nowrap; } }
         .work-card p.card-species { flex: 0; margin-top: 0.75rem; color: var(--text-primary); font-weight: 600; font-size: 0.85rem; }
         .work-card p.card-evidence { flex: 0; margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); }
         .card-evidence a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
@@ -396,7 +400,7 @@
 <!-- 5 Oct 09:17: Kim rejected the Feeds options A, B, C and the 12 Sep "What is being sold" line. h1 and body are the LIVE site's wording, verbatim from master index.html. v3 (5 Oct 09:22): eyebrow dropped, title and meta matched. "updated daily" not to be edited without Kim. -->
 <section class="hero">
     <h1>We read entire markets <span>and tell you what just changed.</span></h1>
-    <p class="hero-sub">Supermarket shelves, pet-selling platforms, planning registers and council licence lists. Read continuously, delivered daily, weekly or monthly.</p>
+    <p class="hero-sub">Supermarket shelves, pet-selling platforms, planning registers and council licence lists. <span class="keep">Read continuously, delivered daily, weekly or monthly.</span></p>
     <div class="hero-buttons">
         <a href="#work" class="btn btn-primary">See the work</a>
         <a href="contact.html" class="btn btn-secondary">Get in touch</a>

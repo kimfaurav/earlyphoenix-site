@@ -61,3 +61,4 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 40. Shelf Signal markets: UK, France, Spain, Portugal (Kim, 5 Oct). "20 European grocery markets" and "150,000+" are gone from the site with the strip.
 41. All page text comes from Kim's deck slides 23 to 26 and their notes, the live loader (pipeline), and earlier sourced copy. No new figures.
 42. Hero DECIDED by Kim 11:39: h1 "We read entire markets and tell you what just changed." Body: "Supermarket shelves, pet-selling platforms, planning registers and council licence lists. Read continuously, delivered daily, weekly or monthly." Title and meta matched. Replaces the live "Competitive intelligence" hero and its "updated daily" claim.
+43. Hero body: no orphan words (Kim, 12:08). text-wrap: balance on headings and lead lines, pretty on body copy, site-wide incl. the 4 product pages; the second hero sentence kept on one line from 601px up. Checked at 1280, 768 and 400.
