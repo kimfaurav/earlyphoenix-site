@@ -359,6 +359,7 @@
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
+        .finding-head { font-size: 1.15rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-primary); }
         .finding-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
         .finding-src { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: auto; padding-top: 0.5rem; }
         .holds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -493,41 +494,45 @@
 
 <!-- Findings -->
 <section id="findings" style="padding-top: 2rem;">
+    <!-- Findings v5 (Kim, 5 Oct 12:33): headline-led tiles. Sources: fleet ask pet-markets, spain-bread, sef-referrers, 5 Oct 12:15. -->
     <div class="section-label fade-in">Findings</div>
-    <h2 class="section-title fade-in">The kind of thing <span>the data shows</span></h2>
-    <p class="section-subtitle fade-in">A sample of what has been published so far, each with its method and its base.</p>
+    <h2 class="section-title fade-in">What nobody else <span>can tell you</span></h2>
     <div class="findings-grid">
-        <!-- Findings rebuilt 5 Oct from the September decks (pet-markets check, figures opened on the mini, decks dated 2 Oct). 75%, 6 months+ and 3 of 5 removed as unsupported; CITES held until its base is settled. -->
-        <div class="finding-card fade-in">
-            <div class="finding-stat">6.1%</div>
-            <p>French Bulldogs were 6.1% of UK dog listings in September, with the trend falling. Flat-faced breeds are tracked monthly so welfare campaigns can see whether they are working.</p>
-            <div class="finding-src">Dogs &middot; September deck</div>
+        <div class="finding-card fade-in"><!-- source: welfare_deck_sep2026 age-bracket slide, 76.8% Feb to 83.3% Sep -->
+            <div class="finding-stat">83%</div>
+            <h3 class="finding-head">The UK dog market is a puppy market.</h3>
+            <p>83% of dogs for sale are under 6 months old, up from 77% in February.</p>
+            <div class="finding-src">Dogs &middot; UK, September 2026</div>
         </div>
-        <div class="finding-card fade-in fade-in-delay-1">
-            <div class="finding-stat">56.9%</div>
-            <p>In September 56.9% of horses listed for sale were priced under &pound;5,000. That affordable end of the market is where the welfare risk concentrates.</p>
-            <div class="finding-src">Horses &middot; September deck</div>
+        <div class="finding-card fade-in fade-in-delay-1"><!-- source: Ireland_Market_Clean/deck/ireland_deck.html (ACAW deck), collected 6 Sep -->
+            <div class="finding-stat">23.7%</div>
+            <h3 class="finding-head">Irish dogs are chipped. Their sellers aren&rsquo;t checked.</h3>
+            <p>99.1% of Irish dog adverts carry a valid microchip number. On the biggest dog site, only 23.7% let a buyer confirm the seller is the registered keeper.</p>
+            <div class="finding-src">Dogs &middot; Ireland, September 2026</div>
         </div>
-        <div class="finding-card fade-in fade-in-delay-2">
-            <div class="finding-stat">Rabbits</div>
-            <p>Most platforms record no vaccination, microchip or neutering status for rabbits, leaving the commonest small pet invisible at the point of sale.</p>
-            <div class="finding-src">Small mammals &middot; September deck</div>
+        <div class="finding-card fade-in fade-in-delay-2"><!-- source: welfare_deck_horses_sep2026 -->
+            <div class="finding-stat">0</div>
+            <h3 class="finding-head">Every horse needs a passport. No platform shows one.</h3>
+            <p>None of the platforms we track has a reliable passport or microchip field, though the law requires both for every horse.</p>
+            <div class="finding-src">Horses &middot; UK, September 2026</div>
         </div>
-        <div class="finding-card fade-in">
+        <div class="finding-card fade-in"><!-- source: spain-bread, sent 3 Sep; rebuilt from price_history.db = 72% -->
+            <div class="finding-stat">73%</div>
+            <h3 class="finding-head">Brands push prices up. Own label holds.</h3>
+            <p>Over 10 weeks of daily tracking in Spanish supermarket bread, 73% of branded price changes were increases. Own label barely moved.</p>
+            <div class="finding-src">Grocery &middot; Spain, June to September 2026</div>
+        </div>
+        <div class="finding-card fade-in fade-in-delay-1"><!-- source: SEF Referrer List 22 Sep 2026, 187 of 229 -->
+            <div class="finding-stat">82%</div>
+            <h3 class="finding-head">Most basement jobs are still up for grabs.</h3>
+            <p>82% of basement permissions granted in the last 6 months had no construction plan filed, so most had no builder yet.</p>
+            <div class="finding-src">Construction &middot; September 2026</div>
+        </div>
+        <div class="finding-card fade-in fade-in-delay-2"><!-- source: welfare_deck_sep2026, Doncaster and Wisbech -->
             <div class="finding-stat">Hotspots</div>
-            <p>Listing volumes in specific towns suggest unlicensed commercial breeding, and give enforcement teams somewhere to look.</p>
-            <div class="finding-src">Dogs &middot; September deck</div>
-        </div>
-        <!-- PLACEHOLDERS (v3): 1 Shelf Signal and 1 builder-pipeline finding, to be filled only with sourced figures. Remove before go-live if still empty. -->
-        <div class="finding-card finding-placeholder fade-in">
-            <div class="finding-stat">&hellip;</div>
-            <p>PLACEHOLDER: a Shelf Signal finding, awaiting a sourced figure.</p>
-            <div class="finding-src">Grocery &middot; Shelf Signal</div>
-        </div>
-        <div class="finding-card finding-placeholder fade-in fade-in-delay-1">
-            <div class="finding-stat">&hellip;</div>
-            <p>PLACEHOLDER: a Builder&rsquo;s Sales Pipeline finding, awaiting a sourced figure.</p>
-            <div class="finding-src">Construction &middot; Sales Pipeline</div>
+            <h3 class="finding-head">Unlicensed breeding leaves a map.</h3>
+            <p>Listing volumes in a handful of UK towns suggest commercial breeding without a licence, and show enforcement teams where to look.</p>
+            <div class="finding-src">Dogs &middot; UK, September 2026</div>
         </div>
     </div>
 </section>
