@@ -38,3 +38,16 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 23. Ireland confirmed: the Advisory Council line is now rendered in the rooms block.
 24. Rooms block now reads, in order: "Presented to the Advisory Council on Companion Animal Welfare, Department of Agriculture, Food and the Marine, Ireland." / "Supporting local councils." / "Speaking at RecommerceBuzz, Berlin, October 2026." No Defra, no council count.
 25. 09:17 correction (Dex): Kim meant the LIVE hero. h1 and body now match master index.html verbatim: "Competitive intelligence for complex markets" / "We build data infrastructure that tracks what's happening across markets others can't see. Retail pricing, animal welfare, marketplace dynamics, and more. Across Europe, updated daily." Eyebrow unchanged. Title and meta description still carry the 12 Sep wording (not in Dex's instruction; flagged).
+
+## 5 Oct 09:22 to 09:30: v3, 4 products as in the 30 Sep AI Roundtable deck (brief `04-Projects/Early_Phoenix_Website_v3_Brief_2026-10-05.md`)
+
+26. Hero: live wording kept; eyebrow dropped; tab title and meta description matched to the hero.
+27. The Work = 4 product cards in deck order, wording verbatim from slides 23 to 26 (read from the deck itself): Shelf Signal (back on the homepage, reverses 10 Sep), Pet welfare intelligence (one card, all 6 species, decks and case study inside it as evidence), Builder's Sales Pipeline, Dog Breeder Registry ("Commissioned by Naturewatch Foundation", register link kept). Section title "4 products, one engine".
+28. Removed: Newsletter section and nav item, "Built by an operator" band, the Feeds band (the Builder's Sales Pipeline card replaces it), the Vinted card from The Work.
+29. /planning kept unlinked and noindex, renamed in title and eyebrow to Builder's Sales Pipeline. Path unchanged.
+30. Clients: 5 names (Battersea, NatureWatch, Nutrition & Santé (Lactalis), South East Formwork, AIM Group). Rooms block unchanged.
+31. New Talks and writing section: the AIM Group Vinted piece (described, not linked) and the RecommerceBuzz Berlin panel.
+32. Method reworded to cover all 4 products, same 3 rules. "Nothing is estimated" dropped, since it was a pet-deck claim.
+33. CTA adds builders.
+34. Findings rebuilt from the September decks (pet-markets check; I opened each deck on the mini, all dated 2 Oct): 6.1% French Bulldog share (dog deck), 56.9% of horses under £5,000 (horse deck), rabbits with no welfare fields on most platforms (small mammals deck), town hotspots kept as "suggest" (dog deck). REMOVED as unsupported: 75% of puppy sales, 6 months+, 3 of 5 platforms. HELD: CITES (deck now says 36%, base ambiguous). Bird Article 10 figure not used (no published bird PDF). Plus 2 marked placeholders, Shelf Signal and builder pipeline, no numbers.
+35. UNVERIFIED, unchanged: coverage strip "20 European grocery markets" and "150,000+ products priced daily" (March audit), "6 species, UK & Ireland", "Monthly since February 2026". Product text figures (59 councils, over 254 council registers, 5am) are Kim's published slide text, used as written. 59 is what the feed attempts; the 3 Oct read had 2 council failures. Hero "updated daily" open with Kim (pet data is monthly).

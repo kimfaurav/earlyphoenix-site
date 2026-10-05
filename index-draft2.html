@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Early Phoenix | What is being sold, and by whom</title>
-    <meta name="description" content="Early Phoenix measures online marketplaces and retail pricing at scale: what is listed, who is listing it, what it costs, and how it moves. Systems built and run in-house, findings published.">
+    <title>Early Phoenix | Competitive intelligence for complex markets</title>
+    <meta name="description" content="Competitive intelligence for complex markets. We build data infrastructure that tracks what's happening across markets others can't see. Retail pricing, animal welfare, marketplace dynamics, and more.">
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -318,6 +318,11 @@
         .work-card p { flex: 1; }
         .work-card .usecase-tag { align-self: flex-start; }
         .work-card-wide { grid-column: 1 / -1; }
+        .work-card p.card-species { flex: 0; margin-top: 0.75rem; color: var(--text-primary); font-weight: 600; font-size: 0.85rem; }
+        .work-card p.card-evidence { flex: 0; margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); }
+        .card-evidence a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
+        .work-card p.card-credit { flex: 0; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+        .finding-placeholder { border: 2px dashed var(--accent); }
         .findings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .finding-card {
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem;
@@ -379,15 +384,13 @@
         <li><a href="#work">The Work</a></li>
         <li><a href="#findings">Findings</a></li>
         <li><a href="#advisory">Advisory</a></li>
-        <li><a href="#newsletter">Newsletter</a></li>
         <li><a href="contact.html" class="nav-cta">Get In Touch</a></li>
     </ul>
 </nav>
 
 <!-- Hero (decided 12 Sep 07:14: broad framing, no vertical named, no credential line). -->
-<!-- 5 Oct 09:17: Kim rejected the Feeds options A, B, C and the 12 Sep "What is being sold" line. h1 and body are the LIVE site's wording, verbatim from master index.html. Eyebrow unchanged. "updated daily" not to be edited without Kim. -->
+<!-- 5 Oct 09:17: Kim rejected the Feeds options A, B, C and the 12 Sep "What is being sold" line. h1 and body are the LIVE site's wording, verbatim from master index.html. v3 (5 Oct 09:22): eyebrow dropped, title and meta matched. "updated daily" not to be edited without Kim. -->
 <section class="hero">
-    <div class="hero-eyebrow">Business intelligence, built and run in-house</div>
     <h1>Competitive intelligence for <span>complex markets</span></h1>
     <p class="hero-sub">We build data infrastructure that tracks what's happening across markets others can't see. Retail pricing, animal welfare, marketplace dynamics, and more. Across Europe, updated daily.</p>
     <div class="hero-buttons">
@@ -406,118 +409,82 @@
     </div>
 </div>
 
-<!-- Built by -->
-<div class="operator fade-in">
-    <div class="operator-inner">
-        <p><strong>Built by an operator.</strong> Early Phoenix is founded and run by Kim Faura: CEO, former Managing Director of Gumtree, previously Chief Product Officer at Checkatrade and giffgaff. He designs, ships and operates these systems himself.</p>
-    </div>
-</div>
 
-<!-- The work -->
+<!-- The work: v3 (5 Oct 09:22), 4 products in the order and wording of Kim's 30 Sep AI Roundtable deck, slides 23 to 26. Shelf Signal back on the homepage (reverses 10 Sep). -->
 <section id="work">
     <div class="section-label fade-in">The Work</div>
-    <h2 class="section-title fade-in">Live dashboards <span>and published decks</span></h2>
-    <p class="section-subtitle fade-in">The pet market work runs monthly and is open to read. The marketplaces piece is the same engine pointed at a different market.</p>
+    <h2 class="section-title fade-in">4 products, <span>one engine</span></h2>
+    <p class="section-subtitle fade-in">Each one runs continuously on systems we build and operate ourselves.</p>
     <div class="work-grid">
         <div class="usecase-card work-card fade-in">
-            <span class="usecase-tag">Dogs &amp; Cats</span>
-            <h4>UK Pet Marketplace Welfare Intelligence</h4>
-            <p>Breed share, price by breed, welfare declarations, breeding-licence status and geographic concentration across the main UK platforms. The deck welfare organisations and government teams work from.</p>
-            <a class="card-link" href="/welfare-deck-feb-2026/">Open the deck &rarr;</a>
+            <span class="usecase-tag">Grocery &amp; FMCG</span>
+            <h4>Shelf Signal</h4>
+            <p>A daily email digest of everything that changed on the shelf yesterday. Price moves, promotions, new listings, delistings, and stock changes. In your inbox at 5am.</p>
         </div>
         <div class="usecase-card work-card fade-in fade-in-delay-1">
-            <span class="usecase-tag">Licensing</span>
-            <h4>UK Licensed Breeder Register</h4>
-            <p>Every council's licensed-breeder list, joined into one searchable register, with licence numbers, expiry dates and star ratings.</p>
-            <a class="card-link" href="https://dashboard.earlyphoenix.uk/uk-breeders/">Open the register &rarr;</a>
+            <span class="usecase-tag">Animal welfare &middot; UK &amp; Ireland</span>
+            <h4>Pet welfare intelligence</h4>
+            <p>A monthly report on the impact of welfare campaigns across the UK's main pet-selling platforms. Where campaigns are actually moving the needle.</p>
+            <p class="card-species">Dogs, cats, horses, birds, small mammals and reptiles, in one report.</p>
+            <p class="card-evidence">Published decks: <a href="/welfare-deck-feb-2026/">dogs &amp; cats</a> &middot; <a href="/reptile-deck-feb-2026/">reptiles</a> &middot; <a href="/small-mammal-deck-feb-2026/">small mammals</a> &middot; <a href="/case-studies/pet-welfare/">case study</a></p>
         </div>
         <div class="usecase-card work-card fade-in fade-in-delay-2">
-            <span class="usecase-tag">Reptiles &amp; Amphibians</span>
-            <h4>UK Reptile &amp; Amphibian Marketplace Intelligence</h4>
-            <p>Species mix across 140 species, CITES exposure and seller patterns in a market with complex legal requirements and little oversight.</p>
-            <a class="card-link" href="/reptile-deck-feb-2026/">Open the deck &rarr;</a>
+            <span class="usecase-tag">Construction</span>
+            <h4>Builder&rsquo;s Sales Pipeline</h4>
+            <p>A weekly feed of every new basement planning application across 59 councils. The jobs worth pricing, in the CRM before the builder is chosen.</p>
         </div>
         <div class="usecase-card work-card fade-in fade-in-delay-3">
-            <span class="usecase-tag">Small Furries</span>
-            <h4>UK Small Furries Marketplace Intelligence</h4>
-            <p>Rabbits, guinea pigs, hamsters and the rest: the category with the least welfare data captured at the point of sale, measured for the first time.</p>
-            <a class="card-link" href="/small-mammal-deck-feb-2026/">Open the deck &rarr;</a>
-        </div>
-        <!-- Marketplaces strand, added 17 Sep for the RecommerceBuzz audience. Described, not linked, until Kim clears the AIM link. -->
-        <div class="usecase-card work-card work-card-wide fade-in fade-in-delay-4">
-            <span class="usecase-tag">Marketplaces &amp; Recommerce</span>
-            <h4>Has Vinted won Europe? Listing velocity across 4 markets</h4>
-            <p>New listings per hour, per platform: Vinted against the local classifieds leaders in France, Germany, Italy and Spain, category by category. Written with Tom Pandolfo for AIM Group, April 2026.</p>
+            <span class="usecase-tag">Licensing</span>
+            <h4>Dog Breeder Registry</h4>
+            <p>A single national view of every licensed dog breeder in the UK, consolidated daily from over 254 council registers. Refreshed every morning.</p>
+            <p class="card-credit">Commissioned by Naturewatch Foundation</p>
+            <a class="card-link" href="https://dashboard.earlyphoenix.uk/uk-breeders/">Open the register &rarr;</a>
         </div>
     </div>
-    <p style="text-align:center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">Full write-up: <a href="/case-studies/pet-welfare/" style="color: var(--accent-light); text-decoration: none; font-weight: 600;">UK pet welfare intelligence, the case study &rarr;</a></p>
 </section>
 
-<!-- Feeds band (5 Oct, Dex brief, Kim-approved direction): second product line, same weight as the advisory band. No client name, no prices, no results. -->
-<div class="advisory feeds fade-in" id="feeds">
-    <div class="advisory-inner">
-        <div class="section-label">Feeds</div>
-        <h3>New opportunities from public registers, every week, in your CRM.</h3>
-        <p>The engine behind the work above also reads public registers. A feed picks out what is new and relevant to your trade each week, loads it into your own CRM with the details filled in, and sends the introduction letter for you.</p>
-        <p style="margin-top: 0.75rem;">Planning is the first: newly approved applications from council registers, sorted by kind of job.</p>
-        <p style="margin-top: 0.9rem;"><a href="contact.html">Talk to us about a feed &rarr;</a></p>
-    </div>
-</div>
 
 <!-- Findings -->
 <section id="findings" style="padding-top: 2rem;">
     <div class="section-label fade-in">Findings</div>
     <h2 class="section-title fade-in">The kind of thing <span>the data shows</span></h2>
-    <p class="section-subtitle fade-in">A sample of what has been published so far. Each one is in the decks above, with its method and its base.</p>
+    <p class="section-subtitle fade-in">A sample of what has been published so far, each with its method and its base.</p>
     <div class="findings-grid">
+        <!-- Findings rebuilt 5 Oct from the September decks (pet-markets check, figures opened on the mini, decks dated 2 Oct). 75%, 6 months+ and 3 of 5 removed as unsupported; CITES held until its base is settled. -->
         <div class="finding-card fade-in">
-            <div class="finding-stat">75%</div>
-            <p>Our dog coverage captures around 75% of first-time puppy sales in the UK, the most complete view of the market available.</p>
-            <div class="finding-src">Dogs &middot; case study</div>
+            <div class="finding-stat">6.1%</div>
+            <p>French Bulldogs were 6.1% of UK dog listings in September, with the trend falling. Flat-faced breeds are tracked monthly so welfare campaigns can see whether they are working.</p>
+            <div class="finding-src">Dogs &middot; September deck</div>
         </div>
         <div class="finding-card fade-in fade-in-delay-1">
-            <div class="finding-stat">~10%</div>
-            <p>Around 10% of dog listings are brachycephalic breeds with documented health problems, tracked monthly so the trend is visible.</p>
-            <div class="finding-src">Dogs &middot; welfare deck</div>
+            <div class="finding-stat">56.9%</div>
+            <p>In September 56.9% of horses listed for sale were priced under &pound;5,000. That affordable end of the market is where the welfare risk concentrates.</p>
+            <div class="finding-src">Horses &middot; September deck</div>
         </div>
         <div class="finding-card fade-in fade-in-delay-2">
-            <div class="finding-stat">57%</div>
-            <p>57% of the UK reptile market involves internationally protected species, and compliance verification is inconsistent.</p>
-            <div class="finding-src">Reptiles &middot; case study</div>
+            <div class="finding-stat">Rabbits</div>
+            <p>Most platforms record no vaccination, microchip or neutering status for rabbits, leaving the commonest small pet invisible at the point of sale.</p>
+            <div class="finding-src">Small mammals &middot; September deck</div>
         </div>
         <div class="finding-card fade-in">
-            <div class="finding-stat">3 of 5</div>
-            <p>3 of the 5 platforms carrying small furries capture no welfare fields at all, leaving rabbits, guinea pigs and hamsters invisible to oversight.</p>
-            <div class="finding-src">Small furries &middot; case study</div>
-        </div>
-        <div class="finding-card fade-in fade-in-delay-1">
-            <div class="finding-stat">6 months+</div>
-            <p>Listings over 6 months old are still live in parts of the market, misleading buyers and inflating apparent supply.</p>
-            <div class="finding-src">All species &middot; case study</div>
-        </div>
-        <div class="finding-card fade-in fade-in-delay-2">
             <div class="finding-stat">Hotspots</div>
-            <p>High-volume listing concentrations in specific towns point to unlicensed commercial breeding, and give enforcement teams somewhere to look.</p>
-            <div class="finding-src">Dogs &middot; case study</div>
+            <p>Listing volumes in specific towns suggest unlicensed commercial breeding, and give enforcement teams somewhere to look.</p>
+            <div class="finding-src">Dogs &middot; September deck</div>
+        </div>
+        <!-- PLACEHOLDERS (v3): 1 Shelf Signal and 1 builder-pipeline finding, to be filled only with sourced figures. Remove before go-live if still empty. -->
+        <div class="finding-card finding-placeholder fade-in">
+            <div class="finding-stat">&hellip;</div>
+            <p>PLACEHOLDER: a Shelf Signal finding, awaiting a sourced figure.</p>
+            <div class="finding-src">Grocery &middot; Shelf Signal</div>
+        </div>
+        <div class="finding-card finding-placeholder fade-in fade-in-delay-1">
+            <div class="finding-stat">&hellip;</div>
+            <p>PLACEHOLDER: a Builder&rsquo;s Sales Pipeline finding, awaiting a sourced figure.</p>
+            <div class="finding-src">Construction &middot; Sales Pipeline</div>
         </div>
     </div>
 </section>
 
-<!-- Newsletter -->
-<section id="newsletter" style="padding-top: 1rem;">
-    <div class="newsletter fade-in">
-        <div class="section-label">Newsletter</div>
-        <h2>The latest on what has shifted <span>across the main UK pet platforms.</span></h2>
-        <p>6 species, monthly. No pitch. Unsubscribe in one click.</p>
-        <!-- Buttondown embed (account: faura). Field name must stay exactly name="email". -->
-        <form action="https://buttondown.com/api/emails/embed-subscribe/faura" method="post" target="_blank">
-            <input type="email" name="email" placeholder="you@organisation.org" required>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-        <p class="fine">We use your address to send this and nothing else.</p>
-        <p class="fine" style="margin-top: 0.5rem; opacity: 0.6;"><a href="https://buttondown.com/refer/faura" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none;">Powered by Buttondown</a></p>
-    </div>
-</section>
 
 <!-- Method -->
 <section id="method" style="padding-top: 2rem;">
@@ -526,16 +493,16 @@
     <p class="section-subtitle fade-in">The outputs are built to be forwarded: to a board, a minister, a trustee. 3 rules make that safe.</p>
     <div class="holds-grid">
         <div class="holds-card fade-in">
-            <h4><span>1.</span> The market is joined to the rule that governs it</h4>
-            <p>Listings are reconciled against the councils' licence registers, and reptile listings against the protected-species lists. That is what turns a market view into a case: the same seller across platforms, a licence that has expired, a chip that is missing.</p>
+            <h4><span>1.</span> The market is joined to the record that governs it</h4>
+            <p>Pet listings are reconciled against the councils' licence registers and the protected-species lists. Planning jobs come from each council's own register, with a link back to it. That is what turns a market view into a case: the same seller across platforms, a licence that has expired, a job nobody has priced yet.</p>
         </div>
         <div class="holds-card fade-in fade-in-delay-1">
             <h4><span>2.</span> Named, published measures</h4>
-            <p>Demand Signal is a named metric with a published definition, window and caveat, used the same way in every deck. When a number moves, it is the same number that moved last month.</p>
+            <p>Each measure has a name, a published definition, a window and a caveat, and is applied the same way every run. Demand Signal in the welfare report is one. When a number moves, it is the same number that moved last time.</p>
         </div>
         <div class="holds-card fade-in fade-in-delay-2">
             <h4><span>3.</span> Provenance on every output</h4>
-            <p>Snapshot date, base size and suppression rule on every chart. Small numbers are suppressed. Nothing is estimated. Every figure can be traced back to the month it was collected.</p>
+            <p>Every output carries its snapshot date and its base. Small numbers are suppressed. Every figure can be traced back to the day it was collected.</p>
         </div>
     </div>
 </section>
@@ -548,10 +515,30 @@
         <span class="client-name">Battersea</span>
         <span class="client-name">NatureWatch</span>
         <span class="client-name">Nutrition &amp; Sant&eacute; (Lactalis)</span>
+        <span class="client-name">South East Formwork</span>
+        <span class="client-name">AIM Group</span>
     </div>
-    <!-- Rooms line: where the work has been presented. Separate from the client strip above, which stays at 3 names. -->
+    <!-- Rooms line: where the work has been presented. Separate from the client strip above, which shows 5 names since v3 (5 Oct). -->
     <!-- Rooms ruled 5 Oct 09:14: Ireland confirmed; councils line added with no count (12 Sep ruling); no Defra. -->
     <p class="rooms fade-in">Presented to the Advisory Council on Companion Animal Welfare, Department of Agriculture, Food and the Marine, Ireland.<br>Supporting local councils.<br>Speaking at RecommerceBuzz, Berlin, October 2026.</p>
+</section>
+
+<!-- Talks and writing (v3, 5 Oct): Vinted piece moved here from The Work. Described, not linked, until Kim clears the AIM link. Dex confirms any other talks. -->
+<section id="talks" style="padding-top: 1rem;">
+    <div class="section-label fade-in">Talks &amp; Writing</div>
+    <h2 class="section-title fade-in">Talks <span>and writing</span></h2>
+    <div class="work-grid" style="margin-top: 2rem;">
+        <div class="usecase-card work-card fade-in">
+            <span class="usecase-tag">Writing &middot; AIM Group</span>
+            <h4>Has Vinted won Europe? Listing velocity across 4 markets</h4>
+            <p>New listings per hour, per platform: Vinted against the local classifieds leaders in France, Germany, Italy and Spain, category by category. Written with Tom Pandolfo for AIM Group, April 2026.</p>
+        </div>
+        <div class="usecase-card work-card fade-in fade-in-delay-1">
+            <span class="usecase-tag">Talk &middot; RecommerceBuzz</span>
+            <h4>Same Grind, Different Playbooks: How Recommerce Actually Puts AI to Work</h4>
+            <p>Panel at RecommerceBuzz, hosted by AIM Group in Berlin, October 2026.</p>
+        </div>
+    </div>
 </section>
 
 <!-- Advisory band (ruling A closed 12 Sep: advisory appears on the EP site; one band, no prices, not a pillar) -->
@@ -567,7 +554,7 @@
 <!-- CTA -->
 <div class="cta-section fade-in" style="margin: 2rem auto;">
     <h2>Working on something <span>in this space?</span></h2>
-    <p>Welfare organisations, local authorities, policymakers, grocery brands. If the data above is relevant to your work, we should talk.</p>
+    <p>Welfare organisations, local authorities, policymakers, grocery brands, builders. If the data above is relevant to your work, we should talk.</p>
     <a href="contact.html" class="btn btn-primary">Get In Touch</a>
 </div>
 
