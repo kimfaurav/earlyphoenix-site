@@ -340,6 +340,14 @@
             nav ul li a { display: block; padding: 0.85rem 0.25rem; font-size: 0.95rem; }
             nav ul li a.nav-cta { display: inline-block; margin-top: 0.5rem; text-align: center; }
         }
+        .feature-quote { position: relative; max-width: 860px; margin: 0 auto; padding: 2.75rem 3rem 2.25rem; border-radius: 18px; text-align: center;
+            background: linear-gradient(135deg, rgba(232,116,12,0.18), rgba(245,183,49,0.08)); border: 1px solid var(--border-accent); }
+        .feature-quote .qmark { font-size: 5rem; line-height: 0.6; font-weight: 900; color: var(--accent-light); margin-bottom: 0.5rem; }
+        .feature-quote blockquote { font-size: 1.25rem; line-height: 1.6; font-weight: 600; color: var(--text-primary); }
+        .feature-quote figcaption { margin-top: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); }
+        .feature-quote figcaption strong { color: var(--accent-light); }
+        @media (max-width: 900px) { .species-grid, .species-grid.four { grid-template-columns: 1fr 1fr; } .feature-quote { padding: 2rem 1.5rem; } .feature-quote blockquote { font-size: 1.05rem; } }
+        @media (max-width: 900px) { .feature-quote { padding: 2rem 1.5rem; } .feature-quote blockquote { font-size: 1.05rem; } }
     </style>
 </head>
 <body>
@@ -496,6 +504,14 @@
             <p>Every morning at 5am, your Shelf Signal arrives. Only when something changed. No noise.</p>
         </div>
     </div>
+</section>
+
+<section style="padding-top: 1rem;">
+    <figure class="feature-quote fade-in">
+        <div class="qmark">&ldquo;</div>
+        <blockquote>We worked with Early Phoenix on a review of our category in the Spanish market. We appreciated the team&rsquo;s openness to feedback, collaborative mindset, and clarity about what the data could and could not tell us. Organisations looking for new approaches to accessing and organising market information will find it worth talking to the Early Phoenix team.</blockquote>
+        <figcaption><strong>Patricia Gonz&aacute;lez Garc&iacute;a</strong>, Marketing Manager, Nutrition &amp; Sant&eacute;</figcaption>
+    </figure>
 </section>
 
 <!-- CTA -->
