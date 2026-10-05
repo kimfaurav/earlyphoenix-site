@@ -330,6 +330,23 @@
         .card-evidence a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
         .work-card p.card-credit { flex: 0; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
         .slot-inline { border: 1px dashed var(--accent); color: var(--accent-light); padding: 0 0.35rem; border-radius: 4px; font-style: normal; }
+        /* How it works */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .step-card { text-align: center; }
+        .step-number {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent); font-weight: 800; font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.25rem; border: 2px solid var(--accent);
+        }
+        .step-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .step-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+        .quotes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 2.5rem auto 0; }
+        .quote-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 14px; padding: 1.75rem 2rem; text-align: left; }
+        .quote-card blockquote { font-size: 1rem; color: var(--text-primary); line-height: 1.75; font-style: italic; }
+        .quote-card .who { margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary); }
+        .quote-card .who strong { color: var(--text-primary); }
+        @media (max-width: 900px) { .quotes-grid, .steps-grid { grid-template-columns: 1fr; } }
         .finding-placeholder { border: 2px dashed var(--accent); }
         .findings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .finding-card {
@@ -390,6 +407,7 @@
     <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
     <ul id="nav-menu">
         <li><a href="#work">The Work</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#findings">Findings</a></li>
         <li><a href="#advisory">Advisory</a></li>
         <li><a href="contact.html" class="nav-cta">Get In Touch</a></li>
@@ -448,6 +466,31 @@
 </section>
 
 
+<!-- How it works: restored from the live site, copy verbatim (Kim, 5 Oct 12:21) -->
+<section id="how-it-works" style="padding-top: 2rem;">
+    <div class="section-label fade-in">How It Works</div>
+    <h2 class="section-title fade-in">Live in <span>24 hours</span></h2>
+    <p class="section-subtitle fade-in">No integration. No IT project. No onboarding meetings.</p>
+
+    <div class="steps-grid">
+        <div class="step-card fade-in fade-in-delay-1">
+            <div class="step-number">1</div>
+            <h4>Tell us what you need</h4>
+            <p>Your market, your competitors, the questions you need answered. A quick call or email to scope the work.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-2">
+            <div class="step-number">2</div>
+            <h4>We build your feed</h4>
+            <p>Custom data infrastructure configured for your sector. Retailers, platforms, listings, or all three.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3">
+            <div class="step-number">3</div>
+            <h4>Intelligence, delivered</h4>
+            <p>Daily alerts, monthly reports, or strategic deep dives. However you need it, on whatever schedule works.</p>
+        </div>
+    </div>
+</section>
+
 <!-- Findings -->
 <section id="findings" style="padding-top: 2rem;">
     <div class="section-label fade-in">Findings</div>
@@ -503,6 +546,17 @@
         <span class="client-name">AIM Group</span>
         <span class="client-name">Rabbit Welfare Association &amp; Fund</span>
         <span class="client-name">REPTA</span>
+    </div>
+    <!-- Quotes (Kim, 5 Oct 12:21). Caroline: excerpt of her public LinkedIn recommendation of 15 Sep 2026, words unchanged. Patricia: full text as Kim supplied it. -->
+    <div class="quotes-grid">
+        <figure class="quote-card fade-in">
+            <blockquote>&ldquo;Kim has been committed to supporting Battersea&rsquo;s work on this critical issue and determined to apply his extensive knowledge and expertise to driving positive change for animals, building and refining a powerful model that provides unique insight and intelligence on the highly complex and ever evolving pet market.&rdquo;</blockquote>
+            <figcaption class="who"><strong>Caroline Jenkins</strong>, Head of Campaigns, Battersea Dogs &amp; Cats Home</figcaption>
+        </figure>
+        <figure class="quote-card fade-in fade-in-delay-1">
+            <blockquote>&ldquo;We worked with Early Phoenix on a review of our category in the Spanish market. We appreciated the team&rsquo;s openness to feedback, collaborative mindset, and clarity about what the data could and could not tell us. Organisations looking for new approaches to accessing and organising market information will find it worth talking to the Early Phoenix team.&rdquo;</blockquote>
+            <figcaption class="who"><strong>Patricia Gonz&aacute;lez</strong>, Nutrition &amp; Sant&eacute;</figcaption>
+        </figure>
     </div>
 </section>
 
