@@ -31,3 +31,9 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 19. /planning drafted at `planning/index.html`: noindex, not linked from the nav, the homepage or sitemap.xml. For a trade buyer: what arrives each week, what lands in the CRM (fields taken from the live loader, `weekly/load.py`), what the letter does (owner or occupier at the property, plus the design firm's office, per `weekly/send.py`), a direct call to action. Outcome slot marked as a dashed box plus an HTML comment; remove if still empty at release.
 20. Figures: none added. The feed's 59 councils is sourced (`config/councils.json`, sef-referrers) but left off both pages: it is one client's territory, and the 3 Oct read was not clean (Wandsworth and 1 Agile council failed), so 59 is attempted, not read.
 21. Checks: 0 em dashes, 0 spelled-out data numbers, no X-not-Y lines, no horizontal scroll at 400px on either page.
+
+## 5 Oct 09:14: Kim's rulings (via Dex)
+
+22. Hero REVERTED to the 12 Sep text (title, meta description, h1, body). Kim rejected A, B and C. Planning is carried by the Feeds band and /planning, both kept as built.
+23. Ireland confirmed: the Advisory Council line is now rendered in the rooms block.
+24. Rooms block now reads, in order: "Presented to the Advisory Council on Companion Animal Welfare, Department of Agriculture, Food and the Marine, Ireland." / "Supporting local councils." / "Speaking at RecommerceBuzz, Berlin, October 2026." No Defra, no council count.
