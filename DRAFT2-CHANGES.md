@@ -51,3 +51,12 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 33. CTA adds builders.
 34. Findings rebuilt from the September decks (pet-markets check; I opened each deck on the mini, all dated 2 Oct): 6.1% French Bulldog share (dog deck), 56.9% of horses under £5,000 (horse deck), rabbits with no welfare fields on most platforms (small mammals deck), town hotspots kept as "suggest" (dog deck). REMOVED as unsupported: 75% of puppy sales, 6 months+, 3 of 5 platforms. HELD: CITES (deck now says 36%, base ambiguous). Bird Article 10 figure not used (no published bird PDF). Plus 2 marked placeholders, Shelf Signal and builder pipeline, no numbers.
 35. UNVERIFIED, unchanged: coverage strip "20 European grocery markets" and "150,000+ products priced daily" (March audit), "6 species, UK & Ireland", "Monthly since February 2026". Product text figures (59 councils, over 254 council registers, 5am) are Kim's published slide text, used as written. 59 is what the feed attempts; the 3 Oct read had 2 council failures. Hero "updated daily" open with Kim (pet data is monthly).
+
+## 5 Oct 09:32: v4, Kim's review in this session
+
+36. Coverage strip removed entirely ("delete that whole line and go straight to the work"). Hero shortened so The Work starts above the fold at 1280x800.
+37. Method, the rooms line (Ireland, councils, Berlin) and Talks and writing removed (Kim: not of much relevance).
+38. Clients: + Rabbit Welfare Association & Fund (Rae) and REPTA. Now 7 names.
+39. 4 product detail pages, each linked from its card: shelf-signal/, pet-welfare/, builders-sales-pipeline/ (was planning/, now linked and indexable), dog-breeder-registry/. Each carries who commissions it: South East Formwork (pipeline) and Naturewatch Foundation (registry) confirmed; Shelf Signal and Pet welfare show a dashed "to be confirmed" slot pending Kim.
+40. Shelf Signal markets: UK, France, Spain, Portugal (Kim, 5 Oct). "20 European grocery markets" and "150,000+" are gone from the site with the strip.
+41. All page text comes from Kim's deck slides 23 to 26 and their notes, the live loader (pipeline), and earlier sourced copy. No new figures.
