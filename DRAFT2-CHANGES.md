@@ -96,3 +96,4 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 69. Retired pages now redirect (noindex, canonical set): shelf-signal.html and shelf-signal-signup.html to shelf-signal/ (they carried €500 and €1,200 prices); case-studies/pet-welfare/ to pet-welfare/ (75%, 57k counts); index-dark.html to the homepage. sitemap.xml lists only the live pages.
 70. dog-breeder-registry/ deleted (Kim 09:59 and 10:21).
 71. Price Signal card: 'Commissioned by AIM Group' added (Kim, 8 Oct 10:29), superseding ruling 4 of the Price Signal brief, which had recorded the AIM piece as editorial.
+72. Hero and meta: 'planning registers' becomes 'public registers' (Kim, 8 Oct 10:31). The Builder's page keeps 'planning registers', where it is specific.
