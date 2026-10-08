@@ -324,7 +324,7 @@
         /* No orphan words in headings and lead lines (Kim, 5 Oct); body copy wraps "pretty" */
         h1, h2, h3, h4, .hero-sub, .section-subtitle { text-wrap: balance; }
         p { text-wrap: pretty; }
-        @media (min-width: 601px) { .hero-sub .keep { white-space: nowrap; } }
+        @media (min-width: 601px) { .hero-sub .keep { white-space: nowrap; display: block; } }
         .work-card p.card-species { flex: 0; margin-top: 0.75rem; color: var(--text-primary); font-weight: 600; font-size: 0.85rem; }
         .work-card p.card-evidence { flex: 0; margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); }
         .card-evidence a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
