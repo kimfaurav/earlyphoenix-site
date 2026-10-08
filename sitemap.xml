@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://earlyphoenix.ai/</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://earlyphoenix.ai/shelf-signal.html</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://earlyphoenix.ai/shelf-signal-signup.html</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://earlyphoenix.ai/case-studies/pet-welfare/</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://earlyphoenix.ai/privacy.html</loc>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://earlyphoenix.ai/</loc></url>
+  <url><loc>https://earlyphoenix.ai/shelf-signal/</loc></url>
+  <url><loc>https://earlyphoenix.ai/price-signal/</loc></url>
+  <url><loc>https://earlyphoenix.ai/pet-welfare/</loc></url>
+  <url><loc>https://earlyphoenix.ai/builders-sales-pipeline/</loc></url>
+  <url><loc>https://earlyphoenix.ai/contact.html</loc></url>
+  <url><loc>https://earlyphoenix.ai/privacy.html</loc></url>
 </urlset>
