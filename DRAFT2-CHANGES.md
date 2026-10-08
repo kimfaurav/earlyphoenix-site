@@ -97,3 +97,4 @@ Numbers CONFIRMED by Kim 12 Sep: "6 species" ("definitely, six species we're tra
 70. dog-breeder-registry/ deleted (Kim 09:59 and 10:21).
 71. Price Signal card: 'Commissioned by AIM Group' added (Kim, 8 Oct 10:29), superseding ruling 4 of the Price Signal brief, which had recorded the AIM piece as editorial.
 72. Hero and meta: 'planning registers' becomes 'public registers' (Kim, 8 Oct 10:31). The Builder's page keeps 'planning registers', where it is specific.
+73. Rabbit Welfare Association & Fund removed from the client strip (Kim, 8 Oct 10:32). 7 names.
