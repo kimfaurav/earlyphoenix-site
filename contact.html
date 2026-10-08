@@ -102,22 +102,51 @@
             .form-card { padding: 1.5rem; }
             nav ul { display: none; }
         }
+        .nav-toggle {
+            display: none; background: none; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;
+            width: 44px; height: 44px; cursor: pointer; padding: 0; align-items: center; justify-content: center;
+        }
+        .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+            display: block; width: 20px; height: 2px; background: var(--text-primary); border-radius: 2px;
+            transition: transform 0.25s, opacity 0.25s; content: ''; position: relative;
+        }
+        .nav-toggle span::before { position: absolute; top: -6px; }
+        .nav-toggle span::after { position: absolute; top: 6px; }
+        nav.open .nav-toggle span { background: transparent; }
+        nav.open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
+        nav.open .nav-toggle span::after { transform: translateY(-6px) rotate(-45deg); }
+        html, body { overflow-x: hidden; }
+        h1, h2 { text-wrap: balance; }
+        p { text-wrap: pretty; }
+        @media (max-width: 900px) {
+            nav { flex-wrap: wrap; padding: 0.5rem 1.25rem; }
+            .nav-toggle { display: inline-flex; }
+            nav ul {
+                display: none; flex-direction: column; align-items: stretch; gap: 0;
+                width: 100%; flex-basis: 100%; padding: 0.5rem 0 0.75rem; border-top: 1px solid var(--border); margin-top: 0.5rem;
+            }
+            nav.open ul { display: flex; }
+            nav ul li a { display: block; padding: 0.85rem 0.25rem; font-size: 0.95rem; }
+            nav ul li a.nav-cta { display: inline-block; margin-top: 0.5rem; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="/" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="shelf-signal.html">Shelf Signal</a></li>
+    <a href="./" class="logo"><img src="ep-logo.png" alt="Early Phoenix" style="height: 60px;"></a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu"><span></span></button>
+    <ul id="nav-menu">
+        <li><a href="./#work">The Work</a></li>
+        <li><a href="./#how-it-works">How It Works</a></li>
+        <li><a href="./#advisory">Advisory</a></li>
     </ul>
 </nav>
 
 <div class="page-container">
     <div class="page-header">
         <h1>Get in <span>Touch</span></h1>
-        <p>Tell us about your competitive intelligence needs. We'll get back to you within 24 hours.</p>
+        <p>Tell us what you need. We&rsquo;ll get back to you within 24 hours.</p>
     </div>
 
     <div class="form-card" id="contact-form-card">
@@ -137,32 +166,38 @@
             <div class="form-group">
                 <label>What can we help with?</label>
                 <select id="c-topic">
-                    <option value="Animal Welfare">Animal Welfare Intelligence</option>
-                    <option value="Retail / FMCG">Retail / FMCG Pricing (Shelf Signal)</option>
-                    <option value="Marketplace">Marketplace Intelligence</option>
-                    <option value="Custom Intelligence">Custom intelligence project</option>
+                    <option value="Shelf Signal">Shelf Signal (grocery and FMCG)</option>
+                    <option value="Price Signal">Price Signal (marketplaces)</option>
+                    <option value="Pet welfare intelligence">Pet welfare intelligence</option>
+                    <option value="Builder's Sales Pipeline">Builder&rsquo;s Sales Pipeline</option>
+                    <option value="Advisory">Advisory</option>
                     <option value="Partnership">Partnership enquiry</option>
                     <option value="General">General enquiry</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Your message</label>
-                <textarea id="c-message" placeholder="Tell us about your needs, the categories and countries you're interested in, or any questions you have."></textarea>
+                <textarea id="c-message" placeholder="Your market, the categories or areas you care about, and any questions."></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
     </div>
 
+    <div class="confirmation" id="send-error">
+        <h2>That didn&rsquo;t send.</h2>
+        <p>Please email <a href="mailto:kim@earlyphoenix.uk" style="color: var(--accent-light);">kim@earlyphoenix.uk</a> instead, and we&rsquo;ll get back to you within 24 hours.</p>
+    </div>
+
     <div class="confirmation" id="confirmation">
         <div class="confirmation-icon">&#10003;</div>
         <h2>Message sent.</h2>
-        <p>We'll get back to you within 24 hours. If your enquiry is about Shelf Signal, we can usually have your first alert configured the same day.</p>
-        <a href="/" style="display: inline-block; margin-top: 1.5rem; color: var(--accent-light); text-decoration: none; font-weight: 600;">Back to Early Phoenix</a>
+        <p>We&rsquo;ll get back to you within 24 hours.</p>
+        <a href="./" style="display: inline-block; margin-top: 1.5rem; color: var(--accent-light); text-decoration: none; font-weight: 600;">Back to Early Phoenix</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Early Phoenix &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
+    <p>&copy; 2026 Early Phoenix &nbsp;|&nbsp; <a href="./">Home</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a></p>
 </footer>
 
 <script>
@@ -176,15 +211,22 @@ function submitContact(e) {
         topic: document.getElementById('c-topic').value,
         message: document.getElementById('c-message').value
     };
+    // Show success only when Formspree accepts the message; otherwise point to email so no enquiry is lost silently.
     fetch('https://formspree.io/f/xgonbbkn', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
-    }).catch(function() {});
-    document.getElementById('contact-form-card').style.display = 'none';
-    document.getElementById('confirmation').classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }).then(function(r) { return r.ok; }).catch(function() { return false; }).then(function(ok) {
+        document.getElementById('contact-form-card').style.display = 'none';
+        document.getElementById(ok ? 'confirmation' : 'send-error').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
+const nav = document.querySelector('nav'), navToggle = document.querySelector('.nav-toggle');
+navToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
 </script>
 
 </body>

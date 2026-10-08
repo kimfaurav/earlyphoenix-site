@@ -1,6 +1,6 @@
 # Early Phoenix — Site & Deployment Guide
 
-**Domain:** [earlyphoenix.uk](https://earlyphoenix.uk)
+**Domain:** [earlyphoenix.ai](https://earlyphoenix.ai) (website). earlyphoenix.uk is EMAIL only (e.g. kim@earlyphoenix.uk). Kim, 10 Sep 2026.
 **Hosting:** GitHub Pages (master branch of `kimfaurav/earlyphoenix-site`)
 **DNS:** Custom domain via CNAME file
 
@@ -10,7 +10,7 @@
 
 ```
 earlyphoenix-site/
-├── CNAME                          # Custom domain: earlyphoenix.uk
+├── CNAME                          # Custom domain: earlyphoenix.ai
 ├── index.html                     # Main homepage (single-page site)
 ├── ep-logo.png                    # Early Phoenix logo (full)
 ├── logo.png                       # Logo variant
@@ -40,9 +40,9 @@ earlyphoenix-site/
 
 | Page | URL | Source |
 |------|-----|--------|
-| Homepage | https://earlyphoenix.uk | `index.html` |
-| Dogs & Cats Deck | https://earlyphoenix.uk/welfare-deck-feb-2026/ | `welfare_deck_feb2026/` local dir |
-| Reptile Deck | https://earlyphoenix.uk/reptile-deck-feb-2026/ | `Exotic_Pets_Market_Clean/reptile_deck/` local dir |
+| Homepage | https://earlyphoenix.ai | `index.html` |
+| Dogs & Cats Deck | https://earlyphoenix.ai/welfare-deck-feb-2026/ | `welfare_deck_feb2026/` local dir |
+| Reptile Deck | https://earlyphoenix.ai/reptile-deck-feb-2026/ | `Exotic_Pets_Market_Clean/reptile_deck/` local dir |
 | Breeder Registry | https://breeders.earlyphoenix.uk | Separate app (not in this repo) |
 | Price Dashboard | https://importaco.earlyphoenix.uk | Separate app (not in this repo) |
 
